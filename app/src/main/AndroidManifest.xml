@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lyagricultural">
+    <!--网络请求权限-->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <!--读取手机状态权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问有关GSM网络信息权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--改变WiFi状态权限-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+     <!--读取日志权限-->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--允许装载和卸载文件系统权限-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--SD卡写入权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--SD卡读取权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--改变配置权限-->
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <!--允许读写系统设置项权限-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+
+    <application
+        android:name=".app.LyAgriculturalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ly_app_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--activity开始-->
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--注册开始-->
+        <activity android:name=".activity.LoginRegisterActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LoginRegisterPhoneActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--注册结束-->
+
+        <!--土地开始-->
+
+        <activity android:name=".activity.LandDetailsNameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            ></activity>
+
+
+        <activity android:name=".activity.LandHistoryActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandOperationGuideActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandCameraListActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandDetailsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--土地结束-->
+
+        <!--商店-土地库开始-->
+
+        <activity android:name=".activity.LandNameActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandLeasedActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandPlaceOrderActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandPaymentResultsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+
+        <!--商店-土地库结束-->
+
+
+
+        <!--商店-道具开始-->
+
+        <activity android:name=".activity.PropsDetailsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--商店-道具结束-->
+
+        <!--商店-种子库开始-->
+
+        <activity android:name=".activity.SeedVegetableNameActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.SeedParcelActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.SeedPlantActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+
+        <!--商店-种子库结束-->
+
+        <!--账户开始-->
+        <activity android:name=".activity.AccountRechargeActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountMonetaryDetailsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountOrderActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountOrderDetailsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+
+        <activity android:name=".activity.AccountSeedOutActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountSeedOutDetailsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountAddressActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountAddressAddActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountAddressModifyActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountAboutUsActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountPersonalActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--账户结束-->
+
+
+        <!--activity结束-->
+
+
+        <!--极光推送开始-->
+
+        <!--<receiver-->
+            <!--android:name="com.lyagricultural.push.JpushReceiver"-->
+            <!--android:enabled="true">-->
+            <!--<intent-filter>-->
+
+                <!--&lt;!&ndash; Required 用户注册SDK的intent &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.REGISTRATION" />-->
+                <!--&lt;!&ndash; Required 用户接收SDK消息的intent &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />-->
+                <!--&lt;!&ndash; Required 用户接收SDK通知栏信息的intent &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />-->
+                <!--&lt;!&ndash; Required 用户打开自定义通知栏的intent &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />-->
+                <!--&lt;!&ndash; Optional 用户接受Rich Push Javascript 回调函数的intent &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />-->
+                <!--&lt;!&ndash; 接收网络变化 连接/断开 since 1.6.3 &ndash;&gt;-->
+                <!--<action android:name="cn.jpush.android.intent.CONNECTION" />-->
+
+                <!--<category android:name="${applicationId}" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--&lt;!&ndash; Required. For publish channel feature &ndash;&gt;-->
+        <!--&lt;!&ndash; JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。&ndash;&gt;-->
+        <!--&lt;!&ndash; 例如: &ndash;&gt;-->
+        <!--&lt;!&ndash; 发到 Google Play 的APK可以设置为 google-play; &ndash;&gt;-->
+        <!--&lt;!&ndash; 发到其他市场的 APK 可以设置为 xxx-market。 &ndash;&gt;-->
+        <!--&lt;!&ndash; 渠道统计报表位于控制台页面的 “统计”-“用户统计”-“渠道分布” 中&ndash;&gt;-->
+        <!--<meta-data android:name="JPUSH_CHANNEL" tools:replace="android:value" android:value="developer-default"/>-->
+        <!--&lt;!&ndash; Required. AppKey copied from Portal &ndash;&gt;-->
+        <!--<meta-data android:name="JPUSH_APPKEY" android:value="86d60b4a0f0dfea596d7b0b3"/>-->
+
+        <!--极光推送结束-->
+
+        <!--微信开始-->
+
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wx2834816bfdd4c98d"/>
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:exported="true" />
+
+        <!--微信结束-->
+
+    </application>
+
+</manifest>

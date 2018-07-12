@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的订单"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textColor="@color/ly_activity_account_order_tv_color"
+            android:textSize="@dimen/sp_14"
+            />
+
+        <RelativeLayout
+            android:id="@+id/account_order_all_rl"
+            android:layout_width="@dimen/x30"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部订单"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/iv_default"
+                android:layout_marginRight="@dimen/dp_6"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default"
+                android:layout_width="@dimen/y2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y8"
+        android:visibility="gone"
+        >
+
+        <RelativeLayout
+            android:id="@+id/account_order_seed_rl"
+            android:layout_width="@dimen/x16"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y7"
+                android:drawableTop="@mipmap/ly_activity_account_seed"
+                android:text="种子"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_12"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_order_prop_rl"
+            android:layout_width="@dimen/x16"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_16"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y7"
+                android:drawableTop="@mipmap/ly_activity_account_prop"
+                android:text="土地"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_order_land_rl"
+            android:layout_width="@dimen/x16"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_16"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y7"
+                android:drawableTop="@mipmap/ly_activity_account_land"
+                android:text="道具"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_12"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y5"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最近订单 >"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tx_color"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示最近30天"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tx_color"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_alignParentRight="true"
+            />
+
+
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/account_order_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_10"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

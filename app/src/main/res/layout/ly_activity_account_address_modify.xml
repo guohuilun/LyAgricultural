@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名："
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <EditText
+            android:id="@+id/account_address_add_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="请填写收货人的姓名"
+            android:textColorHint="@color/ly_activity_account_address_add_tv_color"
+            android:textColor="@color/ly_activity_tv_color"
+            android:background="@null"
+            android:textSize="@dimen/sp_12"
+            android:paddingLeft="@dimen/dp_8"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号："
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <EditText
+            android:id="@+id/account_address_add_phone_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="请填写收货手机号码"
+            android:textColorHint="@color/ly_activity_account_address_add_tv_color"
+            android:textColor="@color/ly_activity_tv_color"
+            android:background="@null"
+            android:textSize="@dimen/sp_12"
+            android:paddingLeft="@dimen/dp_8"
+            android:inputType="phone"
+            android:maxLength="11"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+    <RelativeLayout
+        android:id="@+id/account_address_add_select_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@+id/account_address_add_select_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所在地区："
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/account_address_add_select_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="请选择地区"
+            android:textColor="@color/ly_activity_account_address_add_tv_color"
+            android:background="@null"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_toRightOf="@+id/account_address_add_select_tv"
+            android:layout_toLeftOf="@+id/account_address_add_select_iv"
+            />
+
+        <ImageView
+            android:id="@+id/account_address_add_select_iv"
+            android:layout_width="@dimen/x5"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ly_activity_account_address_manage"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="详细地址："
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <EditText
+            android:id="@+id/account_address_add_detailed_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="请填写详细地址"
+            android:textColorHint="@color/ly_activity_account_address_add_tv_color"
+            android:textColor="@color/ly_activity_tv_color"
+            android:background="@null"
+            android:textSize="@dimen/sp_12"
+            android:paddingLeft="@dimen/dp_8"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        >
+
+        <CheckBox
+            android:id="@+id/account_address_modify_address_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SmallCircleOneTheme"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_16"
+            android:text="设为默认地址"
+            android:textSize="@dimen/sp_12"
+            android:paddingLeft="@dimen/dp_10"
+            android:textColor="@color/ly_activity_tv_color"
+            />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y23"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/account_address_add_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y6"
+            android:text="保存地址"
+            android:background="@drawable/ly_activity_land_name_button"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:textSize="@dimen/sp_16"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">城市自留地</string>
+
+    <!--微信-->
+    <string name="failure_pay_weixin">调取微信支付失败</string>
+
+    <!--RuntimeRationale-->
+    <string name="message_permission_rationale">请授予以下权限以继续该程序:\n\n%1$s</string>
+    <string name="title_dialog">提示</string>
+    <string name="resume">继续</string>
+    <string name="cancel">取消</string>
+    <string name="setting">设置</string>
+    <string name="message_permission_always_failed">请在设置中允许这些权限:\n\n%1$s</string>
+</resources>

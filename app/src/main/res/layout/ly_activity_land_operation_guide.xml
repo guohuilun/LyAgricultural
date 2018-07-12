@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如何播种"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播种需要前往商店-种子库选择作物种子(幼苗)，在购买界面选择播种土地支付成功后，农民会根据用户选择的种子(幼苗)数量合理进行播种。 提示：每个作物都有相应的种植间距，作物总量间距不得大于当前播种土地的总面积，否则将无法进行播种。"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_margin="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如何照料作物"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当作物状态变为红色字时 ，需要选择照料的作物 ，之后再根据作物状态点击对应的操作项目 对作物进行操作。提交照料作物申请后，农民会第一时间进行用户提交的操作。照料作物费用根据作物数量不同进行扣费，如货币不足则无法进行照料作物操作，建议货币充值后再照料作物。"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_margin="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如何收获"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当作物成熟后，作物状态会变成成熟，即可点击照料下的收获 ，农民会根据当天快递时间进行采摘，确保实时采摘实时配送，保障作物的新鲜。 备注：若当天用户收获操作快递已不配送时，则延续到第二天进行采摘配送！"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_margin="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="照料收费说明"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+
+
+        <TextView
+            android:id="@+id/land_operation_guide_rich_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp" />
+
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="@dimen/y8"
+    android:layout_marginLeft="@dimen/dp_8"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y8"
+        android:id="@+id/land_leased_rv_item_rl"
+        >
+        <CheckBox
+            android:id="@+id/land_leased_rv_item_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SmallCircleTheme"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:enabled="false"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/land_leased_rv_item_check_box"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_8"
+            >
+            <TextView
+                android:id="@+id/land_leased_rv_item_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:text="半年（180天）"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp_8"
+                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/dp_8"
+                >
+                <TextView
+                    android:id="@+id/land_leased_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:text="8000"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/land_leased_money_tv"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

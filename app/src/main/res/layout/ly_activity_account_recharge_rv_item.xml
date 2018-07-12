@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/account_recharge_rv_item_rl"
+        android:layout_width="@dimen/x28"
+        android:layout_height="@dimen/y5"
+        android:background="@drawable/ly_activity_recharge_rv_item_up_rl"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        >
+
+        <TextView
+            android:id="@+id/account_recharge_rv_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y5"
+            android:textColor="@color/ly_activity_tv_color"
+            android:text="5000元"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/sp_14"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/account_recharge_rv_item_o_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1万货币+1000"
+        android:textColor="@color/ly_activity_tx_color"
+        android:textSize="@dimen/sp_12"
+        android:layout_below="@+id/account_recharge_rv_item_rl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        />
+
+
+
+
+</RelativeLayout>

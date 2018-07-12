@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.lyagricultural.customview.NoSlidingViewPager
+        android:id="@+id/home_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_RG"
+        android:background="@color/white"
+        ></com.lyagricultural.customview.NoSlidingViewPager>
+
+
+    <RadioGroup
+        android:id="@+id/bottom_RG"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+
+        <!-- 底部功能条_主页 -->
+        <RadioButton
+            android:id="@+id/land_RB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="土地"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/ly_activity_home_selector_land"
+            android:textColor="@drawable/ly_activity_home_bottom_bar_text_color"
+            android:textSize="@dimen/sp_10"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            />
+
+        <!-- 底部功能条_频道 -->
+        <RadioButton
+            android:id="@+id/shop_RB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="商店"
+            android:drawableTop="@drawable/ly_activity_home_selector_shop"
+            android:textColor="@drawable/ly_activity_home_bottom_bar_text_color"
+            android:textSize="@dimen/sp_10"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            />
+
+
+        <!-- 底部功能条_班级 -->
+        <RadioButton
+            android:id="@+id/account_RB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="账户"
+            android:drawableTop="@drawable/ly_activity_home_selector_account"
+            android:textColor="@drawable/ly_activity_home_bottom_bar_text_color"
+            android:textSize="@dimen/sp_10"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            />
+
+
+    </RadioGroup>
+
+
+</RelativeLayout>

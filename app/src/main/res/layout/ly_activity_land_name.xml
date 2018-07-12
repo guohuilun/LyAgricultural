@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    android:id="@+id/land_name_rl"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_rl"
+        >
+
+        <com.youth.banner.Banner
+            android:id="@+id/land_name_banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y24"
+            android:layout_margin="@dimen/dp_5"
+            app:indicator_width="8dp"
+            app:indicator_height="8dp"
+            app:indicator_drawable_selected="@mipmap/banner_select"
+            ></com.youth.banner.Banner>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地址"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:id="@+id/land_name_address_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重庆渝北区黄花镇光复大道15-6号"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="土地大小"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:id="@+id/land_name_size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500㎡"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y5"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="简介"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:textSize="@dimen/sp_14"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_margin="@dimen/dp_8"
+            >
+
+            <TextView
+                android:id="@+id/land_name_describe_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息土地介绍我是文字我是文字我是信息"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_14"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:textSize="@dimen/sp_12"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y9"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            >
+            <TextView
+                android:id="@+id/land_name_money_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ly_activity_tx_color"
+                android:text="8000"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/dp_16"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@mipmap/ly_frgment_shop_currency"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/land_name_money_tv"
+                android:layout_marginLeft="@dimen/dp_3"
+                />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/land_name_rent_button"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/y6"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            android:text="租赁"
+            android:textSize="@dimen/sp_16"
+            android:background="@drawable/ly_activity_land_name_button"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

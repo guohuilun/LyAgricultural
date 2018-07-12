@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/shop_land_rv_ll"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_5"
+        >
+
+        <ImageView
+            android:id="@+id/shop_land_rv_iv"
+            android:layout_width="@dimen/x27"
+            android:layout_height="@dimen/y14"
+            android:background="@drawable/ly_fragment_land_rv_item_fl"
+            />
+
+        <RelativeLayout
+            android:layout_width="@dimen/x27"
+            android:layout_height="@dimen/y3"
+            android:layout_marginTop="@dimen/dp_5"
+            >
+
+            <TextView
+                android:id="@+id/shop_land_rv_name_tv"
+                android:layout_width="@dimen/x14"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="璧山上的土地"
+                android:textSize="@dimen/sp_10"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:id="@+id/shop_land_rv_number_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:text="800000.00"
+                    android:textSize="@dimen/sp_8"
+                    android:layout_toLeftOf="@+id/iv_default"
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="25px"
+                    android:layout_height="25px"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_3"
+                    />
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

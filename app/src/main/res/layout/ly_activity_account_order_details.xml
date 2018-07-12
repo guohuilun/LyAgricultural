@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y13"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:layout_width="@dimen/x6"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_activity_account_order_details_completion"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已完成"
+                    android:textColor="@color/ly_fragment_account_view_color"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:id="@+id/account_order_details_number_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订单号：2659265555"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    android:textSize="@dimen/sp_12"
+                    />
+
+                <TextView
+                    android:id="@+id/account_order_details_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="时间：2018-05-24"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/account_order_details_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                ></android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y18"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/account_order_details_number_o_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="订单编号：73721223244"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/account_order_details_time_place_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="下单时间：2018-03-31 13:59:56"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/account_order_details_mode_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="支付方式：微信支付"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/account_order_details_time_pay_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="支付时间：2018-03-31 14:00:51 "
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/account_order_details_time_sow_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="播种时间：2018-05-06 10:26:42"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y15"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y9"
+                    android:orientation="vertical"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_weight="1"
+                        android:layout_marginTop="@dimen/dp_10"
+
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="商品总额"
+                            android:textColor="@color/ly_activity_account_order_tv_color"
+                            android:textSize="@dimen/sp_12"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:layout_centerVertical="true"
+                            />
+
+                        <RelativeLayout
+                            android:id="@+id/account_order_details_all_money_rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_16"
+                            >
+                            <TextView
+                                android:id="@+id/account_order_details_all_money_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/ly_activity_tx_color"
+                                android:text="100"
+                                android:textSize="@dimen/sp_12"
+                                android:layout_marginRight="@dimen/dp_3"
+                                android:gravity="center"
+                                />
+
+                            <ImageView
+                                android:layout_width="30px"
+                                android:layout_height="30px"
+                                android:src="@mipmap/ly_frgment_shop_currency"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/account_order_details_all_money_tv"
+                                android:layout_marginRight="@dimen/dp_16"
+                                />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="商品总额"
+                            android:textColor="@color/ly_activity_account_order_tv_color"
+                            android:textSize="@dimen/sp_12"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:layout_centerVertical="true"
+                            />
+
+                        <RelativeLayout
+                            android:id="@+id/account_order_details_discount_money_rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/dp_16"
+                            >
+                            <TextView
+                                android:id="@+id/account_order_details_discount_money_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/ly_activity_tx_color"
+                                android:text="0"
+                                android:textSize="@dimen/sp_12"
+                                android:layout_marginRight="@dimen/dp_3"
+                                android:gravity="center"
+                                />
+
+                            <ImageView
+                                android:layout_width="30px"
+                                android:layout_height="30px"
+                                android:src="@mipmap/ly_frgment_shop_currency"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/account_order_details_discount_money_tv"
+                                android:layout_marginRight="@dimen/dp_16"
+                                />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0.7"
+                    android:background="@color/segmenting_line"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_32"
+                    ></View>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y6"
+                    android:layout_alignParentBottom="true"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实际支付："
+                        android:layout_toLeftOf="@+id/account_order_details_money_rl"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/sp_12"
+                        android:textColor="@color/ly_activity_account_order_tv_color"
+                        />
+                    <RelativeLayout
+                        android:id="@+id/account_order_details_money_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dp_16"
+                        >
+                        <TextView
+                            android:id="@+id/account_order_details_money_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/ly_activity_tx_color"
+                            android:text="100"
+                            android:textSize="@dimen/sp_12"
+                            android:layout_marginRight="@dimen/dp_3"
+                            android:gravity="center"
+                            />
+
+                        <ImageView
+                            android:id="@+id/iv_default"
+                            android:layout_width="30px"
+                            android:layout_height="30px"
+                            android:src="@mipmap/ly_frgment_shop_currency"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/account_order_details_money_tv"
+                            android:layout_marginRight="@dimen/dp_16"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- 颜色表 -->
+    <!--白色-->
+    <color name="white">#ffffff</color>
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <!--透明-->
+    <color name="transparent">#0000</color>
+    <!--ly_layout_base标题的bg-->
+    <color name="layout_base_title_bg">#f9752b</color>
+    <!--ly_layout_base的bg-->
+    <color name="layout_base_bg">#f0f0f6</color>
+    <!--分割线颜色-->
+    <color name="segmenting_line">#C7C7C7</color>
+    <!--all_title颜色-->
+    <color name="ly_activity_tx_color">#77C34F</color>
+    <!--ly_fragment_land_rv_item图片透明色-->
+    <color name="ly_fragment_land_rv_item_transparent">#8000</color>
+    <!--all_background的bg-->
+    <color name="ly_activity_bg">#F4F4F4</color>
+    <!--all_tv_color的颜色-->
+    <color name="ly_activity_tv_color">#333333</color>
+    <!--ly_activity_seed_plant_remind_tv_color的颜色-->
+    <color name="ly_activity_seed_plant_remind_tv_color">#DD2323</color>
+    <!--ly_fragment_shop_props_rv_describe_tv_color的颜色-->
+    <color name="ly_fragment_shop_props_rv_describe_tv_color">#7A7A7A</color>
+    <!--ly_fragment_account_view_color-->
+    <color name="ly_fragment_account_view_color">#F35C5D</color>
+    <!--ly_activity_account_address_rv_item_tv_color的颜色-->
+    <color name="ly_activity_account_address_rv_item_tv_color">#808080</color>
+    <!--ly_activity_seed_plant_remarks_tv_color-->
+    <color name="ly_activity_seed_plant_remarks_tv_color">#717171</color>
+    <!--ly_activity_account_order_tv_color-->
+    <color name="ly_activity_account_order_tv_color">#797679</color>
+    <!--ly_activity_account_address_add_tv_color-->
+    <color name="ly_activity_account_address_add_tv_color">#B1B1B1</color>
+
+
+</resources>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_rl"
+        >
+
+        <RelativeLayout
+            android:id="@+id/account_personal_head_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y11"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="头像"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default"
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/account_personal_name_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y7"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 用户名"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <TextView
+                android:id="@+id/account_personal_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_default_name"
+                android:text="买菜卖菜买卖菜"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default_name"
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/account_personal_sex_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y7"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <TextView
+                android:id="@+id/account_personal_sex_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_default_sex"
+                android:text="男"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+
+            <ImageView
+                android:id="@+id/iv_default_sex"
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+
+        <RelativeLayout
+            android:id="@+id/account_personal_phone_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y7"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机号"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <TextView
+                android:id="@+id/account_personal_phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_default_phone"
+                android:text="15123456670"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default_phone"
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+
+        <RelativeLayout
+            android:id="@+id/account_personal_wei_xin_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y7"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信账号"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <TextView
+                android:id="@+id/account_personal_wei_xin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_default_wei_xin"
+                android:text="KT45220"
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default_wei_xin"
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_back"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+
+    </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y8"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出当前账号"
+            android:textColor="@color/ly_fragment_account_view_color"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/sp_12"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/y10"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white"
+    android:id="@+id/land_camera_list_rv_item_rl"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/iv_default"
+        android:layout_width="@dimen/x6"
+        android:layout_height="@dimen/y4"
+        android:src="@mipmap/ly_land_camera"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        />
+
+    <TextView
+        android:id="@+id/land_camera_list_rv_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_default"
+        android:text="南面角落"
+        android:textSize="@dimen/sp_14"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        />
+
+    <TextView
+        android:id="@+id/land_camera_list_rv_item_o_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/land_camera_list_rv_item_tv"
+        android:text="（当前）"
+        android:textSize="@dimen/sp_14"
+        android:layout_centerVertical="true"
+        />
+
+
+
+    <ImageView
+        android:layout_width="@dimen/x5"
+        android:layout_height="@dimen/y3"
+        android:src="@mipmap/ly_land_camera_go_in"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_alignParentRight="true"
+        />
+
+
+
+</RelativeLayout>

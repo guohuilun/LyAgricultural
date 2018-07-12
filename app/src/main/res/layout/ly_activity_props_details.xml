@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    android:id="@+id/props_details_ll"
+    >
+
+
+    <ImageView
+        android:id="@+id/props_details_iv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25"
+        android:scaleType="fitXY"
+        android:layout_margin="@dimen/dp_5"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y4"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_8"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简介"
+            android:textColor="@color/ly_activity_tx_color"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        >
+
+        <TextView
+            android:id="@+id/props_details_land_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="百草枯，化学名称是1-1-二甲基-4-4-联吡啶阳离子盐，是一种快速灭生性除草剂，具有触杀作用和一定内吸作用。能迅速被植物绿色组织吸收，使其枯死。对非绿色组织没有作用。在土壤中迅速与土壤结合而钝化，对植物根部及多年生地下茎及宿根无效。"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            android:layout_margin="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y4"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_10"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用场景"
+            android:textColor="@color/ly_activity_tx_color"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        >
+
+        <TextView
+            android:id="@+id/props_details_scene_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 果园、桑园、茶园、胶园、林带使用：在杂草出齐，处于生旺盛期，每亩用20%水剂100-200毫升，兑水25公斤，均匀喷雾杂草茎叶，当杂草长到30cm以上时，用药量要加倍。
+2. 玉米、甘蔗、大豆等宽行作物田使用：可播前处理或播后苗前处理，也可在作物生长中后期，采用保护性定向喷雾防除行间杂草。播前或播后苗前处理，每亩用20%水剂75-200毫升，兑水25公斤喷雾防除已出土杂草。作物生长期，每亩用20%水剂100-200毫升，兑水25公斤，作行间保护性定向喷雾。
+3. 实际经验表明，百草枯对地黄无明显效果。"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            android:layout_margin="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

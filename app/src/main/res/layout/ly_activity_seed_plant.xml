@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/seed_plant_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_rl"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种子"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/seed_plant_seed_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></android.support.v7.widget.RecyclerView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="播种土地"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/seed_plant_seed_land_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></android.support.v7.widget.RecyclerView>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="面积"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:id="@+id/seed_plant_covered_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="80m"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginTop="@dimen/y1"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/y1"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="播种套餐"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/seed_plant_seed_meal_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></android.support.v7.widget.RecyclerView>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y7"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:visibility="gone"
+                >
+
+                <CheckBox
+                    android:id="@+id/seed_plant_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    style="@style/SmallCircleTheme"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@+id/seed_plant_check_box"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="全过程照料套餐（自选）"
+                        android:textSize="@dimen/sp_12"
+                        android:textColor="@color/ly_activity_tv_color"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="农场工作人员全过程自动照料,只需等待收获"
+                        android:textSize="@dimen/sp_8"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:textColor="@color/ly_activity_seed_plant_remarks_tv_color"
+                        />
+                </LinearLayout>
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="播种须知"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:id="@+id/seed_plant_notes_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="由自然灾害无法避免的原因造成作物死亡（减产）等问题均由用户承担。"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginTop="@dimen/y1"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/y1"
+                    />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x4"
+                    android:layout_height="@dimen/y2"
+                    android:src="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/dp_5"
+                    >
+                    <TextView
+                        android:id="@+id/seed_plant_remind_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="由于当地气温季节等原因，您选择播种的西瓜种子X5可能无法生长，建议您重新选择播种种子，以免给您造成损失！"
+                        android:textColor="@color/ly_activity_seed_plant_remind_tv_color"
+                        android:textSize="@dimen/sp_12"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y11"
+                android:background="@color/white"
+                android:layout_margin="@dimen/dp_10"
+                >
+
+                <EditText
+                    android:id="@+id/seed_plant_remarks_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="如需特殊需求，请主动添加!"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:textColorHint="@color/ly_activity_seed_plant_remarks_tv_color"
+                    android:textSize="@dimen/sp_12"
+                    android:background="@null"
+                    android:layout_marginTop="@dimen/y1"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/y1"
+                    android:gravity="clip_horizontal"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        >
+
+
+        <RelativeLayout
+            android:id="@+id/seed_plant_buy_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/seed_plant_money_tv_buy_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:text="货币不足，请充值"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_16"
+                android:drawableLeft="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                android:drawablePadding="@dimen/dp_8"
+                android:gravity="center"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y9"
+            android:background="@color/white"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/seed_plant_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:text="8000"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/seed_plant_money_tv"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/seed_plant_buy_button"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_centerVertical="true"
+                android:text="确认种植"
+                android:textSize="@dimen/sp_16"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:textColor="@color/white"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

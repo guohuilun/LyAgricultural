@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y11"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_10"
+        >
+
+        <ImageView
+            android:id="@+id/account_order_details_rv_iv"
+            android:layout_width="@dimen/x18"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/account_order_details_rv_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购买种子"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_toRightOf="@+id/account_order_details_rv_iv"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_order_details_rv_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="数量：40"
+            android:textColor="@color/ly_activity_account_order_tv_color"
+            android:layout_toRightOf="@+id/account_order_details_rv_iv"
+            android:layout_below="@+id/account_order_details_rv_name_tv"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/account_order_details_rv_iv"
+            android:layout_below="@+id/account_order_details_rv_number_tv"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            >
+            <TextView
+                android:id="@+id/account_order_details_rv_money_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ly_activity_tx_color"
+                android:text="8000"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginRight="@dimen/dp_3"
+                />
+
+            <ImageView
+                android:id="@+id/iv_default"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@mipmap/ly_frgment_shop_currency"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/account_order_details_rv_money_tv"
+                android:layout_marginLeft="@dimen/dp_3"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.7"
+        android:background="@color/segmenting_line"
+        android:layout_marginRight="@dimen/dp_10"
+        ></View>
+
+</LinearLayout>

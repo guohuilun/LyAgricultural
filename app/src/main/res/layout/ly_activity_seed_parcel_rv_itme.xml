@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y12"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:background="@color/white"
+    >
+
+
+
+    <RelativeLayout
+        android:id="@+id/seed_parcel_rv_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <CheckBox
+            android:id="@+id/seed_parcel_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SmallCircleTheme"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:enabled="false"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+
+
+      <ImageView
+          android:id="@+id/seed_parcel_rv_item_iv"
+          android:layout_width="@dimen/x15"
+          android:layout_height="@dimen/y8"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="@dimen/dp_16"
+          android:layout_toRightOf="@+id/seed_parcel_rv_rl"
+          />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/seed_parcel_rv_item_iv"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_10"
+            >
+
+            <TextView
+                android:id="@+id/seed_parcel_rv_item_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:text="特级番茄种子"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/seed_parcel_rv_item_area_covered_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/ly_activity_tv_color"
+                        android:text="占地面积: 100m"
+                        android:textSize="@dimen/sp_10"
+                        android:gravity="center"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/ly_activity_tx_color"
+                        android:text="单价:"
+                        android:textSize="@dimen/sp_10"
+                        android:gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/seed_parcel_rv_item_money_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/ly_activity_tx_color"
+                        android:text="100"
+                        android:textSize="@dimen/sp_10"
+                        android:gravity="center"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/x2"
+                        android:layout_height="@dimen/y2"
+                        android:src="@mipmap/ly_frgment_shop_currency"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp_2"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/ly_activity_tx_color"
+                        android:text="/粒"
+                        android:textSize="@dimen/sp_10"
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+      <com.lyagricultural.view.AmountView
+          android:id="@+id/seed_parcel_rv_item_av"
+          android:layout_width="wrap_content"
+          android:layout_height="@dimen/y3"
+          app:btnTextSize="@dimen/sp_12"
+          app:btnWidth="@dimen/x4"
+          app:tvWidth="@dimen/x9"
+          android:layout_alignParentRight="true"
+          android:layout_marginTop="@dimen/dp_30"
+          android:layout_marginRight="@dimen/dp_10"
+          >
+
+
+      </com.lyagricultural.view.AmountView>
+
+
+    <RelativeLayout
+        android:layout_width="@dimen/x15"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/seed_parcel_rv_item_av"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_alignParentRight="true"
+        >
+        <TextView
+            android:id="@+id/shop_land_rv_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ly_activity_tx_color"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:layout_toLeftOf="@+id/iv_default"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/iv_default"
+            android:layout_width="@dimen/x3"
+            android:layout_height="@dimen/y2"
+            android:src="@mipmap/ly_frgment_shop_currency"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

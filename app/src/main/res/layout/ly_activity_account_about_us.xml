@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y14"
+        ></View>
+
+    <ImageView
+        android:id="@+id/iv_default"
+        android:layout_width="@dimen/x34"
+        android:layout_height="@dimen/y19"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view_line"
+        android:src="@mipmap/ly_app_logo"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/iv_default"
+        android:layout_marginTop="@dimen/dp_16"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自留地"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            />
+
+        <TextView
+            android:id="@+id/account_about_version_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.0"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/account_about_tel_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="客服电话：400-839-1839"
+        android:layout_centerInParent="true"
+        android:textColor="@color/ly_activity_tv_color"
+        android:textSize="@dimen/sp_12"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_8"
+        >
+
+
+        <TextView
+            android:id="@+id/account_about_co_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重庆骊咏科技有限公司"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/ly_activity_tv_color"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chongqing Liyon Technology Co., Ltd."
+            android:layout_below="@+id/account_about_co_tv"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textSize="@dimen/sp_10"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/ly_activity_tv_color"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

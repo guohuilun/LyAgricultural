@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y10"
+        >
+
+        <LinearLayout
+            android:id="@+id/line_ll"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_height="2dp">
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/ly_activity_tx_color"></View>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:orientation="horizontal"
+            android:background="@color/ly_activity_tx_color"
+            android:layout_above="@+id/line_ll"
+            >
+
+            <RelativeLayout
+                android:id="@+id/shop_land_rl"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_8"
+                >
+
+                <ImageView
+                    android:id="@+id/shop_land_iv"
+                    android:layout_width="@dimen/x9"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_frgment_shop_land_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    />
+
+                <TextView
+                    android:id="@+id/shop_land_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="土地库"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_below="@+id/shop_land_iv"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp_5"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/shop_seed_rl"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/shop_seed_iv"
+                    android:layout_width="@dimen/x9"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_frgment_shop_seed_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    />
+
+                <TextView
+                    android:id="@+id/shop_seed_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种子库"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_below="@+id/shop_seed_iv"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp_5"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/shop_props_rl"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_8"
+                >
+                <ImageView
+                    android:id="@+id/shop_props_iv"
+                    android:layout_width="@dimen/x9"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_frgment_shop_props_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    />
+
+                <TextView
+                    android:id="@+id/shop_props_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="道具"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_below="@+id/shop_props_iv"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp_5"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/shop_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>

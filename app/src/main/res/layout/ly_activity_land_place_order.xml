@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    android:id="@+id/land_place_order_rl"
+    android:visibility="gone"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_rl"
+        >
+
+        <ImageView
+            android:id="@+id/land_place_order_iv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y15"
+            android:src="@mipmap/ce_land_place_order"
+            android:scaleType="fitXY"
+            ></ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="产品"
+                android:textColor="@color/ly_activity_tx_color"
+                android:textSize="@dimen/sp_16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y6"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <TextView
+                android:id="@+id/land_place_order_product_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风光一号/50㎡x半年（180天）"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="货币"
+                android:textColor="@color/ly_activity_tx_color"
+                android:textSize="@dimen/sp_16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y19"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="货币"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_120"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="余额"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+                <TextView
+                    android:id="@+id/land_place_order_balance_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_124"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="消费"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+                <TextView
+                    android:id="@+id/land_place_order_consumption_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-10000"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_124"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="剩余"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+                <TextView
+                    android:id="@+id/land_place_order_surplus_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-10000"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_124"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付计时"
+                android:textColor="@color/ly_activity_tx_color"
+                android:textSize="@dimen/sp_16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y6"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/land_place_order_pay_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请于10:00完成支付，过时订单自动取消"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        >
+
+
+        <RelativeLayout
+            android:id="@+id/land_leased_place_order_buy_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/land_leased_place_order_buy_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:text="货币不足，请充值"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_16"
+                android:drawableLeft="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                android:drawablePadding="@dimen/dp_8"
+                android:gravity="center"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y9"
+            android:background="@color/white"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/land_place_order_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:text="8000"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/land_place_order_money_tv"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/land_leased_place_order_buy_button"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_centerVertical="true"
+                android:text="确认购买"
+                android:textSize="@dimen/sp_16"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:textColor="@color/white"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

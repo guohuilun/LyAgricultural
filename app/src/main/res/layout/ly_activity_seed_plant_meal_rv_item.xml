@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y7"
+    android:background="@color/white"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_10"
+    android:id="@+id/seed_plant_meal_rv_rl"
+    >
+
+    <CheckBox
+        android:id="@+id/seed_plant_meal_rv_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        style="@style/SmallCircleTheme"
+        android:paddingLeft="@dimen/dp_8"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:clickable="false"
+        android:enabled="false"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/seed_plant_meal_rv_check_box"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/seed_plant_meal_rv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全过程照料套餐（自选）"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            />
+
+        <TextView
+            android:id="@+id/seed_plant_meal_rv_one_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="农场工作人员全过程自动照料,只需等待收获"
+            android:textSize="@dimen/sp_8"
+            android:layout_marginTop="@dimen/dp_3"
+            android:textColor="@color/ly_activity_seed_plant_remarks_tv_color"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_10"
+        >
+        <TextView
+            android:id="@+id/seed_plant_meal_money_rv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ly_activity_tx_color"
+            android:text="8000"
+            android:textSize="@dimen/sp_16"
+            />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:src="@mipmap/ly_frgment_shop_currency"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/seed_plant_meal_money_rv_tv"
+            android:layout_marginLeft="@dimen/dp_3"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

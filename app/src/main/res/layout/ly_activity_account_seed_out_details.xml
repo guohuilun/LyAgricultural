@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <ImageView
+        android:id="@+id/iv_default"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y37"
+        android:scaleType="fitXY"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="派送详情"
+                android:textColor="@color/ly_activity_tx_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
+
+        <TextView
+            android:id="@+id/account_seed_out_details_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="派送时间：2018-5-20 14:20:15 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_seed_out_details_pick_people_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="采摘人：陶女士 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+
+        <TextView
+            android:id="@+id/account_seed_out_details_packing_people_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="包装人：王先生、许先生 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+
+        <TextView
+            android:id="@+id/account_seed_out_details_consignee_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 收货人：徐女士 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_seed_out_details_weight_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="包裹重量：20千克 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_seed_out_details_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货电话：18923644597"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_seed_out_details_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货地址：重庆市渝中区上清寺中安国际大厦12-6 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/account_seed_out_details_inventory_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="派送清单：南瓜2个、胡萝卜10根、黄瓜10根、西红柿20个、土 豆10斤、西葫芦3根、长条南瓜5根。 "
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

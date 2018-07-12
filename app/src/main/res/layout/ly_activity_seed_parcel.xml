@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/seed_parcel_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_rl"
+        android:layout_marginTop="@dimen/dp_10"
+        ></android.support.v7.widget.RecyclerView>
+
+
+    <RelativeLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y9"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <RelativeLayout
+                android:id="@+id/seed_parcel_all_cb_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1">
+
+                <CheckBox
+                    android:id="@+id/seed_parcel_all_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/SmallCircleTheme"
+                    android:text="全选"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:layout_centerHorizontal="true"
+                    />
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/x22"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/dp_5"
+                >
+                <TextView
+                    android:id="@+id/seed_parcel_money_tv"
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:text="0.0"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:layout_toRightOf="@+id/seed_parcel_money_tv"
+                    android:layout_centerVertical="true"
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/seed_parcel_plant_button"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/y6"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            android:text="种植"
+            android:textSize="@dimen/sp_16"
+            android:background="@drawable/ly_activity_land_name_button"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

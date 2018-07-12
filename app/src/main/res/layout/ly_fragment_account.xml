@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25">
+
+        <ImageView
+            android:id="@+id/ly_fragment_account_iv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y25"
+            android:src="@mipmap/ly_fragment_account_bg"
+            android:scaleType="fitXY"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/account_money_describe_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的货币"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_30"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/account_money_describe_tv"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center"
+                >
+
+
+                <ImageView
+                    android:id="@+id/iv_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ly_fragment_account_white_bg"
+                    android:layout_centerVertical="true"
+                    />
+
+
+                <TextView
+                    android:id="@+id/ly_fragment_account_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/sp_24"
+                    android:layout_toRightOf="@+id/iv_default"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@+id/ly_fragment_account_recharge_tv"
+            android:layout_width="@dimen/dp_0"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="充值"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center"
+            />
+
+        <View
+            android:layout_width="@dimen/dp_0.5"
+            android:layout_height="match_parent"
+            android:background="@color/ly_fragment_account_view_color"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            ></View>
+
+        <TextView
+            android:id="@+id/ly_fragment_account_monetary_details_tv"
+            android:layout_width="@dimen/dp_0"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="货币明细"
+            android:textColor="@color/ly_activity_tv_color"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/ly_fragment_account_order_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/order_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x4"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_order"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/order_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="订单"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_account_back"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            ></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:id="@+id/prop_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x3"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_frgment_shop_currency"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/prop_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="道具"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_frgment_shop_currency"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            android:visibility="gone"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/ly_fragment_account_distribution_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/distribution_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x4"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_distribution"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/distribution_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="配送"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_account_back"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/ly_fragment_account_address_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/address_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x4"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_address"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/address_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="地址管理"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_account_back"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/ly_fragment_account_information_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/information_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x4"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_information"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/information_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="关于我们"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_account_back"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            ></View>
+
+
+        <RelativeLayout
+            android:id="@+id/ly_fragment_account_my_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:id="@+id/my_left"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/x4"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_account_my"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/my_left"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y6"
+                android:text="我的名片"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/ly_activity_tv_color"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:gravity="center"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentRight="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ly_account_back"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_42"
+            android:layout_marginRight="@dimen/dp_16"
+            ></View>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

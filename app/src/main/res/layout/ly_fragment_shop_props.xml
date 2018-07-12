@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.youth.banner.Banner
+        android:id="@+id/shop_props_banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y14"
+        android:layout_margin="@dimen/dp_10"
+        app:indicator_width="8dp"
+        app:indicator_height="8dp"
+        app:indicator_drawable_selected="@mipmap/banner_select"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shop_props_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_16"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>

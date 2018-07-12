@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/x27"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_5"
+    android:id="@+id/shop_seed_rv_ll"
+    >
+
+    <RelativeLayout
+        android:layout_width="@dimen/x27"
+        android:layout_height="@dimen/y16"
+        android:background="@drawable/ly_fragment_shop_seed_rv_item_ll">
+
+        <ImageView
+            android:id="@+id/shop_seed_rv_iv"
+            android:layout_width="@dimen/x27"
+            android:layout_height="@dimen/y16"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y3"
+        android:layout_marginLeft="@dimen/dp_3"
+        android:layout_marginTop="@dimen/dp_3"
+        >
+
+
+        <TextView
+            android:id="@+id/shop_seed_rv_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="土地名称"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerVertical="true"
+            />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y3"
+        android:layout_marginLeft="@dimen/dp_3"
+        android:layout_marginTop="@dimen/dp_3"
+        android:layout_marginBottom="@dimen/dp_6"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/shop_seed_rv_money_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/ly_activity_tx_color"
+                android:text="100"
+                android:textSize="@dimen/sp_10"
+                android:gravity="center"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y2"
+                android:src="@mipmap/ly_frgment_shop_currency"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/ly_activity_tx_color"
+                android:text="/粒"
+                android:textSize="@dimen/sp_10"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <com.lyagricultural.view.AmountView
+            android:id="@+id/shop_seed_rv_av"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y3"
+            app:btnTextSize="@dimen/sp_12"
+            app:btnWidth="@dimen/x4"
+            app:tvWidth="@dimen/x5"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            >
+
+        </com.lyagricultural.view.AmountView>
+
+        <RelativeLayout
+            android:id="@+id/shop_seed_rv_add_rl"
+            android:layout_width="@dimen/x9"
+            android:layout_height="@dimen/y2"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ly_activity_land_name_button"
+            android:layout_centerVertical="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_8"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

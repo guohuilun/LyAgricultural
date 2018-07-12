@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/y10"
+      android:orientation="vertical"
+      android:focusable="true"
+      android:focusableInTouchMode="true"
+      >
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/y4">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="输入手机号"
+              android:textColor="@color/ly_activity_tv_color"
+              android:textSize="@dimen/sp_12"
+              android:layout_marginLeft="@dimen/dp_10"
+              android:layout_centerVertical="true"
+              />
+
+
+      </RelativeLayout>
+
+      <EditText
+          android:id="@+id/login_register_phone_et"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="@dimen/dp_10"
+          android:layout_marginRight="@dimen/dp_10"
+          android:background="@drawable/ly_activity_login_bg"
+          android:textSize="@dimen/sp_12"
+          android:textColor="@color/ly_activity_tv_color"
+          android:paddingLeft="@dimen/dp_8"
+          />
+  </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置密码"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_centerVertical="true"
+                />
+
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/login_register_phone_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/ly_activity_login_bg"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/ly_activity_tv_color"
+            android:paddingLeft="@dimen/dp_8"
+            />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/login_register_phone_complete_button"
+        android:layout_width="@dimen/x38"
+        android:layout_height="@dimen/y6"
+        android:background="@drawable/ly_activity_land_name_button"
+        android:text="完成注册"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_36"
+        />
+
+
+</LinearLayout>

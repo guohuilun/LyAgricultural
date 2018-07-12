@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_rl"
+        >
+
+        <FrameLayout
+            android:id="@+id/play_video_surface_layout"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            >
+
+            <com.tongguan.yuanjian.family.Utils.gl2.VideoGlSurfaceView
+                android:id="@+id/surface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/loadingVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <RelativeLayout
+                android:id="@+id/playStopSuspensionRl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_32"
+                android:layout_gravity="bottom"
+                >
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/play_stop"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:background="@mipmap/ly_activity_land_details_name_pause"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/play_suspensionRl"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    >
+                    <ImageView
+                        android:id="@+id/play_suspension"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/dp_16"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ly_activity_land_details_name_suspension" />
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/layout_head_o"
+                android:background="@color/ly_activity_tx_color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y7"
+                android:visibility="gone"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/title_left_o"
+                    >
+                    <TextView
+                        android:id="@+id/title_center_o"
+                        android:textSize="@dimen/sp_18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/white"
+                        android:ellipsize="end"
+                        android:maxWidth="@dimen/dp_160"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/title_left_o"
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="match_parent"
+                    android:onClick="onHeadLeftRl"
+                    >
+                    <ImageView
+                        android:id="@+id/img_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ly_back" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_content_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y5"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="土地作物"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/land_details_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    ></android.support.v7.widget.RecyclerView>
+
+
+                <LinearLayout
+                    android:id="@+id/land_details_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/x25"
+                        android:layout_height="@dimen/y17"
+                        android:src="@mipmap/ly_activity_land_o"
+                        />
+
+                    <TextView
+                        android:id="@+id/land_details_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/sp_10"
+                        android:textColor="@color/ly_activity_tv_color"
+                        android:text="土地可不能空着哟~我的锄头已经准备好了！
+赶紧去商店-种子库选择种子播种吧，绿色蔬菜我来守护！"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_weed_ll"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/dp_10"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x9"
+                android:layout_height="@dimen/y5"
+                android:src="@mipmap/ly_land_weed"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="除草"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_6"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_watering_ll"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x9"
+                android:layout_height="@dimen/y5"
+                android:src="@mipmap/ly_land_watering"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="浇水"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_6"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_fertilizer_ll"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x9"
+                android:layout_height="@dimen/y5"
+                android:src="@mipmap/ly_land_fertilizer"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="施肥"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_6"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_insect_pest_ll"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x9"
+                android:layout_height="@dimen/y5"
+                android:src="@mipmap/ly_land_insect_pest"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="除虫"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_6"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_land_details_collect_goods_ll"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/dp_10"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x9"
+                android:layout_height="@dimen/y5"
+                android:src="@mipmap/ly_land_collect_goods"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收获"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_6"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

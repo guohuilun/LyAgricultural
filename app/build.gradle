@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+//使用greendao
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
+
+    defaultConfig {
+        applicationId "com.lyagricultural"
+        minSdkVersion rootProject.ext.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
+        versionCode rootProject.ext.versionCode as Integer
+        versionName rootProject.ext.versionName as String
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "86d60b4a0f0dfea596d7b0b3", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "Default_CHANNEL", //暂时填写默认值即可.
+                CHANNEL_VALUE: "Default_CHANNEL"  //普通渠道
+        ]
+    }
+
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 2
+        daoPackage 'com.lyagricultural.gen'
+        targetGenDir 'src/main/java'
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+    // 修改apk名字
+   /*    android.applicationVariants.all { variant ->
+           variant.outputs.all {
+               outputFileName="LyAgricultural.apk"
+           }
+       }*/
+}
+
+repositories{
+    flatDir
+            {
+                dirs 'libs'
+            }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    //    极光推送
+    compile project(':jpush')
+    //    mob分享
+    compile project(':mob')
+    //    okhttp网络请求
+    compile project(path: ':okhttputils')
+    //    gson解析
+    compile 'com.google.code.gson:gson:2.2.4'
+    //    微信支付
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    //    recyclerView
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    //    glide
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    //    picasso
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    //    网络上自定义的TabLayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+    //    轮播 banner
+    compile 'com.youth.banner:banner:1.4.9'
+    //    状态栏与导航栏
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+    //    富文本编辑器
+    compile 'com.zzhoujay.richtext:richtext:2.5.2'
+    //    城市选择控件
+    compile files('libs/AndroidPicker-1.5.6.jar')
+    //    fastJson
+    compile 'com.alibaba:fastjson:1.1.55.android'
+    //greendao依赖
+    compile 'org.greenrobot:greendao:3.2.0'
+    // 在线视频
+    compile(name: 'TGClientSDK_v3220', ext: 'aar')
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    // AndPermission权限
+    implementation 'com.yanzhenjie:permission:2.0.0-rc11'
+
+}

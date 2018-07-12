@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+
+
+        <ImageView
+            android:id="@+id/iv_default"
+            android:layout_width="@dimen/x20"
+            android:layout_height="@dimen/y11"
+            android:layout_marginTop="@dimen/dp_16"
+            />
+
+        <TextView
+            android:id="@+id/land_payment_results_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付成功"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/ly_activity_tx_color"
+            android:layout_marginTop="@dimen/dp_8"
+            />
+        <TextView
+            android:id="@+id/land_payment_results_tip_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请耐心等待农民伯伯播种"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/ly_fragment_shop_props_rv_describe_tv_color"
+            android:layout_marginTop="@dimen/dp_24"
+            android:visibility="invisible"
+            />
+
+        <Button
+            android:id="@+id/payment_results_back_button"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/y5"
+            android:text=""
+            android:background="@drawable/ly_activity_land_name_button"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/dp_5"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_marginBottom="@dimen/dp_20"
+            >
+
+            <Button
+                android:id="@+id/payment_results_check_order_button"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y5"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:text="查看订单"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/dp_16"
+                />
+
+
+            <Button
+                android:id="@+id/payment_results_check_land_button"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y5"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:text="查看土地"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_16"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
