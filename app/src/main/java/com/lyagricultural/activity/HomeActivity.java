@@ -54,6 +54,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.ly_activity_home);
         setHeadVisibility(View.GONE);
         initView();
+
         if (!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
