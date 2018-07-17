@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,17 +17,14 @@ import com.lyagricultural.R;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.DefaultBean;
 import com.lyagricultural.bean.EventBusDefaultBean;
-import com.lyagricultural.cebean.CeJsonBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
-import com.lyagricultural.utils.timer.DownTimer;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.timer.DownTimerListener;
 import com.lyagricultural.view.TextSpan;
-import com.youth.banner.Banner;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
@@ -162,7 +158,7 @@ public class LandPlaceOrderActivity extends BaseActivity implements View.OnClick
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_ORDER_CREATE)
-                    .addParams("userId", SpUtils.getSp("userid",LandPlaceOrderActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",LandPlaceOrderActivity.this,"LoginActivity"))
                     .addParams("totalAmt",""+priceCommit)
                     .addParams("payType","ZHYE")
                     .addParams("Remark","")

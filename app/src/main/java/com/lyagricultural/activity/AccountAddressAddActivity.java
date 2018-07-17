@@ -20,7 +20,7 @@ import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
 import com.lyagricultural.utils.PhoneUtils;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.addresss.AddressPickTask;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -129,7 +129,7 @@ public class AccountAddressAddActivity extends BaseActivity implements View.OnCl
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ADDRESS_CREATE)
-                    .addParams("userId", SpUtils.getSp("userid",AccountAddressAddActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountAddressAddActivity.this,"LoginActivity"))
                     .addParams("adNme",account_address_add_name_et.getText().toString().trim())
                     .addParams("adPhone",account_address_add_phone_et.getText().toString().trim())
                     .addParams("proNme",proNme)

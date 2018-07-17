@@ -1,16 +1,10 @@
 package com.lyagricultural.activity;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -28,8 +22,8 @@ import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
-import com.tencent.bugly.crashreport.CrashReport;
+import com.lyagricultural.utils.ProgressDialogUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
@@ -48,12 +42,20 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
     private String loginCode="";
     private String loginPass="";
     private String loginType="";
+    private boolean isChecked=true;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_login);
+        //             获取窗口属性管理
+        WindowManager.LayoutParams attrs = getWindow().getAttributes();
+//             窗口的属性设置
+        attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        getWindow().setAttributes(attrs);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        status_bar_view.setVisibility(View.GONE);
         setHeadVisibility(View.GONE);
         initView();
     }
@@ -73,7 +75,7 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
         login_register_rl=findViewById(R.id.login_register_rl);
         login_button.setOnClickListener(this);
         login_register_rl.setOnClickListener(this);
-        login_remenber_cb.setOnCheckedChangeListener(this);
+        login_auto_cb.setOnCheckedChangeListener(this);
         initUserInformation();
         initRegisterPhone();
     }
@@ -82,15 +84,29 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
      * 初始化用户信息
      */
     private void initUserInformation() {
-        String username = SpUtils.getSp("username",this,"LoginActivity");
-        String password = SpUtils.getSp("password",this,"LoginActivity");
-        if (!SpUtils.TextIsEmpty(username)) {
-            login_name_et.setText(username);
-            login_password_et.requestFocus();
-            if (!SpUtils.TextIsEmpty(password)) {
+        String auto = SpSimpleUtils.getSp("auto", this, "LoginActivity");
+        String username = SpSimpleUtils.getSp("username",this,"LoginActivity");
+        String password = SpSimpleUtils.getSp("password",this,"LoginActivity");
+        if (!SpSimpleUtils.TextIsEmpty(auto)){
+            login_remenber_cb.setChecked(true);
+            login_auto_cb.setChecked(true);
+            if (!SpSimpleUtils.TextIsEmpty(username)){
+                login_name_et.setText(username);
+            }
+            if (!SpSimpleUtils.TextIsEmpty(password)){
                 login_password_et.setText(password);
-                login_remenber_cb.setChecked(true);
-                login_password_et.setSelection(login_password_et.getText().toString().trim().length());
+            }
+
+
+        }else {
+            if (!SpSimpleUtils.TextIsEmpty(username)) {
+                login_name_et.setText(username);
+                login_password_et.requestFocus();
+                if (!SpSimpleUtils.TextIsEmpty(password)) {
+                    login_password_et.setText(password);
+                    login_remenber_cb.setChecked(true);
+                    login_password_et.setSelection(login_password_et.getText().toString().trim().length());
+                }
             }
         }
     }
@@ -116,25 +132,28 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
                     LyToast.shortToast(this,"账户和密码不能为空");
                     return;
                 }
-
-                if (login_remenber_cb.isChecked()){
-                    login_remenber_cb.setChecked(true);
-                    SpUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
-                    SpUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
-                    if (login_auto_cb.isChecked()){
-                        login_auto_cb.setChecked(true);
-                        SpUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
-                        SpUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
-                    }else {
-                        login_auto_cb.setChecked(false);
-                    }
+                SpSimpleUtils.removeSharedPreference("auto",this,"LoginActivity");
+                SpSimpleUtils.removeSharedPreference("username",this,"LoginActivity");
+                SpSimpleUtils.removeSharedPreference("password",this,"LoginActivity");
+                if (login_auto_cb.isChecked()){
+                    LyLog.i(TAG,"选中自动登录的情况下选中记住密码 ");
+                    SpSimpleUtils.saveSp("auto", "自动登录",this,"LoginActivity");
+                    SpSimpleUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
+                    SpSimpleUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
                 }else {
-                    login_remenber_cb.setChecked(false);
-                    SpUtils.removeSharedPreference("username",this,"LoginActivity");
-                    SpUtils.removeSharedPreference("password",this,"LoginActivity");
+                    if (login_remenber_cb.isChecked()){
+                        LyLog.i(TAG,"未选中自动登录的情况下选中记住密码");
+                        SpSimpleUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
+                        SpSimpleUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
+                    }
                 }
 
-                initLogin(login_name_et.getText().toString().trim(),login_password_et.getText().toString().trim(),"Phone");
+                if (isChecked){
+                    ProgressDialogUtils.showProgressDialog(this,"正在登录，请稍后...");
+                    setProcessFlag();
+                    initLogin(login_name_et.getText().toString().trim(),login_password_et.getText().toString().trim(),"Phone");
+                    new TimeThread().start();
+                }
 
                 break;
             case R.id.login_register_rl:
@@ -145,29 +164,30 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
         }
     }
 
+
+    private synchronized void setProcessFlag() {
+        isChecked = false;
+    }
+
+    //  使用线程防止多次点击
+    private class TimeThread extends Thread {
+        public void run() {
+            try {
+                sleep(1000);
+                isChecked = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         switch (compoundButton.getId()){
-            case R.id.login_remenber_cb:
-                if (isChecked){
-                    if (!"".equals(login_name_et)&&!"".equals(login_password_et)){
-                        SpUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
-                        SpUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
-                    }
-                }else {
-                    SpUtils.removeSharedPreference("username",this,"LoginActivity");
-                    SpUtils.removeSharedPreference("password",this,"LoginActivity");
-                }
-                break;
             case R.id.login_auto_cb:
                 if (isChecked){
-                    if (!"".equals(login_name_et)&&!"".equals(login_password_et)){
-                        SpUtils.saveSp("username", login_name_et.getText().toString().trim(),this,"LoginActivity");
-                        SpUtils.saveSp("password", login_password_et.getText().toString().trim(),this,"LoginActivity");
-                    }
-                }else {
-                    SpUtils.removeSharedPreference("username",this,"LoginActivity");
-                    SpUtils.removeSharedPreference("password",this,"LoginActivity");
+                    login_remenber_cb.setChecked(true);
                 }
                 break;
         }
@@ -196,16 +216,18 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
                             Gson gson=new Gson();
                             LoginActivityBean parse=gson.fromJson(response,LoginActivityBean.class);
                             if ("OK".equals(parse.getStatus())){
+                                ProgressDialogUtils.closeProgressDialog();
                                 LyToast.shortToast(LoginActivity.this,parse.getMsg());
-                                String spUserid = SpUtils.getSp("userid", LoginActivity.this, "LoginActivity");
+                                String spUserid = SpSimpleUtils.getSp("userid", LoginActivity.this, "LoginActivity");
                                 if ("".equals(spUserid)){
-                                    SpUtils.saveSp("userid", parse.getUserid(),LoginActivity.this,"LoginActivity");
+                                    SpSimpleUtils.saveSp("userid", parse.getUserid(),LoginActivity.this,"LoginActivity");
                                 }else{
-                                    SpUtils.removeSharedPreference("userid",LoginActivity.this,"LoginActivity");
-                                    SpUtils.saveSp("userid", parse.getUserid(),LoginActivity.this,"LoginActivity");
+                                    SpSimpleUtils.removeSharedPreference("userid",LoginActivity.this,"LoginActivity");
+                                    SpSimpleUtils.saveSp("userid", parse.getUserid(),LoginActivity.this,"LoginActivity");
                                 }
                                 startActivity(new Intent(LoginActivity.this,HomeActivity.class));
                             }else {
+                                ProgressDialogUtils.closeProgressDialog();
                                 LyToast.shortToast(LoginActivity.this,parse.getMsg());
                             }
                         }

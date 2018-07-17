@@ -30,6 +30,25 @@
                 android:layout_marginLeft="@dimen/dp_10"
                 />
 
+            <RelativeLayout
+                android:id="@+id/account_personal_head_more_rl"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_toLeftOf="@+id/iv_default"
+                >
+
+                <ImageView
+                    android:id="@+id/account_personal_head_more_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+
             <ImageView
                 android:id="@+id/iv_default"
                 android:layout_width="@dimen/x2"
@@ -73,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/iv_default_name"
-                android:text="买菜卖菜买卖菜"
+                android:text=""
                 android:textColor="@color/ly_activity_account_order_tv_color"
                 android:textSize="@dimen/sp_14"
                 android:layout_centerVertical="true"
@@ -123,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/iv_default_sex"
-                android:text="男"
+                android:text=""
                 android:textColor="@color/ly_activity_account_order_tv_color"
                 android:textSize="@dimen/sp_14"
                 android:layout_centerVertical="true"
@@ -176,7 +195,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/iv_default_phone"
-                android:text="15123456670"
+                android:text=""
                 android:textColor="@color/ly_activity_account_order_tv_color"
                 android:textSize="@dimen/sp_14"
                 android:layout_centerVertical="true"
@@ -227,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/iv_default_wei_xin"
-                android:text="KT45220"
+                android:text=""
                 android:textColor="@color/ly_activity_account_order_tv_color"
                 android:textSize="@dimen/sp_14"
                 android:layout_centerVertical="true"

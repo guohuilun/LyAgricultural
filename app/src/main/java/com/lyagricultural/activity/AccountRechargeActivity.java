@@ -1,5 +1,6 @@
 package com.lyagricultural.activity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,15 +16,22 @@ import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.AccountRechargeNumBean;
 import com.lyagricultural.bean.AccountRechargePayBean;
+import com.lyagricultural.bean.DefaultBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
+import com.lyagricultural.dialog.CommomDialog;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
+import com.lyagricultural.weixin.PayEntity;
 import com.lyagricultural.weixin.PayUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +54,8 @@ public class AccountRechargeActivity extends BaseActivity implements View.OnClic
     private BaseRecyclerAdapter<AccountRechargeNumBean.NumlistBean> baseAccountRecyclerAdapter;
     private List<AccountRechargeNumBean.NumlistBean> mAccountList;
     private String reNum="";
+    private String orderNo;
+    private String isSuccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +63,9 @@ public class AccountRechargeActivity extends BaseActivity implements View.OnClic
         setContentView(R.layout.ly_activity_account_recharge);
         setTitle("充值");
         initView();
+        if (!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
     }
 
     private void initView(){
@@ -102,7 +115,7 @@ public class AccountRechargeActivity extends BaseActivity implements View.OnClic
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_RECHARGE)
-                    .addParams("userId", SpUtils.getSp("userid",AccountRechargeActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountRechargeActivity.this,"LoginActivity"))
                     .addParams("paymentMode","WX")
                     .addParams("payAmt",reNum)
                     .build()
@@ -118,6 +131,7 @@ public class AccountRechargeActivity extends BaseActivity implements View.OnClic
                             Gson gson=new Gson();
                             AccountRechargePayBean parse=gson.fromJson(response,AccountRechargePayBean.class);
                             if ("OK".equals(parse.getLyStatus())){
+                                orderNo=parse.getPayNo();
                                 PayUtils payUtils=new PayUtils(AccountRechargeActivity.this);
                                 payUtils.wxPay(parse.getLyData());
                              }
@@ -198,6 +212,79 @@ public class AccountRechargeActivity extends BaseActivity implements View.OnClic
             }
         };
         account_recharge_rv.setAdapter(baseAccountRecyclerAdapter);
+    }
+
+
+    /**
+     * 检查充值订单状态   -网络请求
+     */
+    private void initOrderCheck(){
+        if (CheckNetworkUtils.checkNetworkAvailable(this)) {
+            LecoOkHttpUtil lecoOkHttpUtil = new LecoOkHttpUtil();
+            lecoOkHttpUtil.post().url(AppConstant.CHECK_PAY_STATUS)
+                    .addParams("orderNo",orderNo)
+                    .build().execute(new StringCallback() {
+                @Override
+                public void onError(Call call, Exception e) {
+                    //这里是上传出错的回调
+                    LyLog.e(TAG,"检查充值订单状态异常 = "+e.getMessage());
+                }
+                @Override
+                public void onResponse(String response) {
+                    LyLog.i(TAG,"检查充值订单状态 = "+response);
+                    Gson gson = new Gson();
+                    DefaultBean parse=gson.fromJson(response,DefaultBean.class);
+                    if ("OK".equals(parse.getStatus())){
+                        if ("OK".equals(parse.getData())){
+                            isSuccess="支付成功";
+                        }else {
+                            isSuccess="支付失败";
+                        }
+                        new CommomDialog(AccountRechargeActivity.this, R.style.dialog, isSuccess, new CommomDialog.OnCloseListener() {
+                            @Override
+                            public void onClick(Dialog dialog, boolean confirm) {
+                                if (confirm){
+                                    finish();
+                                    dialog.dismiss();
+                                }
+                            }
+                        }).setTitle("提示").show();
+
+                    }else {
+                        new CommomDialog(AccountRechargeActivity.this, R.style.dialog, "支付失败", new CommomDialog.OnCloseListener() {
+                            @Override
+                            public void onClick(Dialog dialog, boolean confirm) {
+                                if (confirm){
+                                    finish();
+                                    dialog.dismiss();
+                                }
+                            }
+                        }).setTitle("提示").show();
+                    }
+                }
+            });
+        }
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void sentParsms(PayEntity payEntity) {//此方法类似于广播，任何地方都可以传递
+        if (PayEntity.Status.PAY_SUCCESS.equals(payEntity.getStatus())){
+//           支付成功
+            initOrderCheck();
+
+        }else if (PayEntity.Status.PAY_FAIL.equals(payEntity.getStatus())){
+//            支付失败
+            initOrderCheck();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }
     }
 
 

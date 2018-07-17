@@ -165,10 +165,10 @@ public class LandDialogFragment extends DialogFragment implements View.OnClickLi
                SharePlatformUtils.showShare(getActivity(), QQ.NAME, "利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
                break;
            case R.id.dialog_fragment_hand_wei_xin_ll:
-               SharePlatformUtils.showShare(getActivity(), Wechat.NAME,"","","","",this);
+               SharePlatformUtils.showShare(getActivity(), Wechat.NAME,"利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
                break;
            case R.id.dialog_fragment_hand_wei_xin_circle_ll:
-               SharePlatformUtils.showShare(getActivity(), WechatMoments.NAME,"","","","",this);
+               SharePlatformUtils.showShare(getActivity(), WechatMoments.NAME,"利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
                break;
        }
     }

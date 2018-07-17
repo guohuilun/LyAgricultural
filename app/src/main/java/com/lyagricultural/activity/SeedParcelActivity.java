@@ -193,6 +193,9 @@ public class SeedParcelActivity extends BaseActivity implements View.OnClickList
         }
         mSeedList.clear();
         mSeedList.addAll(shopSeedBeen);
+        if (mSeedList.size()==0){
+            LyToast.shortToast(this,"您还未添加种子进入包裹。。。");
+        }
     }
 
     private void setSeedRv(){

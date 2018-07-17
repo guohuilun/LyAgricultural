@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ly_activity_bg"
-    >
+    android:background="@color/ly_activity_bg">
 
     <ImageView
         android:id="@+id/land_iv"
@@ -11,9 +12,20 @@
         android:layout_height="@dimen/y21"
         android:src="@mipmap/ce_ly_land"
         android:scaleType="fitXY"
+        android:visibility="gone"
         />
 
-     <android.support.v7.widget.RecyclerView
+    <com.youth.banner.Banner
+        android:id="@+id/land_banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y21"
+        app:indicator_width="8dp"
+        app:indicator_height="8dp"
+        app:indicator_drawable_selected="@mipmap/banner_select"
+        />
+
+
+    <android.support.v7.widget.RecyclerView
          android:id="@+id/land_rv"
          android:layout_width="match_parent"
          android:layout_height="match_parent"

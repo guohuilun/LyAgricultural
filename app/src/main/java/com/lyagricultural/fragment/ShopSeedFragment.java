@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.lyagricultural.R;
@@ -29,6 +31,7 @@ import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.BannerUtils;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
+import com.lyagricultural.utils.LyToast;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -45,6 +48,7 @@ import okhttp3.Call;
 public class ShopSeedFragment extends Fragment implements View.OnTouchListener,View.OnClickListener{
     private static final String TAG = "ShopSeedFragment";
     private View shopSeedView;
+    private FrameLayout ly_fragment_shop_seed_fl;
     private Banner shop_seed_banner;
     private RecyclerView shop_seed_rv;
     private  List<Integer> ImageData = new ArrayList<>();
@@ -56,6 +60,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
     private ViewGroup shop_seed_rl;
     private RelativeLayout shop_seed_touch_rl;
     private ImageView shop_seed_iv;
+    private TextView shop_seed_number_tv;
     private int xDelta;
     private int yDelta;
     private boolean isClick;
@@ -70,6 +75,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
     }
 
     private void initView(){
+        ly_fragment_shop_seed_fl=shopSeedView.findViewById(R.id.ly_fragment_shop_seed_fl);
         shop_seed_banner=shopSeedView.findViewById(R.id.shop_seed_banner);
         shop_seed_rv=shopSeedView.findViewById(R.id.shop_seed_rv);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),3);
@@ -77,12 +83,12 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
         shop_seed_rl=shopSeedView.findViewById(R.id.shop_seed_rl);
         shop_seed_touch_rl=shopSeedView.findViewById(R.id.shop_seed_touch_rl);
 //        shop_seed_iv=shopSeedView.findViewById(R.id.shop_seed_iv);
+        shop_seed_number_tv=shopSeedView.findViewById(R.id.shop_seed_number_tv);
         shop_seed_touch_rl.setOnClickListener(this);
 
         initShopSeed();
         initShopSeedImg();
         setSeedGoodsRv();
-        setBanner();
         initTouch();
 //        setSeedRv();
     }
@@ -127,6 +133,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
                         );
                         break;
                     case R.id.shop_seed_rv_add_rl:
+                        LyToast.shortToast(getActivity(),"加入包裹成功");
                         ShopSeedBean shopSeedBean=new ShopSeedBean();
                         shopSeedBean.setGId(goodslistBean.getGId());
                         shopSeedBean.setNme(goodslistBean.getNme());
@@ -134,6 +141,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
                         shopSeedBean.setPrice(goodslistBean.getPrice());
                         shopSeedBean.setTip(goodslistBean.getTip());
                         ShopSeedDao.insert(shopSeedBean);
+                        shop_seed_number_tv.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -180,7 +188,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_IMG_LIST)
-                    .addParams("AdCid","Home_Index_Image")
+                    .addParams("AdCid","Shop_Seed")
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -194,9 +202,12 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
                             Gson gson=new Gson();
                             ImageBean parse=gson.fromJson(response,ImageBean.class);
                             if ("OK".equals(parse.getStatus())){
-                                ImageGoodData.clear();
-                                for (int i = 0; i <parse.getImagelist().size() ; i++) {
-                                 ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                if (parse.getImagelist().size()>0&&parse.getImagelist()!=null){
+                                    ImageGoodData.clear();
+                                    for (int i = 0; i <parse.getImagelist().size() ; i++) {
+                                        ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                    }
+                                    setBanner();
                                 }
                             }
                         }
@@ -209,8 +220,8 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
         RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT
                 , ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.leftMargin = 50;
-        layoutParams.topMargin = 50;
+        layoutParams.leftMargin = 20;
+        layoutParams.topMargin = 1380;
         shop_seed_touch_rl.setLayoutParams(layoutParams);
         shop_seed_touch_rl.setOnTouchListener(this);
     }
@@ -256,7 +267,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
                     xDistance=0;
                 }
 
-                int i = shop_seed_rl.getHeight();
+                int i = shop_seed_rl.getHeight()-160;
                 int width = shop_seed_rl.getWidth()-shop_seed_touch_rl.getWidth();
                 LyLog.d(TAG,"得到的高度 = "+i +" 得到的宽度 =  "+width);
                 if (yDistance>i){

@@ -11,19 +11,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.lyagricultural.R;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.DefaultBean;
 import com.lyagricultural.cebean.CeJsonBean;
-import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
 import com.lyagricultural.utils.PhoneUtils;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.addresss.AddressPickTask;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -164,7 +162,7 @@ public class AccountAddressModifyActivity extends BaseActivity implements View.O
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ADDRESS_UPDATE)
                     .addParams("adId",adId)
-                    .addParams("userId", SpUtils.getSp("userid",AccountAddressModifyActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountAddressModifyActivity.this,"LoginActivity"))
                     .addParams("adNme",adNme)
                     .addParams("adPhone",adPhone)
                     .addParams("proNme",proNme)
@@ -260,7 +258,7 @@ public class AccountAddressModifyActivity extends BaseActivity implements View.O
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_ORDER_CREATE)
-                    .addParams("userId",SpUtils.getSp("userid",AccountAddressModifyActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountAddressModifyActivity.this,"LoginActivity"))
                     .addParams("totalAmt","300")
                     .addParams("payType","微信支付")
                     .addParams("Remark","订单备注")

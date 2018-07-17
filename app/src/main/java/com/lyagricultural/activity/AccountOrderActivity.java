@@ -18,24 +18,18 @@ import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.AccountOrderBean;
-import com.lyagricultural.bean.DefaultBean;
-import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.WidthUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import okhttp3.Call;
 
@@ -62,9 +56,9 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_account_order);
         setTitle("订单");
-        mImageRight.setImageResource(R.mipmap.ce_shop_seed_t);
+        mImageRight.setImageResource(R.mipmap.ly_activity_account_order_more);
         setHeadRightVisibility(View.VISIBLE);
-        mImageRight.setOnClickListener(this);
+        mRlRight.setOnClickListener(this);
         initView();
     }
 
@@ -88,7 +82,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.img_right:
+            case R.id.title_right:
                 showPopupWindow();
                 break;
             case R.id.account_order_all_rl:
@@ -104,13 +98,13 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
     }
 
     /**
-     *  获取历史订单   -网络请求
+     *  获取订单   -网络请求
      */
     private void initOrderAccount(final String PageCount){
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ORDER)
-                    .addParams("UserId", SpUtils.getSp("userid",AccountOrderActivity.this,"LoginActivity"))
+                    .addParams("UserId", SpSimpleUtils.getSp("userid",AccountOrderActivity.this,"LoginActivity"))
                     .addParams("PageCount",PageCount)
                     .build()
                     .execute(new StringCallback() {
@@ -121,7 +115,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
 
                         @Override
                         public void onResponse(String response) {
-                            LyLog.i(TAG,"获取历史订单 = " +response);
+                            LyLog.i(TAG,"获取订单 = " +response);
                             Gson gson=new Gson();
                             AccountOrderBean parse=gson.fromJson(response,AccountOrderBean.class);
                             if ("OK".equals(parse.getStatus())){
@@ -135,6 +129,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
                                     orderlistBeanBaseRecyclerAdapter.notifyDataSetChanged();
                                 }
                             }else {
+                                LyToast.shortToast(AccountOrderActivity.this,"暂无更多历史订单");
                                 isPage=false;
                             }
                         }
@@ -148,7 +143,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
                 (this,mOrderList,R.layout.ly_activity_account_order_rv_item) {
             @Override
             public void bindData(BaseRecyclerViewHolder holder, AccountOrderBean.OrderlistBean orderlistBean, int position) {
-                holder.setClick(R.id.account_order_rv_rl,orderlistBean,position,baseRecyclerAdapter);
+                holder.setClick(R.id.account_order_rv_rl,orderlistBean,position,orderlistBeanBaseRecyclerAdapter);
                 holder.setImg(AccountOrderActivity.this,orderlistBean.getOrderUrl(),R.id.account_order_rv_iv);
                 holder.setTxt(R.id.account_order_rv_order_number_tv,orderlistBean.getOrderNo());
                 holder.setTxt(R.id.account_order_rv_time_tv,orderlistBean.getInsertDt());
@@ -214,7 +209,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
         view.findViewById(R.id.account_order_pop_history).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(AccountOrderActivity.this,AccountOrderHistoryActivity.class));
                 popupWindow.dismiss();
             }
         });

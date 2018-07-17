@@ -23,7 +23,8 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
     <!--允许读写系统设置项权限-->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
+      <!--拍照权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".app.LyAgriculturalApplication"
@@ -34,7 +35,7 @@
         android:theme="@style/AppTheme">
 
         <!--activity开始-->
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name=".activity.SplashActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -43,6 +44,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            ></activity>
 
         <activity android:name=".activity.HomeActivity"
             android:screenOrientation="portrait"
@@ -144,6 +153,10 @@
             ></activity>
 
         <activity android:name=".activity.AccountOrderActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.AccountOrderHistoryActivity"
             android:screenOrientation="portrait"
             ></activity>
 

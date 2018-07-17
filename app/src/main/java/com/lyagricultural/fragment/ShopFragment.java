@@ -4,13 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -66,7 +63,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener{
 
 
         shop_land_tv.setTextColor(Color.parseColor("#77C34F"));
-        shop_land_iv.setImageResource(R.mipmap.ly_frgment_shop_land_down);
+        shop_land_iv.setImageResource(R.mipmap.ly_fragment_shop_land_down);
         shop_land_rl.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
         shop_land_rl.setOnClickListener(this);
@@ -157,18 +154,18 @@ public class ShopFragment extends Fragment implements View.OnClickListener{
     }
 
     private void setImage(int position){
-        shop_land_iv.setImageResource(R.mipmap.ly_frgment_shop_land_up);
-        shop_seed_iv.setImageResource(R.mipmap.ly_frgment_shop_seed_up);
-        shop_props_iv.setImageResource(R.mipmap.ly_frgment_shop_props_up);
+        shop_land_iv.setImageResource(R.mipmap.ly_fragment_shop_land_up);
+        shop_seed_iv.setImageResource(R.mipmap.ly_fragment_shop_seed_up);
+        shop_props_iv.setImageResource(R.mipmap.ly_fragment_shop_props_up);
         switch (position) {
             case 0:
-                shop_land_iv.setImageResource(R.mipmap.ly_frgment_shop_land_down);
+                shop_land_iv.setImageResource(R.mipmap.ly_fragment_shop_land_down);
                 break;
             case 1:
-                shop_seed_iv.setImageResource(R.mipmap.ly_frgment_shop_seed_down);
+                shop_seed_iv.setImageResource(R.mipmap.ly_fragment_shop_seed_down);
                 break;
             case 2:
-                shop_props_iv.setImageResource(R.mipmap.ly_frgment_shop_props_down);
+                shop_props_iv.setImageResource(R.mipmap.ly_fragment_shop_props_down);
                 break;
         }
     }

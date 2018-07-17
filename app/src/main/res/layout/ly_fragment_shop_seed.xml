@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ly_fragment_shop_seed_fl"
     >
 
 
@@ -50,8 +51,8 @@
            <ImageView
                android:id="@+id/shop_seed_iv"
                android:layout_width="@dimen/x20"
-               android:layout_height="@dimen/y8"
-               android:src="@mipmap/ce_account_defult_bg"
+               android:layout_height="@dimen/y12"
+               android:src="@mipmap/ly_fragment_shop_seed_package"
                android:scaleType="fitXY"
                />
 
@@ -63,6 +64,7 @@
                android:textSize="@dimen/sp_8"
                android:textColor="#FFFFFF"
                android:layout_alignRight="@+id/shop_seed_iv"
+               android:visibility="gone"
                />
 
 

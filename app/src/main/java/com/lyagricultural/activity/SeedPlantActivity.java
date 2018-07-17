@@ -34,7 +34,7 @@ import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.view.TextSpan;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -366,7 +366,7 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_LAND_SELECT)
-                    .addParams("userId", SpUtils.getSp("userid",this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",this,"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -460,7 +460,7 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ACCOUNT)
-                    .addParams("userId", SpUtils.getSp("userid",this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",this,"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -500,7 +500,7 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_ORDER_CREATE)
-                    .addParams("userId", SpUtils.getSp("userid",SeedPlantActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",SeedPlantActivity.this,"LoginActivity"))
                     .addParams("totalAmt",seed_plant_money_tv.getText().toString())
                     .addParams("payType","ZHYE")
                     .addParams("Remark",seed_plant_remarks_tv.getText().toString())

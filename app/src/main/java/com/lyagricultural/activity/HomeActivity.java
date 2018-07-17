@@ -19,19 +19,16 @@ import com.lyagricultural.fragment.LandFragment;
 import com.lyagricultural.fragment.ShopFragment;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.tongguan.yuanjian.family.Utils.PersonManager;
 import com.tongguan.yuanjian.family.Utils.RequestCallback;
 import com.tongguan.yuanjian.family.Utils.req.LoginRequest;
-import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -167,8 +164,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                     LyLog.i(TAG,"在线视频登录结果 = "+result);
                     if (result!=0){
 //                        int loginHandle = PersonManager.getPersonManager().getLoginHandle();
-                        SpUtils.removeSharedPreference("loginHandle",HomeActivity.this,"HomeActivity");
-                        SpUtils.saveSp("loginHandle",String.valueOf(result),HomeActivity.this,"HomeActivity");
+                        SpSimpleUtils.removeSharedPreference("loginHandle",HomeActivity.this,"HomeActivity");
+                        SpSimpleUtils.saveSp("loginHandle",String.valueOf(result),HomeActivity.this,"HomeActivity");
                     }
                 }
             });

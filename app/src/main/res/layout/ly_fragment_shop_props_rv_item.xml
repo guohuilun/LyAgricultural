@@ -17,6 +17,7 @@
        android:id="@+id/shop_props_rv_iv"
         android:layout_width="@dimen/x27"
         android:layout_height="@dimen/y16"
+        android:scaleType="fitXY"
         />
     </RelativeLayout>
 

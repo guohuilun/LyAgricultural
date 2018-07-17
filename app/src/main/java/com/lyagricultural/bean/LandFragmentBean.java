@@ -6,11 +6,10 @@ import java.util.List;
  * 作者Administrator on 2018/7/5 0005 15:29
  */
 public class LandFragmentBean {
-
     /**
      * Status : OK
      * Msg : 执行成功
-     * laninfo : [{"goodsId":"201806130419420A0933F650410E9FF58AA0CAA600A3","landNme":"001土地","landImg":"/upload/GOODS/Image/201806131619559147.jpg","endDt":"2019/7/2 17:14:28","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0"},{"goodsId":"20180702054834053850E6AB4F39AC8625414B885972","landNme":"003土地","landImg":"","endDt":"2019/7/3 10:08:10","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0"},{"goodsId":"20180702054834053850E6AB4F39AC8625414B885972","landNme":"003土地","landImg":"","endDt":"2019/7/3 10:09:26","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0"},{"goodsId":"201807031136938CE993F4E04DE3B2B1CCEFD9342A50","landNme":"璧山上的土地","landImg":"","endDt":"2019/7/5 16:07:43","landArea":"400.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0"}]
+     * laninfo : [{"goodsId":"201806130419420A0933F650410E9FF58AA0CAA600A3","landNme":"001土地","landImg":"/upload/GOODS/Image/201806131619559147.jpg","endDt":"2019/7/2 17:14:28","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0","landCde":""},{"goodsId":"20180702054834053850E6AB4F39AC8625414B885972","landNme":"003土地","landImg":"","endDt":"2019/7/3 10:08:10","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0","landCde":""},{"goodsId":"20180702054834053850E6AB4F39AC8625414B885972","landNme":"003土地","landImg":"","endDt":"2019/7/3 10:09:26","landArea":"60.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0","landCde":""},{"goodsId":"201807031136938CE993F4E04DE3B2B1CCEFD9342A50","landNme":"璧山上的土地","landImg":"","endDt":"2019/7/5 16:07:43","landArea":"400.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0","landCde":""},{"goodsId":"201807031031261C391AB7764004AC1D8D68E223D41C","landNme":"005土地","landImg":"","endDt":"2019/7/6 15:31:38","landArea":"200.00","useArea":"0","cropType":"0","cropNum":"0","isNew":"0","landCde":""}]
      */
 
     private String Status;
@@ -52,6 +51,7 @@ public class LandFragmentBean {
          * cropType : 0
          * cropNum : 0
          * isNew : 0
+         * landCde :
          */
 
         private String goodsId;
@@ -63,6 +63,7 @@ public class LandFragmentBean {
         private String cropType;
         private String cropNum;
         private String isNew;
+        private String landCde;
 
         public String getGoodsId() {
             return goodsId;
@@ -134,6 +135,14 @@ public class LandFragmentBean {
 
         public void setIsNew(String isNew) {
             this.isNew = isNew;
+        }
+
+        public String getLandCde() {
+            return landCde;
+        }
+
+        public void setLandCde(String landCde) {
+            this.landCde = landCde;
         }
     }
 }

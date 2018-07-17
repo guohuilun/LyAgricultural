@@ -78,7 +78,6 @@ public class LandNameActivity extends BaseActivity implements View.OnClickListen
         land_name_rent_button=findViewById(R.id.land_name_rent_button);
         land_name_rent_button.setOnClickListener(this);
         initLandName();
-        setBanner();
     }
 
     @Override
@@ -135,11 +134,12 @@ public class LandNameActivity extends BaseActivity implements View.OnClickListen
                             Gson gson=new Gson();
                             ShopDetailBean parse=gson.fromJson(response,ShopDetailBean.class);
                             if ("OK".equals(parse.getStatus())){
-                                if (parse.getImglist().size()>0){
+                                if (parse.getImglist().size()>0&&parse.getImglist()!=null){
                                     ImageGoodData.clear();
                                     for (int i = 0; i <parse.getImglist().size() ; i++) {
                                         ImageGoodData.add(parse.getImglist().get(i).getImgUrl());
                                     }
+                                    setBanner();
                                 }
                                  nme = parse.getGoods().getNme();
                                 area = parse.getGoods().getArea();

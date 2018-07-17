@@ -22,7 +22,7 @@ import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
@@ -83,7 +83,7 @@ public class AccountAddressActivity extends BaseActivity  implements View.OnClic
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ADDRESS)
-                    .addParams("userId", SpUtils.getSp("userid",AccountAddressActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountAddressActivity.this,"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -116,7 +116,7 @@ public class AccountAddressActivity extends BaseActivity  implements View.OnClic
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ADDRESS_UPDATE)
                     .addParams("adId",adId)
-                    .addParams("userId", SpUtils.getSp("userid",AccountAddressActivity.this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",AccountAddressActivity.this,"LoginActivity"))
                     .addParams("adNme",adNme)
                     .addParams("adPhone",adPhone)
                     .addParams("proNme",proNme)

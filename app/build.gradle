@@ -102,5 +102,7 @@ dependencies {
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     // AndPermission权限
     implementation 'com.yanzhenjie:permission:2.0.0-rc11'
+    // PictureSelector 图片视频选择控件
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 
 }

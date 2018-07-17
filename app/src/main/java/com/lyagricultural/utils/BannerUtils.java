@@ -29,8 +29,8 @@ public class BannerUtils {
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             try{
                 //Picasso 加载图片简单用法
-                RequestOptions options=new RequestOptions();
-                options.placeholder(R.drawable.empty);
+                RequestOptions options=new RequestOptions()
+                        .placeholder(R.drawable.empty);
                 Glide.with(context).load(path)
                         .apply(options)
                         .into(imageView);

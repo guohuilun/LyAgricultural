@@ -31,6 +31,7 @@ public abstract class BaseActivity extends FragmentActivity {
     protected Context baseContext;
 
     private ViewFlipper mContentView;
+    protected View  status_bar_view;
     protected RelativeLayout mHeadLayout;
     protected TextView mTitle;
     protected RelativeLayout mRlLeft;
@@ -54,6 +55,7 @@ public abstract class BaseActivity extends FragmentActivity {
     private void initView(){
 //     初始化公共头部
         mContentView=super.findViewById(R.id.layout_container);
+        status_bar_view=super.findViewById(R.id.status_bar_view);
         mHeadLayout=super.findViewById(R.id.layout_head);
         mTitle=super.findViewById(R.id.title_center);
         mRlLeft=super.findViewById(R.id.title_left);
@@ -234,9 +236,11 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected void setImmersionBar(){
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
+      /*  mImmersionBar
+                .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
                 .statusBarColor(R.color.ly_activity_tx_color)
-                .init();
+                .init();*/
+        mImmersionBar.statusBarView(status_bar_view).init();
     }
 
 

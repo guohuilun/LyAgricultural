@@ -19,6 +19,7 @@
             android:layout_width="@dimen/x27"
             android:layout_height="@dimen/y14"
             android:background="@drawable/ly_fragment_land_rv_item_fl"
+            android:scaleType="fitXY"
             />
 
         <RelativeLayout

@@ -74,7 +74,7 @@ public class SeedVegetableNameActivity extends BaseActivity implements View.OnCl
         seed_vegetable_name_add_button=findViewById(R.id.seed_vegetable_name_add_button);
         seed_vegetable_name_add_button.setOnClickListener(this);
         initSeedVegetableName();
-        setBanner();
+
     }
 
     @Override
@@ -132,11 +132,12 @@ public class SeedVegetableNameActivity extends BaseActivity implements View.OnCl
                                  price = parse.getGoods().getPrice();
                                  area = parse.getGoods().getArea();
 
-                                if (parse.getImglist().size()>0){
+                                if (parse.getImglist().size()>0&&parse.getImglist()!=null){
                                     ImageGoodData.clear();
                                     for (int i = 0; i <parse.getImglist().size() ; i++) {
                                         ImageGoodData.add(parse.getImglist().get(i).getImgUrl());
                                     }
+                                    setBanner();
                                 }
 
                                 seed_vegetable_name_introduce_tv.setText(parse.getGoods().getRemark());

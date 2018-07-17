@@ -63,7 +63,7 @@ public class ShopPropsFragment extends Fragment {
         initShopProps();
         initShopPropsImg();
         setPropsGoodsRv();
-        setBanner();
+
 //        setPropsRv();
     }
 
@@ -148,7 +148,7 @@ public class ShopPropsFragment extends Fragment {
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_IMG_LIST)
-                    .addParams("AdCid","Home_Index_Image")
+                    .addParams("AdCid","Shop_Prop")
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -162,9 +162,12 @@ public class ShopPropsFragment extends Fragment {
                             Gson gson=new Gson();
                             ImageBean parse=gson.fromJson(response,ImageBean.class);
                             if ("OK".equals(parse.getStatus())){
-                                ImageGoodData.clear();
-                                for (int i = 0; i <parse.getImagelist().size() ; i++) {
-                                    ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                if (parse.getImagelist().size()>0&&parse.getImagelist()!=null){
+                                    ImageGoodData.clear();
+                                    for (int i = 0; i <parse.getImagelist().size() ; i++) {
+                                        ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                    }
+                                    setBanner();
                                 }
                             }
                         }

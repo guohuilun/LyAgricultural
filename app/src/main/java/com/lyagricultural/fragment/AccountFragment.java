@@ -21,16 +21,12 @@ import com.lyagricultural.activity.AccountPersonalActivity;
 import com.lyagricultural.activity.AccountRechargeActivity;
 import com.lyagricultural.activity.AccountSeedOutActivity;
 import com.lyagricultural.bean.DefaultBean;
-import com.lyagricultural.bean.ShopSeedBean;
 import com.lyagricultural.constant.AppConstant;
-import com.lyagricultural.gen.ShopSeedDao;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
-
-import java.util.List;
 
 import okhttp3.Call;
 
@@ -116,7 +112,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ACCOUNT)
-                    .addParams("userId", SpUtils.getSp("userid",getActivity(),"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",getActivity(),"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override

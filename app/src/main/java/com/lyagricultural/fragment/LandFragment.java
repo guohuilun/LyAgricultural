@@ -29,25 +29,26 @@ import com.lyagricultural.activity.LandDetailsNameActivity;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.bean.EventBusDefaultBean;
+import com.lyagricultural.bean.ImageBean;
 import com.lyagricultural.bean.LandFragmentBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.permissions.RuntimeRationale;
+import com.lyagricultural.utils.BannerUtils;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.view.TextSpan;
 import com.tongguan.yuanjian.family.Utils.PersonManager;
 import com.tongguan.yuanjian.family.Utils.RequestCallback;
-import com.tongguan.yuanjian.family.Utils.callback.MsgCallBack;
-import com.tongguan.yuanjian.family.Utils.req.BaseRequest;
 import com.tongguan.yuanjian.family.Utils.req.LoginRequest;
-import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.Setting;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
@@ -67,6 +68,7 @@ public class LandFragment extends Fragment{
     private View landView;
     private RelativeLayout land_rv_rl;
     private ImageView land_iv;
+    private Banner land_banner;
     private RecyclerView land_rv;
     private LinearLayout land_ll;
     private TextView land_tv;
@@ -74,8 +76,13 @@ public class LandFragment extends Fragment{
     private  List<LandFragmentBean.LaninfoBean> mList;
     private String LandFragmentInit="";
     private LoginRequest _loginReq =new LoginRequest();
-    private int loginReqResult=0;
+
     private Boolean isLogin=false;
+    private String landName;
+    private String goodsId ;
+    private String endDt ;
+    private List<String> ImageGoodData=new ArrayList<>();
+    private Boolean isShowLand=true;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -90,6 +97,7 @@ public class LandFragment extends Fragment{
     private void initView(){
         land_rv_rl=landView.findViewById(R.id.land_rv_rl);
         land_iv=landView.findViewById(R.id.land_iv);
+        land_banner=landView.findViewById(R.id.land_banner);
         land_rv=landView.findViewById(R.id.land_rv);
         land_ll=landView.findViewById(R.id.land_ll);
         land_tv=landView.findViewById(R.id.land_tv);
@@ -102,8 +110,19 @@ public class LandFragment extends Fragment{
         if (isLogin==false){
             setPermissionUtils();
         }
-        initLandFragment();
-        setLandFragmentRv();
+        if (mList!=null){
+            setLandFragmentRv();
+        }else {
+            mList=new ArrayList<>();
+            initLandFragment("initView");
+            setLandFragmentRv();
+        }
+        if (ImageGoodData.size()>0&&ImageGoodData!=null){
+            setBanner();
+        }else {
+            initLandImg();
+        }
+
 //        setLandRv();
 
 
@@ -122,7 +141,8 @@ public class LandFragment extends Fragment{
     public void onResume() {
         super.onResume();
         if ("LandFragmentInit".equals(LandFragmentInit)){
-             initLandFragment();
+             initLandFragment("onResume");
+             LandFragmentInit="";
         }
     }
 
@@ -133,26 +153,15 @@ public class LandFragment extends Fragment{
             EventBus.getDefault().unregister(this);
         }
 
-        LogoutRequest lr=new LogoutRequest();
-        if (lr!=null){
-            lr.setRequestCallback(new RequestCallback()
-            {
-                @Override
-                public void onPostExecute(int result)
-                {
-                    super.onPostExecute(result);
-                    LyLog.i(TAG,"执行退出登录没 = "+result);
-                }
-            });
-            PersonManager.getPersonManager().doLogout(lr);
-        }
+
     }
 
 
     private void setPermissionUtils(){
         if (AndPermission.hasPermissions(this, Manifest.permission.READ_PHONE_STATE)){
             LyLog.i(TAG,"存在权限");
-            setYJLogin();
+            isLogin=true;
+
         }else {
           requestPermission(Manifest.permission.READ_PHONE_STATE);
         }
@@ -172,7 +181,8 @@ public class LandFragment extends Fragment{
                     @Override
                     public void onAction(List<String> permissions) {
                         LyLog.i(TAG,"获取权限成功");
-                        setYJLogin();
+
+                        isLogin=true;
                     }
                 })
                 .onDenied(new Action<List<String>>() {
@@ -227,7 +237,7 @@ public class LandFragment extends Fragment{
                         LyLog.i(TAG,"用户从设置界面返回");
                         if (AndPermission.hasPermissions(LandFragment.this, Manifest.permission.READ_PHONE_STATE)){
                             LyLog.i(TAG,"重新获取是否存在权限");
-                            setYJLogin();
+//                            setYJLogin("");
                         }else {
                             LyToast.shortToast(getActivity(),"权限未设置完成");
                         }
@@ -241,21 +251,24 @@ public class LandFragment extends Fragment{
     /**
      * 在线视频 登录
      */
-    private void setYJLogin(){
+    private void setYJLogin(String landCde){
         if (Build.VERSION.SDK_INT >=16) {
             _loginReq.setServerIP("ipc.tongguantech.com");
             _loginReq.setServerPort((short) 13000);
-            _loginReq.setUser("CQYCHMGJJZG2071");
-            _loginReq.setPwd("CQYCHMGJJZG2071");
+            _loginReq.setUser(landCde);
+            _loginReq.setPwd(landCde);
             _loginReq.setNodeID(123456789);
             _loginReq.setLoginType(0);
             _loginReq.setRequestCallback(new RequestCallback(){
                 @Override
                 public void onPostExecute(int result) {
                     LyLog.i(TAG,"在线视频登录结果 = "+result);
-                    loginReqResult=result;
-                    if (loginReqResult!=0){
-                        isLogin=true;
+                    if (result!=0){
+                        startActivity(new Intent(getActivity(), LandDetailsNameActivity.class)
+                                .putExtra("landName",landName)
+                                .putExtra("goodsId",goodsId)
+                                .putExtra("endDt",endDt)
+                        );
                     }
                 }
 
@@ -273,11 +286,11 @@ public class LandFragment extends Fragment{
     /**
      *  获取用户土地  -网络请求
      */
-    private void initLandFragment(){
+    private void initLandFragment(final String msg){
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_LAND_SELECT)
-                    .addParams("userId", SpUtils.getSp("userid",getActivity(),"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",getActivity(),"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -287,7 +300,7 @@ public class LandFragment extends Fragment{
 
                         @Override
                         public void onResponse(String response) {
-                            LyLog.i(TAG,"获取用户土地 = " +response);
+                            LyLog.i(TAG,"获取用户土地 = "+msg+" ... " +response);
                             Gson gson=new Gson();
                            LandFragmentBean parse=gson.fromJson(response,LandFragmentBean.class);
                            if ("OK".equals(parse.getStatus())){
@@ -296,6 +309,7 @@ public class LandFragment extends Fragment{
                                 mList.clear();
                                 mList.addAll(parse.getLaninfo());
                                 baseRecyclerAdapter.notifyDataSetChanged();
+                               isShowLand=false;
                            }else {
                                land_ll.setVisibility(View.VISIBLE);
                                land_rv.setVisibility(View.GONE);
@@ -306,7 +320,6 @@ public class LandFragment extends Fragment{
     }
 
     private void setLandFragmentRv(){
-        mList=new ArrayList<>();
         baseRecyclerAdapter=new BaseRecyclerAdapter<LandFragmentBean.LaninfoBean>(getActivity(),mList,R.layout.ly_fragment_land_rv_item) {
             @Override
             public void bindData(BaseRecyclerViewHolder holder, LandFragmentBean.LaninfoBean laninfoBean, int position) {
@@ -330,12 +343,16 @@ public class LandFragment extends Fragment{
                 super.clickEvent(viewId, laninfoBean, position);
                 switch (viewId){
                     case R.id.land_rv_rl:
-                        if (loginReqResult!=0){
-                            startActivity(new Intent(getActivity(), LandDetailsNameActivity.class)
-                            .putExtra("landName",laninfoBean.getLandNme())
-                            .putExtra("goodsId",laninfoBean.getGoodsId())
-                            .putExtra("endDt",laninfoBean.getEndDt())
-                            );
+                        if (isLogin){
+                            landName=laninfoBean.getLandNme();
+                            goodsId=laninfoBean.getGoodsId();
+                            endDt=laninfoBean.getEndDt();
+//                            laninfoBean.setLandCde("CQYCHMGJJZG2071");
+                            if (!"".equals(laninfoBean.getLandCde())){
+                                setYJLogin(laninfoBean.getLandCde());
+                            }else {
+                                LyToast.shortToast(getActivity(),"暂无视频");
+                            }
                         }else {
                             LyToast.shortToast(getActivity(),"请检查权限或者网络。。。。");
                         }
@@ -346,6 +363,49 @@ public class LandFragment extends Fragment{
         land_rv.setAdapter(baseRecyclerAdapter);
     }
 
+
+    private void setBanner(){
+        land_banner.setDelayTime(3000)
+                .setImages(ImageGoodData)
+                .setImageLoader(new BannerUtils.GlideImageLoader())
+                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+                .setIndicatorGravity(BannerConfig.CENTER)
+                .start();
+    }
+
+    /**
+     *  获取商品  -土地图片 -网络请求
+     */
+    private void initLandImg(){
+        if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
+            LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
+            lecoOkHttpUtil.post().url(AppConstant.APP_IMG_LIST)
+                    .addParams("AdCid","Home_Index_Image")
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            LyLog.i(TAG,"图片 = "+response);
+                            Gson gson=new Gson();
+                            ImageBean parse=gson.fromJson(response,ImageBean.class);
+                            if ("OK".equals(parse.getStatus())){
+                                if (parse.getImagelist().size()>0&&parse.getImagelist()!=null){
+                                    ImageGoodData.clear();
+                                    for (int i = 0; i <parse.getImagelist().size() ; i++) {
+                                        ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                    }
+                                    setBanner();
+                                }
+                            }
+                        }
+                    });
+        }
+    }
 
 
 

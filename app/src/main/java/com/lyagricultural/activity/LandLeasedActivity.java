@@ -3,7 +3,6 @@ package com.lyagricultural.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -21,14 +20,13 @@ import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.DefaultBean;
 import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.bean.LandLeasedGoodsPriceBean;
-import com.lyagricultural.bean.LoginActivityBean;
 import com.lyagricultural.cebean.LandFragmentBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.view.TextSpan;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -274,7 +272,7 @@ public class LandLeasedActivity extends BaseActivity implements View.OnClickList
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ACCOUNT)
-                    .addParams("userId", SpUtils.getSp("userid",this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",this,"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override

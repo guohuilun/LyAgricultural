@@ -62,6 +62,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_marginBottom="@dimen/dp_5"
+                android:visibility="invisible"
                 >
                 <TextView
                     android:id="@+id/seed_parcel_money_tv"

@@ -68,4 +68,18 @@ public class AppConstant {
 //    获取历史订单
     public static final String APP_USER_ORDER=BASE_URL+"/AppMall/AppUserOrder";
 
+//    修改用户头像
+    public static final String APP_USER_IMG_UPDATE=BASE_URL+"/AppUser/AppUserImgUpdate";
+
+//    获取用户信息
+    public static final String APP_USER_INFO_SELECT=BASE_URL+"/AppUser/AppUserInfoSelect";
+
+//    获取用户土地历史动态
+    public static final String APP_USER_LAND_LOG_SELECT=BASE_URL+"/AppUser/AppUserLandLogSelect";
+
+//    获取帮助
+    public static final String APP_HELP_SELECT=BASE_URL+"/AppUser/AppHelpSelect";
+
+//    检查充值订单状态
+    public static final String CHECK_PAY_STATUS=BASE_URL+"/AppUser/CheckPayStatus";
 }

@@ -10,13 +10,12 @@ import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.AccountMonetaryDetailsBean;
-import com.lyagricultural.bean.PropGoodsDefaultBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
-import com.lyagricultural.utils.SpUtils;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
@@ -61,7 +60,7 @@ public class AccountMonetaryDetailsActivity extends BaseActivity {
         if (CheckNetworkUtils.checkNetworkAvailable(this)){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_USER_ACCOUNT_SELECT)
-                    .addParams("userId", SpUtils.getSp("userid",this,"LoginActivity"))
+                    .addParams("userId", SpSimpleUtils.getSp("userid",this,"LoginActivity"))
                     .build()
                     .execute(new StringCallback() {
                         @Override

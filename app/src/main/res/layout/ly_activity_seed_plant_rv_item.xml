@@ -22,6 +22,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dp_10"
+            android:visibility="gone"
             >
             <TextView
                 android:id="@+id/seed_plant_rv_item_money_tv"

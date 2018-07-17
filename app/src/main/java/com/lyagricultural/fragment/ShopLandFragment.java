@@ -69,10 +69,10 @@ public class ShopLandFragment extends Fragment {
         shop_land_rv=shopLandView.findViewById(R.id.shop_land_rv);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),3);
         shop_land_rv.setLayoutManager(layoutManager);
-        initShopLand();
+        initShopLand("initView");
         initShopLandImg();
         setLandGoodRv();
-        setBanner();
+
         //        setLandRv();
     }
 
@@ -117,7 +117,7 @@ public class ShopLandFragment extends Fragment {
     /**
      *  获取商品  -土地 -网络请求
      */
-    private void initShopLand(){
+    private void initShopLand(final String msg){
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_GOODS_LIST)
@@ -131,7 +131,7 @@ public class ShopLandFragment extends Fragment {
 
                         @Override
                         public void onResponse(String response) {
-                            LyLog.i(TAG,response);
+                            LyLog.i(TAG,"商品土地 = "+msg+" ... "+response);
                             Gson gson=new Gson();
                             ShopFragmentBean parse=gson.fromJson(response,ShopFragmentBean.class);
                             if ("OK".equals(parse.getStatus())){
@@ -151,7 +151,7 @@ public class ShopLandFragment extends Fragment {
         if (CheckNetworkUtils.checkNetworkAvailable(getActivity())){
             LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
             lecoOkHttpUtil.post().url(AppConstant.APP_IMG_LIST)
-                    .addParams("AdCid","Home_Index_Image")
+                    .addParams("AdCid","Shop_land")
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -165,9 +165,12 @@ public class ShopLandFragment extends Fragment {
                             Gson gson=new Gson();
                             ImageBean parse=gson.fromJson(response,ImageBean.class);
                             if ("OK".equals(parse.getStatus())){
-                                ImageGoodData.clear();
-                                for (int i = 0; i <parse.getImagelist().size() ; i++) {
-                                    ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                if (parse.getImagelist().size()>0&&parse.getImagelist()!=null){
+                                    ImageGoodData.clear();
+                                    for (int i = 0; i <parse.getImagelist().size() ; i++) {
+                                        ImageGoodData.add(parse.getImagelist().get(i).getImgPath());
+                                    }
+                                    setBanner();
                                 }
                             }
                         }
@@ -187,7 +190,8 @@ public class ShopLandFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if ("ShopLandFragmentInit".equals(ShopLandFragmentInit)){
-            initShopLand();
+            initShopLand("onResume");
+            ShopLandFragmentInit="";
         }
     }
 

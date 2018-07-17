@@ -44,10 +44,12 @@ import com.lyagricultural.yuanjian.model.ProjectSetting;
 import com.lyagricultural.yuanjian.model.ToolUtils;
 import com.tongguan.yuanjian.family.Utils.PersonManager;
 import com.tongguan.yuanjian.family.Utils.PlayVideoUtil;
+import com.tongguan.yuanjian.family.Utils.RequestCallback;
 import com.tongguan.yuanjian.family.Utils.callback.CallBackInterface;
 import com.tongguan.yuanjian.family.Utils.constant.ProtocolConstant;
 import com.tongguan.yuanjian.family.Utils.gl2.VideoGlSurfaceView;
 import com.tongguan.yuanjian.family.Utils.req.GetDeviceListRequest;
+import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
 import com.tongguan.yuanjian.family.Utils.req.StreamParams;
 import com.tongguan.yuanjian.family.Utils.service.BaseCallback;
 import com.tongguan.yuanjian.family.Utils.service.MainCallbackImp;
@@ -262,7 +264,9 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         view.findViewById(R.id.land_details_name_pop_history).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LandDetailsNameActivity.this,LandHistoryActivity.class));
+                startActivity(new Intent(LandDetailsNameActivity.this,LandHistoryActivity.class)
+                    .putExtra("goodsId",goodsId)
+                );
                 doStop();
                 popupWindow.dismiss();
             }
@@ -391,6 +395,20 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         PlayVideoUtil.getInstance().stopPlay();
         if (EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().unregister(this);
+        }
+
+        LogoutRequest lr=new LogoutRequest();
+        if (lr!=null){
+            lr.setRequestCallback(new RequestCallback()
+            {
+                @Override
+                public void onPostExecute(int result)
+                {
+                    super.onPostExecute(result);
+                    LyLog.i(TAG,"执行退出登录没 = "+result);
+                }
+            });
+            PersonManager.getPersonManager().doLogout(lr);
         }
     }
 
