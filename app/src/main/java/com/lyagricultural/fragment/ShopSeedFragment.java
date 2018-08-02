@@ -168,7 +168,7 @@ public class ShopSeedFragment extends Fragment implements View.OnTouchListener,V
 
                         @Override
                         public void onResponse(String response) {
-                            LyLog.i(TAG,response);
+                            LyLog.i(TAG,"获取商品 -种子 = "+response);
                             Gson gson=new Gson();
                             ShopFragmentBean parse=gson.fromJson(response,ShopFragmentBean.class);
                             if ("OK".equals(parse.getStatus())){

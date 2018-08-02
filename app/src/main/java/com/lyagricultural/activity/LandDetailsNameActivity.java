@@ -27,14 +27,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.lyagricultural.R;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
+import com.lyagricultural.bean.AccountOrderBean;
+import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.bean.EventBusLandDetailsBean;
+import com.lyagricultural.bean.LandDetailsNameSelectBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
+import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.fragment.LandDialogFragment;
+import com.lyagricultural.http.LecoOkHttpUtil;
+import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.WidthUtils;
 import com.lyagricultural.view.TextSpan;
 import com.lyagricultural.yuanjian.activity.BaseYuanJianActivity;
@@ -53,6 +61,7 @@ import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
 import com.tongguan.yuanjian.family.Utils.req.StreamParams;
 import com.tongguan.yuanjian.family.Utils.service.BaseCallback;
 import com.tongguan.yuanjian.family.Utils.service.MainCallbackImp;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -61,6 +70,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 /**
  * 作者Administrator on 2018/5/29 0029 13:39
@@ -88,6 +99,12 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     private String landName;
     private String goodsId ;
     private String endDt ;
+
+    private LinearLayout ly_land_details_seed_ll;
+
+    private BaseRecyclerAdapter<LandDetailsNameSelectBean.CropinfoBean> cropinfoBeanBaseRecyclerAdapter;
+    private List<LandDetailsNameSelectBean.CropinfoBean> mCropInfoBeanList;
+    private List<LandDetailsNameSelectBean.CropinfoBean> mCropInfoEventBeanList=new ArrayList<>();
 
 //     在线视频开始
     private long nid;
@@ -155,6 +172,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         land_details_tv= (TextView) findViewById(R.id.land_details_tv);
         ly_land_details_content_ll=findViewById(R.id.ly_land_details_content_ll);
         bottom_rl=findViewById(R.id.bottom_rl);
+        ly_land_details_seed_ll=findViewById(R.id.ly_land_details_seed_ll);
 
         initPlay();
 
@@ -164,13 +182,16 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         land_details_tv.setText(spannableDetailsTv);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(this,5);
         land_details_rv.setLayoutManager(layoutManager);
-        setLandRv();
+//        setLandRv();
         landDialogFragment=new LandDialogFragment();
         ly_land_details_weed_ll.setOnClickListener(this);
         ly_land_details_watering_ll.setOnClickListener(this);
         ly_land_details_fertilizer_ll.setOnClickListener(this);
         ly_land_details_insect_pest_ll.setOnClickListener(this);
         ly_land_details_collect_goods_ll.setOnClickListener(this);
+        ly_land_details_seed_ll.setOnClickListener(this);
+
+        setMLandRv();
     }
 
 
@@ -248,6 +269,34 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
             case R.id.ly_land_details_insect_pest_ll:
                 break;
             case R.id.ly_land_details_collect_goods_ll:
+//                if ("".equals(vegetable)){
+//                    LyToast.shortToast(this,"请选择某项土地作物");
+//                    return;
+//                }
+//                Bundle bundleOne=new Bundle();
+//                bundleOne.putString("vegetable",vegetable);
+//                bundleOne.putInt("vegetableIv",vegetableIv);
+//                landDialogFragment.setArguments(bundleOne);
+//                landDialogFragment.show(getFragmentManager(),"LandDialogFragmentWeed");
+                mCropInfoEventBeanList.clear();
+                for (int i = 0; i <mCropInfoBeanList.size() ; i++) {
+                    if (mCropInfoBeanList.get(i).getShow()){
+                        mCropInfoEventBeanList.add(mCropInfoBeanList.get(i));
+                    }
+                }
+                LyLog.i(TAG,"这里面的数量是多少 = "+mCropInfoEventBeanList.size());
+                if (mCropInfoEventBeanList.size()==0){
+                    LyToast.shortToast(this,"请选择某项土地作物");
+                    return;
+                }else {
+                    EventBus.getDefault().postSticky(mCropInfoEventBeanList);
+                    startActivity(new Intent(LandDetailsNameActivity.this,LandHarvestActivity.class));
+                    doStop();
+                }
+                break;
+            case R.id.ly_land_details_seed_ll:
+                EventBus.getDefault().post(new EventBusDefaultBean("ShopFragmentSwitch"));
+                finish();
                 break;
         }
     }
@@ -358,8 +407,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         layout_head_o=findViewById(R.id.layout_head_o);
         title_center_o=findViewById(R.id.title_center_o);
         title_left_o=findViewById(R.id.title_left_o);
-        title_center_o.setText("土地名称");
-
+        title_center_o.setText(landName);
         surface.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);   //不缓冲
         surface.getHolder().setKeepScreenOn(true);   //保持屏幕高亮
         play_suspensionRl.setOnClickListener(this);
@@ -424,6 +472,8 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
            name = bean.getName();
            doplay();
            setTitle(name);
+       }else if ("seedOut".equals(bean.getMsgLand())){
+           finish();
        }
 
     }
@@ -667,6 +717,85 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
      * 在线视频结束
      */
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initLandCropSelect();
+//        setMLandRv();
+    }
+
+    /**
+     *  获取土地作物   -网络请求
+     */
+    private void initLandCropSelect(){
+        if (CheckNetworkUtils.checkNetworkAvailable(this)){
+            LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
+            lecoOkHttpUtil.post().url(AppConstant.APP_USER_LAND_CROP_SELECT)
+                    .addParams("landId", goodsId)
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            LyLog.e(TAG,e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            LyLog.i(TAG,"获取土地作物 = " +response);
+                            Gson gson=new Gson();
+                            LandDetailsNameSelectBean parse=gson.fromJson(response,LandDetailsNameSelectBean.class);
+                            if ("OK".equals(parse.getStatus())) {
+                                mCropInfoBeanList.clear();
+                                mCropInfoBeanList.addAll(parse.getCropinfo());
+                                cropinfoBeanBaseRecyclerAdapter.notifyDataSetChanged();
+                            }
+                        }
+                    });
+        }
+    }
+
+
+    private void setMLandRv(){
+        mCropInfoBeanList=new ArrayList<>();
+        cropinfoBeanBaseRecyclerAdapter=new BaseRecyclerAdapter<LandDetailsNameSelectBean.CropinfoBean>
+                (this,mCropInfoBeanList,R.layout.ly_activity_land_details_name_rv_item) {
+            @Override
+            public void bindData(BaseRecyclerViewHolder holder, LandDetailsNameSelectBean.CropinfoBean cropinfoBean, int position) {
+                holder.setClick(R.id.land_details_name_ll,cropinfoBean,position,cropinfoBeanBaseRecyclerAdapter);
+                holder.setImg(LandDetailsNameActivity.this,cropinfoBean.getCropImg(),R.id.land_details_name_rv_iv);
+                holder.setTxt(R.id.land_details_name_rv_tv,cropinfoBean.getCropNme()+"("+cropinfoBean.getCropNum()+")");
+                holder.setTxt(R.id.land_details_name_rv_tv_o,cropinfoBean.getCropType());
+
+                if (!isCheckShow){
+                    holder.setCheck(R.id.land_details_name_rv_cb,false);
+                }else {
+                    if (cropinfoBean.getShow()){
+                        holder.setCheck(R.id.land_details_name_rv_cb,true);
+                        cropinfoBean.setShow(true);
+                    }else {
+                        holder.setCheck(R.id.land_details_name_rv_cb,false);
+                        cropinfoBean.setShow(false);
+                    }
+                }
+            }
+
+            @Override
+            public void clickEvent(int viewId, LandDetailsNameSelectBean.CropinfoBean cropinfoBean, int position) {
+                super.clickEvent(viewId, cropinfoBean, position);
+                switch (viewId){
+                    case R.id.land_details_name_ll:
+                        isCheckShow=true;
+                        cropinfoBean.setShow(!cropinfoBean.getShow());
+                        notifyDataSetChanged();
+                        break;
+                }
+            }
+        };
+
+        land_details_rv.setAdapter(cropinfoBeanBaseRecyclerAdapter);
+    }
+
     private void setLandRv(){
         baseRecyclerAdapter=new BaseRecyclerAdapter<LandDetailsNameBean>(this,getLandRv(),R.layout.ly_activity_land_details_name_rv_item) {
             @Override
@@ -680,7 +809,17 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                 if (!isCheckShow){
                     holder.setCheck(R.id.land_details_name_rv_cb,false);
                 }else {
-                    if (isCheckShowPosition==position){
+                    if (landDetailsNameBean.getShow()){
+                        holder.setCheck(R.id.land_details_name_rv_cb,true);
+                        vegetable=landDetailsNameBean.getLand_details_name_rv_tv();
+                        vegetableIv=landDetailsNameBean.getLand_details_name_rv_iv();
+                        landDetailsNameBean.setShow(true);
+                    }else {
+                        holder.setCheck(R.id.land_details_name_rv_cb,false);
+                        vegetable="";
+                        landDetailsNameBean.setShow(false);
+                    }
+                   /* if (isCheckShowPosition==position){
                         if (landDetailsNameBean.getShow()){
                             holder.setCheck(R.id.land_details_name_rv_cb,true);
                             vegetable=landDetailsNameBean.getLand_details_name_rv_tv();
@@ -694,7 +833,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                     }else {
                         landDetailsNameBean.setShow(false);
                         holder.setCheck(R.id.land_details_name_rv_cb,false);
-                    }
+                    }*/
                 }
 
 
@@ -706,7 +845,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                 switch (viewId){
                     case R.id.land_details_name_ll:
                         isCheckShow=true;
-                        isCheckShowPosition=position;
+//                        isCheckShowPosition=position;
                         landDetailsNameBean.setShow(!landDetailsNameBean.getShow());
                         notifyDataSetChanged();
                         break;

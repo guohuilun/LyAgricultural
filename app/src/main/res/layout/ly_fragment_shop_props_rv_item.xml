@@ -61,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/ly_activity_tx_color"
-                android:text="100"
-                android:textSize="@dimen/sp_10"
+                android:text="100.00"
+                android:textSize="@dimen/sp_8"
                 android:gravity="center"
                 />
 
@@ -77,8 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/ly_activity_tx_color"
-                android:text="/粒"
-                android:textSize="@dimen/sp_10"
+                android:text="/次"
+                android:textSize="@dimen/sp_8"
                 android:gravity="center"
                 />
 
@@ -91,7 +91,7 @@
             android:layout_height="match_parent"
             android:textColor="@color/ly_fragment_shop_props_rv_describe_tv_color"
             android:text="提供一次除草"
-            android:textSize="@dimen/sp_8"
+            android:textSize="@dimen/sp_6"
              android:layout_alignParentRight="true"
             android:gravity="center"
             />

@@ -274,6 +274,47 @@
             android:layout_marginRight="@dimen/dp_10"
             ></View>
 
+        <RelativeLayout
+            android:id="@+id/account_personal_code_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y7"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的邀请码"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                />
+
+            <TextView
+                android:id="@+id/account_personal_code_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/ly_activity_account_order_tv_color"
+                android:textSize="@dimen/sp_14"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:textIsSelectable="true"
+                />
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            ></View>
 
     </LinearLayout>
 

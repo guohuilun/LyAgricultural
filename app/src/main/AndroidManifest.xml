@@ -93,7 +93,39 @@
             android:screenOrientation="portrait"
             ></activity>
 
+        <activity android:name=".activity.LandHarvestActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandSelectAddressActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.LandHarvestSuccessActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
         <!--土地结束-->
+
+        <!--养殖开始-->
+
+        <activity android:name=".activity.BreedHiveActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveNameActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveCameraListActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveHistoryActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!--养殖结束-->
 
         <!--商店-土地库开始-->
 
@@ -130,6 +162,7 @@
 
         <activity android:name=".activity.SeedVegetableNameActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             ></activity>
 
         <activity android:name=".activity.SeedParcelActivity"
@@ -230,7 +263,7 @@
         <!--&lt;!&ndash; 渠道统计报表位于控制台页面的 “统计”-“用户统计”-“渠道分布” 中&ndash;&gt;-->
         <!--<meta-data android:name="JPUSH_CHANNEL" tools:replace="android:value" android:value="developer-default"/>-->
         <!--&lt;!&ndash; Required. AppKey copied from Portal &ndash;&gt;-->
-        <!--<meta-data android:name="JPUSH_APPKEY" android:value="86d60b4a0f0dfea596d7b0b3"/>-->
+        <!--<meta-data android:name="JPUSH_APPKEY" android:value="69163c2a74447e50a830be1f"/>-->
 
         <!--极光推送结束-->
 

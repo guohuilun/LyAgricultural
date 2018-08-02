@@ -14,6 +14,11 @@ import android.widget.TextView;
 
 import com.lyagricultural.R;
 import com.lyagricultural.adapter.ShopFragmentAdapter;
+import com.lyagricultural.bean.EventBusDefaultBean;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +46,9 @@ public class ShopFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         shopView=inflater.inflate(R.layout.ly_fragment_shop,null);
         initView();
+        if (!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
         return shopView;
     }
 
@@ -182,7 +190,27 @@ public class ShopFragment extends Fragment implements View.OnClickListener{
     }
 
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void sentParsms(EventBusDefaultBean bean) {//此方法类似于广播，任何地方都可以传递
+        if ("ShopFragmentSwitch".equals(bean.getMsg())){
+            setColor(1);
+            setImage(1);
+            shop_vp.setCurrentItem(1);
+        }else if ("ShopFragmentSwitchLand".equals(bean.getMsg())){
+            setColor(0);
+            setImage(0);
+            shop_vp.setCurrentItem(0);
+        }
+    }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }
+    }
 
 
 }

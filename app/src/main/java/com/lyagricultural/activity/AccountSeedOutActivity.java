@@ -10,6 +10,7 @@ import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.cebean.LandDetailsNameBean;
+import com.lyagricultural.utils.LyToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,8 @@ public class AccountSeedOutActivity extends BaseActivity {
         account_seed_out_rv=findViewById(R.id.account_seed_out_rv);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
         account_seed_out_rv.setLayoutManager(layoutManager);
-        setLandRv();
+        LyToast.shortToast(this,"暂无派送信息");
+//        setLandRv();
     }
 
     private void setLandRv(){

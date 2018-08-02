@@ -168,6 +168,22 @@ public class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder  {
         mAmountView.setListener(listener);
     }
 
+
+    public void setAmountEditViewTxt(int viewId,int v){
+        AmountView mAmountView=itemView.findViewById(viewId);
+        mAmountView.setAmount(v);
+    }
+
+    public void setAmountEditViewAllTxt(int viewId,int v){
+        com.lyagricultural.view.amount.AmountView mAmountView=itemView.findViewById(viewId);
+        mAmountView.setGoods_storage(v);
+    }
+
+    public void setAmountEditViewListener(int viewId,com.lyagricultural.view.amount.AmountView.OnAmountChangeListener listener){
+        com.lyagricultural.view.amount.AmountView mAmountView=itemView.findViewById(viewId);
+        mAmountView.setOnAmountChangeListener(listener);
+    }
+
     public void setCheckBockListener(int viewId,CheckBox.OnCheckedChangeListener listener){
         CheckBox checkBox= (CheckBox) itemView.findViewById(viewId);
         checkBox.setOnCheckedChangeListener(listener);

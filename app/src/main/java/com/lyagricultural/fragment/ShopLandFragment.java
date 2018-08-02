@@ -42,7 +42,7 @@ import okhttp3.Call;
  * 作者Administrator on 2018/5/22 0022 12:27
  */
 public class ShopLandFragment extends Fragment {
-    private static final String TAG = "ShopLandFragment";
+    private static final String TAG = "SLFragment";
     private View shopLandView;
     private Banner shop_land_banner;
     private RecyclerView shop_land_rv;
@@ -57,10 +57,10 @@ public class ShopLandFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         shopLandView=inflater.inflate(R.layout.ly_fragment_shop_land,null);
+        initView();
         if (!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
-        initView();
         return shopLandView;
     }
 
@@ -138,6 +138,9 @@ public class ShopLandFragment extends Fragment {
                                 mGoodsList.clear();
                                 mGoodsList.addAll(parse.getGoodslist());
                                 brGoodsAdapter.notifyDataSetChanged();
+                            }else {
+                                mGoodsList.clear();
+                                brGoodsAdapter.notifyDataSetChanged();
                             }
                         }
                     });
@@ -189,9 +192,26 @@ public class ShopLandFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        LyLog.i(TAG,"onResume");
         if ("ShopLandFragmentInit".equals(ShopLandFragmentInit)){
             initShopLand("onResume");
             ShopLandFragmentInit="";
+        }
+    }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            LyLog.i(TAG,"isVisibleToUser = true");
+            //相当于Fragment的onResume
+            if (getActivity()!=null){
+                initShopLand("setUserVisibleHint");
+            }
+
+        } else {
+            //相当于Fragment的onPause
         }
     }
 

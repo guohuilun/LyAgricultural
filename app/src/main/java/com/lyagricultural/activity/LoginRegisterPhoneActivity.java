@@ -28,7 +28,9 @@ public class LoginRegisterPhoneActivity extends BaseActivity  implements View.On
     private static final String TAG = "LoginRegisterPhoneActivity";
     private EditText login_register_phone_et;
     private EditText login_register_phone_password_et;
+    private EditText login_register_phone_invitation_code_et;
     private Button login_register_phone_complete_button;
+    private String code="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class LoginRegisterPhoneActivity extends BaseActivity  implements View.On
     private void initView(){
         login_register_phone_et=findViewById(R.id.login_register_phone_et);
         login_register_phone_password_et=findViewById(R.id.login_register_phone_password_et);
+        login_register_phone_invitation_code_et=findViewById(R.id.login_register_phone_invitation_code_et);
         login_register_phone_complete_button=findViewById(R.id.login_register_phone_complete_button);
         login_register_phone_complete_button.setOnClickListener(this);
     }
@@ -69,6 +72,8 @@ public class LoginRegisterPhoneActivity extends BaseActivity  implements View.On
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.login_register_phone_complete_button:
+                int num = (int) ((Math.random() * 9 + 1) * 100000);
+                LyLog.i(TAG,"随机数 = "+num);
                 if ("".equals(login_register_phone_et.getText().toString().trim())){
                     LyToast.shortToast(this,"输入手机号不能为空");
                     return;
@@ -78,9 +83,11 @@ public class LoginRegisterPhoneActivity extends BaseActivity  implements View.On
                     LyToast.shortToast(this,"输入密码不能为空");
                     return;
                 }
+                code=login_register_phone_invitation_code_et.getText().toString().trim();
+                LyLog.i(TAG,"邀请码的值 = "+code);
                 initLoginRegister(login_register_phone_et.getText().toString().trim(),
                         login_register_phone_password_et.getText().toString().trim(),
-                        "Phone","张三","0");
+                        "Phone","android用户"+num,"0");
                 break;
         }
     }
@@ -97,6 +104,7 @@ public class LoginRegisterPhoneActivity extends BaseActivity  implements View.On
                     .addParams("LoginType",LoginType)
                     .addParams("UserName",UserName)
                     .addParams("UserSex",UserSex)
+                    .addParams("OtherInCode",code)
                     .build()
                     .execute(new StringCallback() {
                         @Override

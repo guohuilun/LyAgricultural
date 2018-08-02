@@ -21,6 +21,7 @@ import com.lyagricultural.bean.ShopSeedAddBean;
 import com.lyagricultural.bean.ShopSeedBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.gen.ShopSeedDao;
+import com.lyagricultural.utils.Arith;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
 import com.lyagricultural.view.AmountView;
@@ -215,10 +216,12 @@ public class SeedParcelActivity extends BaseActivity implements View.OnClickList
                 holder.setAmountViewListener(R.id.seed_parcel_rv_item_av, new AmountView.OnAmountChangeListener() {
                     @Override
                     public void onAmountChange(View view, int amount) {
-                        tip= Double.parseDouble(shopSeedBean.getTip()) * amount;
-                        holder.setTxt(R.id.seed_parcel_rv_item_area_covered_tv,"占地面积:"+tip+"m");
-                        price = Double.parseDouble(shopSeedBean.getPrice()) * amount;
-                        holder.setTxt(R.id.shop_land_rv_number_tv,price+"");
+                        tip = Arith.mul(Double.parseDouble(shopSeedBean.getTip()), (double) amount);
+//                        tip= Double.parseDouble(shopSeedBean.getTip()) * amount;
+                        holder.setTxt(R.id.seed_parcel_rv_item_area_covered_tv,"占地面积:"+String.valueOf(tip)+"m");
+                        price=Arith.mul(Double.parseDouble(shopSeedBean.getPrice()), (double) amount);
+//                        price = Double.parseDouble(shopSeedBean.getPrice()) * amount;
+                        holder.setTxt(R.id.shop_land_rv_number_tv,String.valueOf(price));
                         isShow=true;
                         shopSeedBean.setCount(amount);
 //                        shopSeedBean.setPrice(shopSeedBean.getPrice());
@@ -326,7 +329,8 @@ public class SeedParcelActivity extends BaseActivity implements View.OnClickList
                       mSeedList.get(i).setCount(1);
                   }
                   allCount++;
-                  allPrice += Double.parseDouble(mSeedList.get(i).getPrice()) * mSeedList.get(i).getCount();
+                  allPrice +=Arith.mul(Double.parseDouble(mSeedList.get(i).getPrice()), (double) mSeedList.get(i).getCount());
+//                  allPrice += Double.parseDouble(mSeedList.get(i).getPrice()) * mSeedList.get(i).getCount();
 
 //                  LyLog.i(TAG,"在哪里 = "+i+" 数量 "+mSeedList.get(i).getCount()+" 价钱 "+ mSeedList.get(i).getPrice()+" 总价 "+allPrice);
               }
@@ -352,14 +356,14 @@ public class SeedParcelActivity extends BaseActivity implements View.OnClickList
                 holder.setBgResource(R.id.seed_parcel_rv_item_iv,landDetailsNameBean.getLand_details_name_rv_iv());
                 holder.setTxt(R.id.seed_parcel_rv_item_name_tv,landDetailsNameBean.getLand_details_name_rv_tv());
                 holder.setTxt(R.id.seed_parcel_rv_item_area_covered_tv,landDetailsNameBean.getLand_details_name_rv_tv_o());
-                holder.setAmountViewTxt(R.id.seed_parcel_rv_item_av,landDetailsNameBean.getLand_details_name_rv_o_iv());
+              /*  holder.setAmountViewTxt(R.id.seed_parcel_rv_item_av,landDetailsNameBean.getLand_details_name_rv_o_iv());
                 holder.setAmountViewAllTxt(R.id.seed_parcel_rv_item_av,landDetailsNameBean.getLand_details_name_rv_t_iv());
                 holder.setAmountViewListener(R.id.seed_parcel_rv_item_av, new AmountView.OnAmountChangeListener() {
                     @Override
                     public void onAmountChange(View view, int amount) {
 
                     }
-                });
+                });*/
             }
 
 

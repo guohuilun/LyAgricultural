@@ -1,11 +1,14 @@
 package com.lyagricultural.activity;
 
 import android.app.Dialog;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -52,6 +55,7 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
     private TextView account_personal_phone_tv;
     private RelativeLayout account_personal_wei_xin_rl;
     private TextView account_personal_wei_xin_tv;
+    private TextView account_personal_code_tv;
     private RelativeLayout bottom_rl;
     private ImageView account_personal_head_more_iv;
     private Bitmap bitmap;
@@ -74,11 +78,22 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
         account_personal_phone_tv=findViewById(R.id.account_personal_phone_tv);
         account_personal_wei_xin_rl=findViewById(R.id.account_personal_wei_xin_rl);
         account_personal_wei_xin_tv=findViewById(R.id.account_personal_wei_xin_tv);
+        account_personal_code_tv=findViewById(R.id.account_personal_code_tv);
         bottom_rl=findViewById(R.id.bottom_rl);
         account_personal_head_more_iv=findViewById(R.id.account_personal_head_more_iv);
         account_personal_head_rl.setOnClickListener(this);
         bottom_rl.setOnClickListener(this);
         initUserInfoSelect();
+        account_personal_code_tv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager cm =(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setText(account_personal_code_tv.getText().toString());
+                LyToast.shortToast(AccountPersonalActivity.this,"已复制");
+                //ToastUtil.toastSth(getContext() , "订单号已复制到剪切板，快去粘贴吧~");
+                return false;
+            }
+        });
     }
 
 
@@ -219,6 +234,7 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
                                 }else {
                                     account_personal_wei_xin_tv.setText(parse.getUserinfo().getLoginWx());
                                 }
+                                account_personal_code_tv.setText(parse.getUserinfo().getInCode());
                             }
 
                         }

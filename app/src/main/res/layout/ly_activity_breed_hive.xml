@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6"
+        android:background="@color/white"
+        >
+
+
+     <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent">
+
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="区域"
+             android:textSize="@dimen/sp_16"
+             android:textColor="@color/ly_activity_tv_color"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="@dimen/dp_10"
+             />
+
+     </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/breed_hive_button"
+            android:layout_width="@dimen/x24"
+            android:layout_height="@dimen/y4"
+            android:text="我的蜂箱"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/ly_activity_breed_hive_button_bg"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/breed_hive_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

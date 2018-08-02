@@ -5,10 +5,11 @@ package com.lyagricultural.bean;
  */
 public class AccountPersonalBean {
 
+
     /**
      * Status : OK
      * Msg : 执行成功
-     * userinfo : {"userNme":"张三","userSex":"False","imagePath":"http://113.207.26.23:22099/upload/Image/UserHead/20180620105635EC7F64A86A4F76B9B7C3E91602E36E.jpg","loginPhone":"15178719625","loginWx":""}
+     * userinfo : {"userNme":"android用户605007","userSex":"男","imagePath":"","loginPhone":"1234567893","loginWx":"","inCode":"6J4842"}
      */
 
     private String Status;
@@ -41,11 +42,12 @@ public class AccountPersonalBean {
 
     public static class UserinfoBean {
         /**
-         * userNme : 张三
-         * userSex : False
-         * imagePath : http://113.207.26.23:22099/upload/Image/UserHead/20180620105635EC7F64A86A4F76B9B7C3E91602E36E.jpg
-         * loginPhone : 15178719625
+         * userNme : android用户605007
+         * userSex : 男
+         * imagePath :
+         * loginPhone : 1234567893
          * loginWx :
+         * inCode : 6J4842
          */
 
         private String userNme;
@@ -53,6 +55,7 @@ public class AccountPersonalBean {
         private String imagePath;
         private String loginPhone;
         private String loginWx;
+        private String inCode;
 
         public String getUserNme() {
             return userNme;
@@ -92,6 +95,14 @@ public class AccountPersonalBean {
 
         public void setLoginWx(String loginWx) {
             this.loginWx = loginWx;
+        }
+
+        public String getInCode() {
+            return inCode;
+        }
+
+        public void setInCode(String inCode) {
+            this.inCode = inCode;
         }
     }
 }

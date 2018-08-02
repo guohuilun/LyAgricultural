@@ -73,7 +73,6 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
         ly_fragment_account_address_rl.setOnClickListener(this);
         ly_fragment_account_information_rl.setOnClickListener(this);
         ly_fragment_account_my_rl.setOnClickListener(this);
-        initAccountData();
 
     }
 
@@ -131,5 +130,11 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                         }
                     });
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initAccountData();
     }
 }

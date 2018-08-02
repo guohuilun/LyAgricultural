@@ -15,6 +15,7 @@ import com.lyagricultural.app.LyAgriculturalApplication;
 import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.customview.NoSlidingViewPager;
 import com.lyagricultural.fragment.AccountFragment;
+import com.lyagricultural.fragment.BreedFragment;
 import com.lyagricultural.fragment.LandFragment;
 import com.lyagricultural.fragment.ShopFragment;
 import com.lyagricultural.utils.LyLog;
@@ -39,6 +40,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     private static final String TAG = "HomeActivity";
     private NoSlidingViewPager homeViewPager;
     private RadioButton landRB;
+    private RadioButton breed_RB;
     private RadioButton shopRB;
     private RadioButton accountRB;
     private RadioGroup bottom_RG;
@@ -61,9 +63,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     private void initView(){
         homeViewPager=findViewById(R.id.home_view_pager);
         landRB=findViewById(R.id.land_RB);
+        breed_RB=findViewById(R.id.breed_RB);
         shopRB=findViewById(R.id.shop_RB);
         accountRB=findViewById(R.id.account_RB);
         landRB.setOnClickListener(this);
+        breed_RB.setOnClickListener(this);
         shopRB.setOnClickListener(this);
         accountRB.setOnClickListener(this);
         homeViewPager.setAdapter(new HomeActivityAdapter(getSupportFragmentManager(),getFragments()));
@@ -80,11 +84,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
             case R.id.land_RB:
                 homeViewPager.setCurrentItem(0);
                 break;
-            case R.id.shop_RB:
+            case R.id.breed_RB:
                 homeViewPager.setCurrentItem(1);
                 break;
-            case R.id.account_RB:
+            case R.id.shop_RB:
                 homeViewPager.setCurrentItem(2);
+                break;
+            case R.id.account_RB:
+                homeViewPager.setCurrentItem(3);
                 break;
         }
     }
@@ -92,6 +99,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     private List<Fragment> getFragments(){
         List<Fragment> mList=new ArrayList<>();
         mList.add(new LandFragment());
+        mList.add(new BreedFragment());
         mList.add(new ShopFragment());
         mList.add(new AccountFragment());
         return mList;
@@ -114,13 +122,21 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void sentParsms(EventBusDefaultBean bean) {//此方法类似于广播，任何地方都可以传递
         if ("ShopFragment".equals(bean.getMsg())){
-            homeViewPager.setCurrentItem(1);
+            homeViewPager.setCurrentItem(2);
             shopRB.setChecked(true);
             EventBus.getDefault().post(new EventBusDefaultBean("ShopLandFragmentInit"));
+            EventBus.getDefault().post(new EventBusDefaultBean("LandFragmentInit"));
         }else if ("LandFragment".equals(bean.getMsg())){
             homeViewPager.setCurrentItem(0);
             landRB.setChecked(true);
+            EventBus.getDefault().post(new EventBusDefaultBean("ShopLandFragmentInit"));
             EventBus.getDefault().post(new EventBusDefaultBean("LandFragmentInit"));
+        }else if ("ShopFragmentSwitch".equals(bean.getMsg())){
+            homeViewPager.setCurrentItem(2);
+            shopRB.setChecked(true);
+        }else if ("ShopFragmentSwitchLand".equals(bean.getMsg())){
+            homeViewPager.setCurrentItem(2);
+            shopRB.setChecked(true);
         }
     }
 

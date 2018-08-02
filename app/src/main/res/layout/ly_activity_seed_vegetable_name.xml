@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/seed_vegetable_name_add_button"
+        android:layout_above="@+id/bottom_rl"
         >
 
         <LinearLayout
@@ -249,20 +249,100 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/seed_vegetable_name_add_button"
-        android:layout_width="@dimen/x38"
-        android:layout_height="@dimen/y5"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dp_10"
-        android:text="加入包裹"
-        android:textSize="@dimen/sp_16"
+
+    <RelativeLayout
+        android:id="@+id/bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y9"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_10"
-        android:background="@drawable/ly_activity_land_name_button"
-        android:textColor="@color/white"
-        />
+        android:background="@color/ly_activity_tx_color"
+        >
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y6"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_centerVertical="true"
+            >
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数量:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_14"
+                    />
+
+                <com.lyagricultural.view.amount.AmountView
+                    android:id="@+id/seed_vegetable_name_all_av"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y3"
+                    android:layout_centerVertical="true"
+                    app:btnTextSize="@dimen/sp_12"
+                    app:btnWidth="@dimen/x6"
+                    app:tvWidth="@dimen/x7"
+                    app:tvColor="@color/white"
+                    app:btnTextColor="@color/ly_activity_tx_color"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    >
+                </com.lyagricultural.view.amount.AmountView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="占地面积:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_14"
+                    />
+
+                <TextView
+                    android:id="@+id/seed_vegetable_name_all_area_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:id="@+id/seed_vegetable_name_add_button"
+            android:layout_width="@dimen/x37"
+            android:layout_height="@dimen/y6"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            android:text="种植"
+            android:textSize="@dimen/sp_16"
+            android:background="@drawable/ly_activity_login_bg"
+            android:textColor="@color/ly_activity_tx_color"
+            />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

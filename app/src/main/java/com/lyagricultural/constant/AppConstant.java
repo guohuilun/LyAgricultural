@@ -7,12 +7,12 @@ public class AppConstant {
     /**
      * 正式服务器
      */
-   public static final String BASE_URL = "http://113.207.26.23:22098/api";
+//   public static final String BASE_URL = "http://113.207.26.23:22098/api";
 
     /**
      * 测试服务器
      */
-//    public static final String BASE_URL = "http://192.168.2.214:8091/api";
+    public static final String BASE_URL = "http://192.168.2.214:8091/api";
 
 //   注册
       public static final String APP_USER_CREATE=BASE_URL+"/AppUser/AppUserCreate";
@@ -82,4 +82,10 @@ public class AppConstant {
 
 //    检查充值订单状态
     public static final String CHECK_PAY_STATUS=BASE_URL+"/AppUser/CheckPayStatus";
+
+//    获取土地作物
+    public static final String APP_USER_LAND_CROP_SELECT=BASE_URL+"/AppUser/AppUserLandCropSelect";
+
+//    确认收获
+    public static final String APP_EX_CREATE=BASE_URL+"/AppUser/AppExCreate";
 }

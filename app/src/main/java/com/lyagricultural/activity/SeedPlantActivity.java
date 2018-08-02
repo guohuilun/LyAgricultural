@@ -30,7 +30,9 @@ import com.lyagricultural.bean.PropGoodsDefaultBean;
 import com.lyagricultural.bean.ShopSeedBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
+import com.lyagricultural.gen.ShopSeedDao;
 import com.lyagricultural.http.LecoOkHttpUtil;
+import com.lyagricultural.utils.Arith;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
@@ -92,6 +94,13 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
 
     private  String landId="";
 
+    private TextView seed_plant_rv_item_name_tv;
+    private TextView seed_plant_rv_item_money_tv;
+    private String price;
+    private String area;
+    private int count;
+    private String nme;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,7 +121,11 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
     private void initView(){
         Intent intent=getIntent();
         if (intent!=null){
-            allPrice = intent.getStringExtra("allPrice");
+             allPrice = intent.getStringExtra("allPrice");
+             nme = intent.getStringExtra("nme");
+             price = intent.getStringExtra("price");
+             area = intent.getStringExtra("area");
+             count=intent.getIntExtra("count",1);
         }
         seed_plant_sv=findViewById(R.id.seed_plant_sv);
         seed_plant_sv.setVisibility(View.INVISIBLE);
@@ -142,8 +155,14 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
         },18,18+6, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         seed_plant_remind_tv.setText(spannableRemind);
         SpannableStringBuilder spannableMoney = new SpannableStringBuilder("货币不足，请充值");
-        spannableMoney.setSpan(new TextSpan(),6,8,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableMoney.setSpan(new TextSpan(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SeedPlantActivity.this,AccountRechargeActivity.class));
+            }
+        },6,8,Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         seed_plant_money_tv_buy_tv.setText(spannableMoney);
+        seed_plant_money_tv_buy_tv.setMovementMethod(LinkMovementMethod.getInstance());//开始响应点击事件
 
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
         seed_plant_seed_rv.setLayoutManager(layoutManager);
@@ -157,10 +176,16 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
         seed_plant_covered_tv.setText("占地约0㎡");
         seed_plant_money_tv.setText(allPrice);
 
-        initAccountData();
+        seed_plant_rv_item_name_tv=findViewById(R.id.seed_plant_rv_item_name_tv);
+        seed_plant_rv_item_money_tv=findViewById(R.id.seed_plant_rv_item_money_tv);
+        double priceOne=Arith.mul(Double.parseDouble(price), (double) count);
+        double areaOne=Arith.mul(Double.parseDouble(area), (double) count);
+        seed_plant_rv_item_name_tv.setText(nme+"*"+count+"("+String.valueOf(areaOne)+"㎡)");
+        seed_plant_rv_item_money_tv.setText(String.valueOf(priceOne));
+
         initSeedPlant();
         setGoodsBeanList();
-        setSeedListRv();
+//        setSeedListRv();
         initLandFragment();
         setLandFragment();
         initTipSelect();
@@ -252,6 +277,11 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAccountData();
+    }
 
 
         @Override
@@ -307,7 +337,9 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
                           if (goodslistBean.getChecked()){
                               goodslistBean.setChecked(true);
                               holder.setCheck(R.id.seed_plant_meal_rv_check_box,true);
-                              checkPrice = allCount * Double.parseDouble(goodslistBean.getPrice()) + Double.parseDouble(allPrice);
+                              double mul = Arith.mul((double) allCount, Double.parseDouble(goodslistBean.getPrice()));
+                              checkPrice = mul+Double.parseDouble(allPrice);
+//                              checkPrice = allCount * Double.parseDouble(goodslistBean.getPrice()) + Double.parseDouble(allPrice);
                               seed_plant_money_tv.setText(String.valueOf(checkPrice));
                           }else {
                               goodslistBean.setChecked(false);
@@ -345,10 +377,14 @@ public class SeedPlantActivity extends BaseActivity implements View.OnClickListe
             @Override
             public void bindData(BaseRecyclerViewHolder holder, ShopSeedBean shopSeedBean, int position) {
                 allCount +=shopSeedBean.getCount();
-                double price = Double.parseDouble(shopSeedBean.getPrice());
-                double tip = Double.parseDouble(shopSeedBean.getTip());
-                holder.setTxt(R.id.seed_plant_rv_item_name_tv,shopSeedBean.getNme()+"*"+shopSeedBean.getCount()+"("+tip*shopSeedBean.getCount()+"㎡)");
-                holder.setTxt(R.id.seed_plant_rv_item_money_tv,price*shopSeedBean.getCount()+"");
+//                double price = Double.parseDouble(shopSeedBean.getPrice());
+//                double tip = Double.parseDouble(shopSeedBean.getTip());
+//                holder.setTxt(R.id.seed_plant_rv_item_name_tv,shopSeedBean.getNme()+"*"+shopSeedBean.getCount()+"("+tip*shopSeedBean.getCount()+"㎡)");
+//                holder.setTxt(R.id.seed_plant_rv_item_money_tv,price*shopSeedBean.getCount()+"");
+                double price=Arith.mul(Double.parseDouble(shopSeedBean.getPrice()), (double) shopSeedBean.getCount());
+                double tip=Arith.mul(Double.parseDouble(shopSeedBean.getTip()), (double) shopSeedBean.getCount());
+                holder.setTxt(R.id.seed_plant_rv_item_name_tv,shopSeedBean.getNme()+"*"+shopSeedBean.getCount()+"("+String.valueOf(tip)+"㎡)");
+                holder.setTxt(R.id.seed_plant_rv_item_money_tv,String.valueOf(price));
                 if (position==mSeedNewList.size()-1){
                     holder.setInVisibility(R.id.seed_plant_rv_item_view,View.GONE);
                 }

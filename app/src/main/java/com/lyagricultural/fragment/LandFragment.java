@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ import com.lyagricultural.utils.BannerUtils;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
+import com.lyagricultural.utils.ProgressDialogUtils;
 import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.view.TextSpan;
 import com.tongguan.yuanjian.family.Utils.PersonManager;
@@ -103,15 +105,27 @@ public class LandFragment extends Fragment{
         land_tv=landView.findViewById(R.id.land_tv);
         SpannableStringBuilder spannableTv = new SpannableStringBuilder("这里空空的~蔬菜需要大地母亲的呵护~.~" +
                 "赶紧去商店-土地库选择土地吧！");
-        spannableTv.setSpan(new TextSpan(),23,29, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableTv.setSpan(new TextSpan(){
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(new EventBusDefaultBean("ShopFragmentSwitchLand"));
+            }
+        },23,29, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         land_tv.setText(spannableTv);
+        land_tv.setMovementMethod(LinkMovementMethod.getInstance());//开始响应点击事件
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
         land_rv.setLayoutManager(layoutManager);
         if (isLogin==false){
             setPermissionUtils();
         }
         if (mList!=null){
-            setLandFragmentRv();
+            LyLog.i(TAG,"你进来没得 =0 "+mList.size());
+            if (mList.size()>0){
+                setLandFragmentRv();
+            }else {
+                land_rv.setVisibility(View.GONE);
+                land_ll.setVisibility(View.VISIBLE);
+            }
         }else {
             mList=new ArrayList<>();
             initLandFragment("initView");
@@ -142,7 +156,8 @@ public class LandFragment extends Fragment{
         super.onResume();
         if ("LandFragmentInit".equals(LandFragmentInit)){
              initLandFragment("onResume");
-             LandFragmentInit="";
+             setLandFragmentRv();
+            LandFragmentInit="";
         }
     }
 
@@ -259,6 +274,7 @@ public class LandFragment extends Fragment{
             _loginReq.setPwd(landCde);
             _loginReq.setNodeID(123456789);
             _loginReq.setLoginType(0);
+            ProgressDialogUtils.showProgressDialog(getActivity(),"正在加载摄像头，请稍后...");
             _loginReq.setRequestCallback(new RequestCallback(){
                 @Override
                 public void onPostExecute(int result) {
@@ -269,6 +285,10 @@ public class LandFragment extends Fragment{
                                 .putExtra("goodsId",goodsId)
                                 .putExtra("endDt",endDt)
                         );
+                        ProgressDialogUtils.closeProgressDialog();
+                    }else {
+                        ProgressDialogUtils.closeProgressDialog();
+                        LyToast.shortToast(getActivity(),"获取摄像头失败");
                     }
                 }
 
@@ -350,6 +370,12 @@ public class LandFragment extends Fragment{
 //                            laninfoBean.setLandCde("CQYCHMGJJZG2071");
                             if (!"".equals(laninfoBean.getLandCde())){
                                 setYJLogin(laninfoBean.getLandCde());
+//                                测试时使用
+//                                startActivity(new Intent(getActivity(), LandDetailsNameActivity.class)
+//                                        .putExtra("landName",landName)
+//                                        .putExtra("goodsId",goodsId)
+//                                        .putExtra("endDt",endDt)
+//                                );
                             }else {
                                 LyToast.shortToast(getActivity(),"暂无视频");
                             }

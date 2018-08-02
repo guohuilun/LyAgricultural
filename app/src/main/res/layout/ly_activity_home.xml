@@ -20,7 +20,7 @@
         android:orientation="horizontal"
         >
 
-        <!-- 底部功能条_主页 -->
+        <!-- 底部功能条_土地 -->
         <RadioButton
             android:id="@+id/land_RB"
             android:layout_width="0dp"
@@ -37,7 +37,25 @@
             android:paddingBottom="@dimen/dp_5"
             />
 
-        <!-- 底部功能条_频道 -->
+
+        <!-- 底部功能条_养殖 -->
+        <RadioButton
+            android:id="@+id/breed_RB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="养殖"
+            android:drawableTop="@drawable/ly_activity_home_selector_shop"
+            android:textColor="@drawable/ly_activity_home_bottom_bar_text_color"
+            android:textSize="@dimen/sp_10"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            />
+
+
+        <!-- 底部功能条_商店 -->
         <RadioButton
             android:id="@+id/shop_RB"
             android:layout_width="0dp"
@@ -54,7 +72,7 @@
             />
 
 
-        <!-- 底部功能条_班级 -->
+        <!-- 底部功能条_账户 -->
         <RadioButton
             android:id="@+id/account_RB"
             android:layout_width="0dp"

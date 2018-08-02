@@ -199,6 +199,78 @@
         android:orientation="horizontal"
         >
 
+        <RelativeLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:id="@+id/ly_land_details_seed_ll"
+                android:layout_width="@dimen/x34"
+                android:layout_height="@dimen/y7"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:layout_centerInParent="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x6"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_land_details_seed_iv"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种子库"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:id="@+id/ly_land_details_collect_goods_ll"
+                android:layout_width="@dimen/x34"
+                android:layout_height="@dimen/y7"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/ly_activity_land_name_button"
+                android:layout_centerInParent="true"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x6"
+                    android:layout_height="@dimen/y3"
+                    android:src="@mipmap/ly_land_details_collect_goods_iv"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收获"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp_3"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
         <LinearLayout
             android:id="@+id/ly_land_details_weed_ll"
             android:layout_width="@dimen/dp_0"
@@ -207,6 +279,7 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginLeft="@dimen/dp_10"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -232,6 +305,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -258,6 +332,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -284,6 +359,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -303,31 +379,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ly_land_details_collect_goods_ll"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginRight="@dimen/dp_10"
-            >
 
-            <ImageView
-                android:layout_width="@dimen/x9"
-                android:layout_height="@dimen/y5"
-                android:src="@mipmap/ly_land_collect_goods"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="收获"
-                android:textSize="@dimen/sp_12"
-                android:layout_marginTop="@dimen/dp_6"
-                />
-
-        </LinearLayout>
 
 
     </LinearLayout>

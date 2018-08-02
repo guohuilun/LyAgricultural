@@ -25,14 +25,18 @@ import com.lyagricultural.R;
 import com.lyagricultural.activity.LandDetailsNameActivity;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
+import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.bean.EventBusLandDetailsBean;
 import com.lyagricultural.cebean.LandFragmentBean;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
+import com.lyagricultural.view.AmountView;
 import com.lyagricultural.view.TextSpan;
 import com.yykj.mob.share.share.SharePlatformUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,6 +69,7 @@ public class LandDialogFragment extends DialogFragment implements View.OnClickLi
     private LinearLayout dialog_fragment_hand_balance_ll;
     private TextView dialog_fragment_hand_buy_tv;
     private Button dialog_fragment_hand_button;
+    private AmountView dialog_fragment_land_av;
 //    成功界面
     private LinearLayout dialog_fragment_hand_content_success;
     private LinearLayout dialog_fragment_hand_qq_ll;
@@ -120,6 +125,7 @@ public class LandDialogFragment extends DialogFragment implements View.OnClickLi
         dialog_fragment_hand_balance_ll=landDialogView.findViewById(R.id.dialog_fragment_hand_balance_ll);
         dialog_fragment_hand_buy_tv=landDialogView.findViewById(R.id.dialog_fragment_hand_buy_tv);
         dialog_fragment_hand_button=landDialogView.findViewById(R.id.dialog_fragment_hand_button);
+        dialog_fragment_land_av=landDialogView.findViewById(R.id.dialog_fragment_land_av);
         SpannableStringBuilder spannableMoney = new SpannableStringBuilder("货币不足，请充值");
         spannableMoney.setSpan(new TextSpan(),6,8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         dialog_fragment_hand_buy_tv.setText(spannableMoney);
@@ -129,7 +135,8 @@ public class LandDialogFragment extends DialogFragment implements View.OnClickLi
         dialog_fragment_hand_iv.setImageResource(vegetableIv);
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),5);
         dialog_fragment_hand_rv.setLayoutManager(layoutManager);
-        setLandRv();
+        dialog_fragment_land_av.setAmount(1);
+//        setLandRv();
 //     操作界面（结束）
 
 //     成功界面（开始）
@@ -207,6 +214,4 @@ public class LandDialogFragment extends DialogFragment implements View.OnClickLi
         mList.add(landFragmentBean);
         return mList;
     }
-
-
 }

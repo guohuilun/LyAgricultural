@@ -6,9 +6,10 @@
         <attr name="btnWidth" format="dimension" />
         <!-- 中间TextView的宽度 -->
         <attr name="tvWidth" format="dimension" />
-        <!--<attr name="tvColor" format="color"/>-->
+        <attr name="tvColor" format="color"/>
         <attr name="tvTextSize" format="dimension"/>
         <attr name="btnTextSize" format="dimension"/>
+        <attr name="btnTextColor" format="color"/>
     </declare-styleable>
 
 </resources>

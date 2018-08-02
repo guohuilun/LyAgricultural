@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -109,10 +110,16 @@ public class LandLeasedActivity extends BaseActivity implements View.OnClickList
         land_leased_size_tv.setText(area+"㎡");
         land_leased_money_tv.setText(price);
         SpannableStringBuilder spannableMoney = new SpannableStringBuilder("货币不足，请充值");
-        spannableMoney.setSpan(new TextSpan(),6,8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableMoney.setSpan(new TextSpan(){
+            @Override
+            public void onClick(View view) {
+               startActivity(new Intent(LandLeasedActivity.this,AccountRechargeActivity.class));
+            }
+        },6,8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         land_leased_buy_tv.setText(spannableMoney);
+        land_leased_buy_tv.setMovementMethod(LinkMovementMethod.getInstance());//开始响应点击事件
         land_leased_buy_rl.setVisibility(View.INVISIBLE);
-        initAccountData();
+
         initLandLeasedGoodsPrice();
         initLandLeasedTipSelect();
 //        setLandRv();
@@ -291,6 +298,8 @@ public class LandLeasedActivity extends BaseActivity implements View.OnClickList
                                 LyLog.i(TAG,"这里面的数值0 = "+priceCompare+"  "+priceCommit);
                                 if (priceCommit>priceCompare){
                                     land_leased_buy_rl.setVisibility(View.VISIBLE);
+                                }else {
+                                    land_leased_buy_rl.setVisibility(View.GONE);
                                 }
                             }
                         }
@@ -310,6 +319,11 @@ public class LandLeasedActivity extends BaseActivity implements View.OnClickList
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAccountData();
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void sentParsms(EventBusDefaultBean bean) {//此方法类似于广播，任何地方都可以传递
