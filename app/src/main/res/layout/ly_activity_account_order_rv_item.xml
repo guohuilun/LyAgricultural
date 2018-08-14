@@ -112,7 +112,7 @@
                 android:id="@+id/iv_default"
                 android:layout_width="30px"
                 android:layout_height="30px"
-                android:src="@mipmap/ly_frgment_shop_currency"
+                android:src="@drawable/ly_frgment_shop_currency"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/account_order_rv_money_tv"
                 android:layout_marginLeft="@dimen/dp_3"

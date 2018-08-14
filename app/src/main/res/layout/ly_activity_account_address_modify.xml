@@ -125,7 +125,7 @@
             android:id="@+id/account_address_add_select_iv"
             android:layout_width="@dimen/x5"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ly_activity_account_address_manage"
+            android:src="@drawable/ly_activity_account_address_manage"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dp_10"
             android:layout_centerVertical="true"

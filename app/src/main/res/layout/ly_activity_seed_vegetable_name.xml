@@ -25,7 +25,7 @@
                 android:layout_margin="@dimen/dp_5"
                 app:indicator_width="8dp"
                 app:indicator_height="8dp"
-                app:indicator_drawable_selected="@mipmap/banner_select"
+                app:indicator_drawable_selected="@drawable/banner_select"
                 >
             </com.youth.banner.Banner>
 
@@ -338,7 +338,7 @@
             android:layout_centerVertical="true"
             android:text="种植"
             android:textSize="@dimen/sp_16"
-            android:background="@drawable/ly_activity_login_bg"
+            android:background="@drawable/ly_activity_login_button_bg"
             android:textColor="@color/ly_activity_tx_color"
             />
 

@@ -23,7 +23,7 @@
                 <ImageView
                     android:layout_width="@dimen/x6"
                     android:layout_height="@dimen/y3"
-                    android:src="@mipmap/ly_activity_account_order_details_completion"
+                    android:src="@drawable/ly_activity_account_order_details_completion"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -198,7 +198,7 @@
                             <ImageView
                                 android:layout_width="30px"
                                 android:layout_height="30px"
-                                android:src="@mipmap/ly_frgment_shop_currency"
+                                android:src="@drawable/ly_frgment_shop_currency"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@+id/account_order_details_all_money_tv"
                                 android:layout_marginRight="@dimen/dp_16"
@@ -246,7 +246,7 @@
                             <ImageView
                                 android:layout_width="30px"
                                 android:layout_height="30px"
-                                android:src="@mipmap/ly_frgment_shop_currency"
+                                android:src="@drawable/ly_frgment_shop_currency"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@+id/account_order_details_discount_money_tv"
                                 android:layout_marginRight="@dimen/dp_16"
@@ -306,7 +306,7 @@
                             android:id="@+id/iv_default"
                             android:layout_width="30px"
                             android:layout_height="30px"
-                            android:src="@mipmap/ly_frgment_shop_currency"
+                            android:src="@drawable/ly_frgment_shop_currency"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/account_order_details_money_tv"
                             android:layout_marginRight="@dimen/dp_16"

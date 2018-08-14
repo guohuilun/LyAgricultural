@@ -56,7 +56,7 @@ public class AccountOrderActivity  extends BaseActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_account_order);
         setTitle("订单");
-        mImageRight.setImageResource(R.mipmap.ly_activity_account_order_more);
+        mImageRight.setImageResource(R.drawable.ly_activity_account_order_more);
         setHeadRightVisibility(View.VISIBLE);
         mRlRight.setOnClickListener(this);
         initView();

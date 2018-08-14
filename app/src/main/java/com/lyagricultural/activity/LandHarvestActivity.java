@@ -243,6 +243,7 @@ public class LandHarvestActivity extends BaseActivity implements View.OnClickLis
                 Map<String,String> goodList=new HashMap<>();
                 goodList.put("goodsNme",mCropInfoBeanList.get(i).getCropNme());
                 goodList.put("goodsNum",mCropInfoBeanList.get(i).getShowNum()+"");
+                goodList.put("cropId",mCropInfoBeanList.get(i).getCropId());
                 goodsList.add(goodList);
             }
         }

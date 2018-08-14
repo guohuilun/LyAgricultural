@@ -1,5 +1,6 @@
 package com.lyagricultural.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -31,7 +32,6 @@ import com.google.gson.Gson;
 import com.lyagricultural.R;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
-import com.lyagricultural.bean.AccountOrderBean;
 import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.bean.EventBusLandDetailsBean;
 import com.lyagricultural.bean.LandDetailsNameSelectBean;
@@ -42,7 +42,6 @@ import com.lyagricultural.http.LecoOkHttpUtil;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
-import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.WidthUtils;
 import com.lyagricultural.view.TextSpan;
 import com.lyagricultural.yuanjian.activity.BaseYuanJianActivity;
@@ -50,6 +49,7 @@ import com.lyagricultural.yuanjian.adapter.IPCListUtils;
 import com.lyagricultural.yuanjian.model.CameraInfo;
 import com.lyagricultural.yuanjian.model.ProjectSetting;
 import com.lyagricultural.yuanjian.model.ToolUtils;
+import com.tongguan.yuanjian.family.Utils.LogUtil;
 import com.tongguan.yuanjian.family.Utils.PersonManager;
 import com.tongguan.yuanjian.family.Utils.PlayVideoUtil;
 import com.tongguan.yuanjian.family.Utils.RequestCallback;
@@ -58,9 +58,11 @@ import com.tongguan.yuanjian.family.Utils.constant.ProtocolConstant;
 import com.tongguan.yuanjian.family.Utils.gl2.VideoGlSurfaceView;
 import com.tongguan.yuanjian.family.Utils.req.GetDeviceListRequest;
 import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
+import com.tongguan.yuanjian.family.Utils.req.SnapshotRequest;
 import com.tongguan.yuanjian.family.Utils.req.StreamParams;
 import com.tongguan.yuanjian.family.Utils.service.BaseCallback;
 import com.tongguan.yuanjian.family.Utils.service.MainCallbackImp;
+import com.yykj.mob.share.share.ShareAllUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
@@ -68,15 +70,21 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
 import okhttp3.Call;
 
 /**
  * 作者Administrator on 2018/5/29 0029 13:39
  */
-public class LandDetailsNameActivity extends BaseYuanJianActivity implements View.OnClickListener{
+public class LandDetailsNameActivity extends BaseYuanJianActivity implements View.OnClickListener,PlatformActionListener{
     private static final String TAG = "LandDetailsNameActivity";
     private RecyclerView land_details_rv;
     private LinearLayout ly_land_details_weed_ll;
@@ -117,6 +125,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     private ProgressBar loadingVideo;
     private RelativeLayout playStopSuspensionRl;
     private Button play_stop;
+    private Button play_share;
     private RelativeLayout play_suspensionRl;
     private ImageView mIvSuspension;
 
@@ -129,6 +138,8 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     protected int playType= ProtocolConstant.PLAYREALSTRENM;
     private OnPlaybackListeners playbackCallback;
     private boolean display;   //用于是否显示其他按钮
+
+    private boolean isPause=true;
 
 
     /* 在初始化之前调用，强制竖屏 */
@@ -146,7 +157,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_land_details_name);
         setHeadRightVisibility(View.VISIBLE);
-        mImageRight.setImageResource(R.mipmap.ly_land_function);
+        mImageRight.setImageResource(R.drawable.ly_land_function);
         mImageRight.setOnClickListener(this);
         initView();
         if (!EventBus.getDefault().isRegistered(this)){
@@ -199,6 +210,12 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     public void onClick(View view) {
         switch (view.getId()){
 //            视频开始监听
+            case R.id.play_share:
+                ShareAllUtils.showShare(LandDetailsNameActivity.this,
+                        "", "", "", "", this);
+                isPause=false;
+//                cut();
+                break;
             case R.id.play_suspensionRl:
                   /* 横屏监听 */
                 if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
@@ -221,11 +238,12 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
 
             case R.id.play_stop:
                 if(!isplaying) {
+                    LyToast.shortToast(this,"正在获取视频流，请稍后。。。");
                     doplay();
-                    play_stop.setBackgroundResource(R.mipmap.ly_activity_land_details_name_play);
+                    play_stop.setBackgroundResource(R.drawable.ly_activity_land_details_name_play);
                 }else {
                     doStop();
-                    play_stop.setBackgroundResource(R.mipmap.ly_activity_land_details_name_pause);
+                    play_stop.setBackgroundResource(R.drawable.ly_activity_land_details_name_pause);
                 }
                 break;
             case R.id.surface:
@@ -402,6 +420,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         loadingVideo=findViewById(R.id.loadingVideo);
         playStopSuspensionRl=findViewById(R.id.playStopSuspensionRl);
         play_stop=findViewById(R.id.play_stop);
+        play_share=findViewById(R.id.play_share);
         play_suspensionRl=findViewById(R.id.play_suspensionRl);
         mIvSuspension = (ImageView) findViewById(R.id.play_suspension);
         layout_head_o=findViewById(R.id.layout_head_o);
@@ -410,7 +429,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         title_center_o.setText(landName);
         surface.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);   //不缓冲
         surface.getHolder().setKeepScreenOn(true);   //保持屏幕高亮
-        play_suspensionRl.setOnClickListener(this);
+        play_share.setOnClickListener(this);
         play_suspensionRl.setOnClickListener(this);
         title_left_o.setOnClickListener(this);
         play_stop.setOnClickListener(this);
@@ -545,11 +564,13 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                     if(result == 0) {
                         LyLog.i(TAG,"视频播放失败");
                         isplaying=false;
+                        LyToast.shortToast(LandDetailsNameActivity.this,"视频播放失败。。。");
                     }else{
                         LyLog.i(TAG,"视频播放了");
                         play_stop.setEnabled(true);
                         isplaying=true;
                         loadingVideo.setVisibility(View.GONE);
+                        play_stop.setVisibility(View.GONE);
                     }
                 }
                 //			需实现callBackProgress方法 用以获取播放时长进度等信息。
@@ -593,10 +614,16 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     protected void onPause() {
 
         super.onPause();
-        if(isplaying) {
-            isplaying = false;
-            LyLog.i(TAG,"视频暂停了");
-            PlayVideoUtil.getInstance().stopPlay();
+        if (isPause){
+            if(isplaying) {
+                isplaying = false;
+                LyLog.i(TAG,"视频暂停了");
+                PlayVideoUtil.getInstance().stopPlay();
+                play_stop.setVisibility(View.VISIBLE);
+                play_stop.setBackgroundResource(R.drawable.ly_activity_land_details_name_pause);
+            }
+        }else {
+            isPause=true;
         }
     }
 
@@ -684,7 +711,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
             mFlLayout.setLayoutParams(lp);
 
             status_bar_view.setVisibility(View.GONE);
-            mIvSuspension.setImageResource(R.mipmap.ly_activity_land_details_name_suspension_on);
+            mIvSuspension.setImageResource(R.drawable.ly_activity_land_details_name_suspension_on);
             setHeadVisibility(View.GONE);
             bottom_rl.setVisibility(View.GONE);
             ly_land_details_content_ll.setVisibility(View.GONE);
@@ -700,7 +727,7 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
             mFlLayout.setLayoutParams(lp);
 
             status_bar_view.setVisibility(View.VISIBLE);
-            mIvSuspension.setImageResource(R.mipmap.ly_activity_land_details_name_suspension);
+            mIvSuspension.setImageResource(R.drawable.ly_activity_land_details_name_suspension);
             setHeadVisibility(View.VISIBLE);
             bottom_rl.setVisibility(View.VISIBLE);
             ly_land_details_content_ll.setVisibility(View.VISIBLE);
@@ -712,6 +739,48 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         super.onConfigurationChanged(newConfig);
         onScreenOrientationChanged(newConfig);
     }
+
+    String imagePath = "";
+    public void cut()
+    {
+        SnapshotRequest sr = new SnapshotRequest();
+
+        String pathFile = Environment.getExternalStorageDirectory().getAbsolutePath() + ProjectSetting.SAVE_PIC_FOLDER;
+//        imagePath = Environment.getExternalStorageDirectory().getAbsolutePath() + ProjectSetting.SAVE_PIC_FOLDER + "/" + new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())
+//                + ProjectSetting.IMAGE_SUFFIX;
+        File dir = new File(pathFile);
+        if (!dir.exists()) {
+            if(!dir.mkdirs())
+            {
+                LogUtil.d("创建目录不成功");
+            }
+        }
+        imagePath = pathFile + "/" + new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())
+                + ProjectSetting.IMAGE_SUFFIX;
+
+        sr.setFullFileName(imagePath);
+        sr.setPlayType(playType);
+        sr.setRequestCallback(new RequestCallback()
+        {
+            @Override
+            public void onPostExecute(int result)
+            {
+                super.onPostExecute(result);
+                if (result == 0)
+                {
+                    LyLog.i(TAG,"截图成功 = "+imagePath);
+                    Toast.makeText(LandDetailsNameActivity.this, "success imagePath: " + imagePath, Toast.LENGTH_LONG).show();
+
+                } else
+                {
+                    LyLog.i(TAG,"截图失败");
+                    Toast.makeText(LandDetailsNameActivity.this, "screenshot fail", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        PersonManager.getPersonManager().doSnapshot(sr);
+    }
+
 
     /**
      * 在线视频结束
@@ -795,6 +864,26 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
 
         land_details_rv.setAdapter(cropinfoBeanBaseRecyclerAdapter);
     }
+//    分享回调监听开始
+
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+     LyLog.i(TAG,"分享成功");
+
+    }
+
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+        LyLog.i(TAG,"分享错误");
+
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+        LyLog.i(TAG,"分享取消");
+
+    }
+//    分享回调监听
 
     private void setLandRv(){
         baseRecyclerAdapter=new BaseRecyclerAdapter<LandDetailsNameBean>(this,getLandRv(),R.layout.ly_activity_land_details_name_rv_item) {

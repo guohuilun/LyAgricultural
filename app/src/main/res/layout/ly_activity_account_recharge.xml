@@ -94,7 +94,7 @@
             android:id="@+id/iv_default"
             android:layout_width="@dimen/x8"
             android:layout_height="@dimen/y4"
-            android:src="@mipmap/ly_land_wei_xin"
+            android:src="@drawable/ly_land_wei_xin"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             />

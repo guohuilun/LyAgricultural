@@ -13,7 +13,7 @@
         android:id="@+id/iv_default"
         android:layout_width="@dimen/x6"
         android:layout_height="@dimen/y4"
-        android:src="@mipmap/ly_land_camera"
+        android:src="@drawable/ly_land_camera"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/dp_10"
         />
@@ -44,7 +44,7 @@
     <ImageView
         android:layout_width="@dimen/x5"
         android:layout_height="@dimen/y3"
-        android:src="@mipmap/ly_land_camera_go_in"
+        android:src="@drawable/ly_land_camera_go_in"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dp_10"
         android:layout_alignParentRight="true"

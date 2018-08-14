@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ly_activity_login_bg"
+    android:background="@drawable/ly_activity_login_bg"
    >
 
 
@@ -26,7 +26,7 @@
         android:layout_marginTop="@dimen/dp_24"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:background="@drawable/ly_activity_login_bg"
+        android:background="@drawable/ly_activity_login_button_bg"
         >
 
         <ImageView
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ly_activity_login_account"
+            android:src="@drawable/ly_activity_login_account"
             android:layout_marginLeft="@dimen/dp_16"
             />
 
@@ -65,7 +65,7 @@
         android:layout_marginLeft="@dimen/dp_24"
         android:layout_marginRight="@dimen/dp_24"
         android:layout_marginTop="@dimen/dp_16"
-        android:background="@drawable/ly_activity_login_bg"
+        android:background="@drawable/ly_activity_login_button_bg"
         >
 
         <ImageView
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ly_activity_login_password"
+            android:src="@drawable/ly_activity_login_password"
             android:layout_marginLeft="@dimen/dp_16"
             />
 
@@ -141,7 +141,7 @@
            android:layout_width="match_parent"
            android:layout_marginLeft="@dimen/dp_24"
            android:layout_marginRight="@dimen/dp_24"
-           android:background="@drawable/ly_activity_login_bg"
+           android:background="@drawable/ly_activity_login_button_bg"
            android:text="登录"
            android:textColor="@color/ly_activity_tx_color"
            android:textSize="@dimen/sp_16"

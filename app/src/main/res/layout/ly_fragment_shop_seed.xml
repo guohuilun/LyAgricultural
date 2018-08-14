@@ -19,7 +19,7 @@
             android:layout_margin="@dimen/dp_10"
             app:indicator_width="8dp"
             app:indicator_height="8dp"
-            app:indicator_drawable_selected="@mipmap/banner_select"
+            app:indicator_drawable_selected="@drawable/banner_select"
             />
 
         <android.support.v7.widget.RecyclerView
@@ -54,7 +54,7 @@
                android:id="@+id/shop_seed_iv"
                android:layout_width="@dimen/x20"
                android:layout_height="@dimen/y12"
-               android:src="@mipmap/ly_fragment_shop_seed_package"
+               android:src="@drawable/ly_fragment_shop_seed_package"
                android:scaleType="fitXY"
                />
 

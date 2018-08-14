@@ -79,7 +79,7 @@
                     android:id="@+id/iv_default"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     android:layout_toRightOf="@+id/seed_parcel_money_tv"
                     android:layout_centerVertical="true"
                     />

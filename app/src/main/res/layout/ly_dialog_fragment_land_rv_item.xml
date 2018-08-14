@@ -57,7 +57,7 @@
                 <ImageView
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     android:layout_gravity="center"
                     />
 

@@ -30,7 +30,7 @@
             <ImageView
                 android:layout_width="@dimen/x2"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_land_cancel"
+                android:src="@drawable/ly_land_cancel"
                 />
 
             <TextView
@@ -125,7 +125,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y22"
-                android:src="@mipmap/ly_land_details_dialogfragment_bg"
+                android:src="@drawable/ly_land_details_dialogfragment_bg"
                 android:scaleType="fitXY"
                 android:layout_marginRight="@dimen/dp_10"
                 android:layout_marginLeft="@dimen/dp_10"
@@ -179,7 +179,7 @@
                         <ImageView
                             android:layout_width="30px"
                             android:layout_height="30px"
-                            android:src="@mipmap/ly_frgment_shop_currency"
+                            android:src="@drawable/ly_frgment_shop_currency"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/dialog_fragment_hand_money_tv"
                             android:layout_marginLeft="@dimen/dp_3"
@@ -221,7 +221,7 @@
                         <ImageView
                             android:layout_width="30px"
                             android:layout_height="30px"
-                            android:src="@mipmap/ly_frgment_shop_currency"
+                            android:src="@drawable/ly_frgment_shop_currency"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/dialog_fragment_hand_money_o_tv"
                             android:layout_marginLeft="@dimen/dp_3"
@@ -242,7 +242,7 @@
                         <ImageView
                             android:layout_width="@dimen/x4"
                             android:layout_height="@dimen/y2"
-                            android:src="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                            android:src="@drawable/ly_activity_land_leased_place_order_exclamatory_mark"
                             />
 
                         <TextView
@@ -313,7 +313,7 @@
                     android:id="@+id/iv_default"
                     android:layout_width="@dimen/x26"
                     android:layout_height="@dimen/y17"
-                    android:src="@mipmap/ly_land_successful_operation"
+                    android:src="@drawable/ly_land_successful_operation"
                     android:layout_centerHorizontal="true"
                     />
 
@@ -386,7 +386,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ly_land_qq"
+                        android:src="@drawable/ly_land_qq"
                         />
 
                     <TextView
@@ -413,7 +413,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ly_land_wei_xin"
+                        android:src="@drawable/ly_land_wei_xin"
                         />
 
                     <TextView
@@ -441,7 +441,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ly_land_wei_xin_circle"
+                        android:src="@drawable/ly_land_wei_xin_circle"
                         />
 
                     <TextView

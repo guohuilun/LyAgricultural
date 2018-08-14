@@ -10,6 +10,6 @@
         android:adjustViewBounds="true"
         android:contentDescription="@null"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ly_activity_splash_start" />
+        android:src="@drawable/ly_activity_splash_start" />
 
 </LinearLayout>

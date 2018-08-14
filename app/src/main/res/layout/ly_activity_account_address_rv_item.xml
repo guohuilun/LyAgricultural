@@ -125,7 +125,7 @@
                 <ImageView
                     android:layout_width="@dimen/x3"
                     android:layout_height="@dimen/y2"
-                    android:src="@mipmap/ly_account_delete"
+                    android:src="@drawable/ly_account_delete"
                     android:layout_marginRight="@dimen/dp_5"
                     android:layout_marginLeft="@dimen/dp_5"
                     />
@@ -157,7 +157,7 @@
                 <ImageView
                     android:layout_width="@dimen/x3"
                     android:layout_height="@dimen/y2"
-                    android:src="@mipmap/ly_account_edit"
+                    android:src="@drawable/ly_account_edit"
                     android:layout_marginRight="@dimen/dp_5"
                     android:layout_marginLeft="@dimen/dp_5"
                     />

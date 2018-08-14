@@ -112,7 +112,7 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_breed_hive_name);
         setHeadRightVisibility(View.VISIBLE);
-        mImageRight.setImageResource(R.mipmap.ly_land_function);
+        mImageRight.setImageResource(R.drawable.ly_land_function);
         mImageRight.setOnClickListener(this);
         initView();
         if (!EventBus.getDefault().isRegistered(this)){
@@ -168,10 +168,10 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
             case R.id.play_stop:
                 if(!isplaying) {
                     doplay();
-                    play_stop.setBackgroundResource(R.mipmap.ly_activity_land_details_name_play);
+                    play_stop.setBackgroundResource(R.drawable.ly_activity_land_details_name_play);
                 }else {
                     doStop();
-                    play_stop.setBackgroundResource(R.mipmap.ly_activity_land_details_name_pause);
+                    play_stop.setBackgroundResource(R.drawable.ly_activity_land_details_name_pause);
                 }
                 break;
             case R.id.surface:
@@ -538,7 +538,7 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
             mFlLayout.setLayoutParams(lp);
 
             status_bar_view.setVisibility(View.GONE);
-            mIvSuspension.setImageResource(R.mipmap.ly_activity_land_details_name_suspension_on);
+            mIvSuspension.setImageResource(R.drawable.ly_activity_land_details_name_suspension_on);
             setHeadVisibility(View.GONE);
             breed_hive_name_content_ll.setVisibility(View.GONE);
 
@@ -553,7 +553,7 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
             mFlLayout.setLayoutParams(lp);
 
             status_bar_view.setVisibility(View.VISIBLE);
-            mIvSuspension.setImageResource(R.mipmap.ly_activity_land_details_name_suspension);
+            mIvSuspension.setImageResource(R.drawable.ly_activity_land_details_name_suspension);
             setHeadVisibility(View.VISIBLE);
             breed_hive_name_content_ll.setVisibility(View.VISIBLE);
         }

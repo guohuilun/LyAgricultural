@@ -71,9 +71,9 @@ public class WelcomeActivity extends BaseActivity{
 
     private List<ImageView> getImgList(){
         mImgList=new ArrayList<>();
-        mImgList.add(getImageView(R.mipmap.ly_activity_splash_o));
-        mImgList.add(getImageView(R.mipmap.ly_activity_splash_t));
-        ImageView imageView = getImageView(R.mipmap.ly_activity_splash_tt);
+        mImgList.add(getImageView(R.drawable.ly_activity_splash_o));
+        mImgList.add(getImageView(R.drawable.ly_activity_splash_t));
+        ImageView imageView = getImageView(R.drawable.ly_activity_splash_tt);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

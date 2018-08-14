@@ -14,7 +14,7 @@
             android:id="@+id/ly_fragment_account_iv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/y25"
-            android:src="@mipmap/ly_fragment_account_bg"
+            android:src="@drawable/ly_fragment_account_bg"
             android:scaleType="fitXY"
             />
 
@@ -47,7 +47,7 @@
                     android:id="@+id/iv_default"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ly_fragment_account_white_bg"
+                    android:src="@drawable/ly_fragment_account_white_bg"
                     android:layout_centerVertical="true"
                     />
 
@@ -135,7 +135,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x4"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_account_order"
+                android:src="@drawable/ly_account_order"
                 />
 
             <TextView
@@ -159,7 +159,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_account_back"
+                    android:src="@drawable/ly_account_back"
                     />
             </RelativeLayout>
 
@@ -188,7 +188,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x3"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_frgment_shop_currency"
+                android:src="@drawable/ly_frgment_shop_currency"
                 />
 
             <TextView
@@ -212,7 +212,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     />
             </RelativeLayout>
 
@@ -242,7 +242,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x4"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_account_distribution"
+                android:src="@drawable/ly_account_distribution"
                 />
 
             <TextView
@@ -266,7 +266,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_account_back"
+                    android:src="@drawable/ly_account_back"
                     />
             </RelativeLayout>
 
@@ -295,7 +295,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x4"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_account_address"
+                android:src="@drawable/ly_account_address"
                 />
 
             <TextView
@@ -319,7 +319,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_account_back"
+                    android:src="@drawable/ly_account_back"
                     />
             </RelativeLayout>
 
@@ -348,7 +348,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x4"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_account_information"
+                android:src="@drawable/ly_account_information"
                 />
 
             <TextView
@@ -372,7 +372,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_account_back"
+                    android:src="@drawable/ly_account_back"
                     />
             </RelativeLayout>
 
@@ -402,7 +402,7 @@
                 android:layout_centerVertical="true"
                 android:layout_width="@dimen/x4"
                 android:layout_height="@dimen/y2"
-                android:src="@mipmap/ly_account_my"
+                android:src="@drawable/ly_account_my"
                 />
 
             <TextView
@@ -426,7 +426,7 @@
                     android:layout_width="@dimen/x2"
                     android:layout_height="@dimen/y2"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/ly_account_back"
+                    android:src="@drawable/ly_account_back"
                     />
             </RelativeLayout>
 

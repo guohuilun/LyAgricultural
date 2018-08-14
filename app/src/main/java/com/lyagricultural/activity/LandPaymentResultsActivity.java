@@ -56,12 +56,12 @@ public class LandPaymentResultsActivity extends BaseActivity  implements View.On
             payment_results_back_button.setText("返回土地库");
             land_payment_results_tip_tv.setVisibility(View.GONE);
             land_payment_results_tv.setText("支付成功");
-            iv_default.setImageResource(R.mipmap.ly_land_activity_payment_results);
+            iv_default.setImageResource(R.drawable.ly_land_activity_payment_results);
         }else if ("种植结果".equals(result)){
             payment_results_back_button.setText("返回种子库");
             land_payment_results_tip_tv.setVisibility(View.VISIBLE);
             land_payment_results_tv.setText("种植成功");
-            iv_default.setImageResource(R.mipmap.ly_land_activity_payment_results_o);
+            iv_default.setImageResource(R.drawable.ly_land_activity_payment_results_o);
         }
     }
 

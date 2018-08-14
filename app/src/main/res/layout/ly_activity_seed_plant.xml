@@ -86,7 +86,7 @@
                     <ImageView
                         android:layout_width="30px"
                         android:layout_height="30px"
-                        android:src="@mipmap/ly_frgment_shop_currency"
+                        android:src="@drawable/ly_frgment_shop_currency"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/seed_plant_rv_item_money_tv"
                         android:layout_marginLeft="@dimen/dp_3"
@@ -263,7 +263,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dp_10"
@@ -330,7 +330,7 @@
                 <ImageView
                     android:layout_width="@dimen/x4"
                     android:layout_height="@dimen/y2"
-                    android:src="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                    android:src="@drawable/ly_activity_land_leased_place_order_exclamatory_mark"
                     android:layout_marginTop="@dimen/dp_5"
                     android:layout_marginLeft="@dimen/dp_5"
                     />
@@ -430,7 +430,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dp_16"
-                android:drawableLeft="@mipmap/ly_activity_land_leased_place_order_exclamatory_mark"
+                android:drawableLeft="@drawable/ly_activity_land_leased_place_order_exclamatory_mark"
                 android:drawablePadding="@dimen/dp_8"
                 android:gravity="center"
                 />
@@ -464,7 +464,7 @@
                     android:id="@+id/iv_default"
                     android:layout_width="30px"
                     android:layout_height="30px"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/seed_plant_money_tv"
                     android:layout_marginLeft="@dimen/dp_3"

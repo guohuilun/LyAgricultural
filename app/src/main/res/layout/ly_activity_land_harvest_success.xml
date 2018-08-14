@@ -16,7 +16,7 @@
             android:id="@+id/iv_default"
             android:layout_width="@dimen/x43"
             android:layout_height="@dimen/y24"
-            android:src="@mipmap/ly_land_successful_operation"
+            android:src="@drawable/ly_land_successful_operation"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dp_10"
             />
@@ -127,7 +127,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ly_land_qq"
+                android:src="@drawable/ly_land_qq"
                 android:layout_marginTop="@dimen/dp_10"
                 />
 
@@ -156,7 +156,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ly_land_wei_xin"
+                android:src="@drawable/ly_land_wei_xin"
                 android:layout_marginTop="@dimen/dp_10"
                 />
 
@@ -186,7 +186,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ly_land_wei_xin_circle"
+                android:src="@drawable/ly_land_wei_xin_circle"
                 android:layout_marginTop="@dimen/dp_10"
                 />
 

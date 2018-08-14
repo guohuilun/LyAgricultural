@@ -28,7 +28,7 @@
              android:layout_width="@dimen/x5"
              android:layout_height="@dimen/y3"
              android:layout_centerVertical="true"
-             android:src="@mipmap/ly_activity_account_address_add"
+             android:src="@drawable/ly_activity_account_address_add"
              />
 
          <TextView

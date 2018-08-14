@@ -59,7 +59,7 @@
                     android:id="@+id/iv_default"
                     android:layout_width="25px"
                     android:layout_height="25px"
-                    android:src="@mipmap/ly_frgment_shop_currency"
+                    android:src="@drawable/ly_frgment_shop_currency"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dp_3"

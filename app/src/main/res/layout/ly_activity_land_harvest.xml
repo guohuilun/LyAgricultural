@@ -18,7 +18,7 @@
             android:id="@+id/iv_default"
             android:layout_width="@dimen/x7"
             android:layout_height="@dimen/y3"
-            android:src="@mipmap/ly_activity_land_harvest_address"
+            android:src="@drawable/ly_activity_land_harvest_address"
             android:layout_marginLeft="@dimen/dp_24"
             android:layout_marginRight="@dimen/dp_24"
             android:layout_centerVertical="true"
@@ -106,7 +106,7 @@
             android:id="@+id/hand_harvest_back_iv"
             android:layout_width="@dimen/x3"
             android:layout_height="@dimen/y2"
-            android:src="@mipmap/ly_activity_land_harvest_back"
+            android:src="@drawable/ly_activity_land_harvest_back"
             android:layout_marginLeft="@dimen/dp_6"
             android:layout_marginRight="@dimen/dp_16"
             android:layout_alignParentRight="true"
@@ -121,7 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_8"
         android:scaleType="fitXY"
-        android:src="@mipmap/ly_activity_land_harvest_line"
+        android:src="@drawable/ly_activity_land_harvest_line"
         >
     </ImageView>
 
@@ -142,7 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/y23"
         android:scaleType="fitXY"
-        android:src="@mipmap/ly_land_details_dialogfragment_bg"
+        android:src="@drawable/ly_land_details_dialogfragment_bg"
         />
 
     <RelativeLayout

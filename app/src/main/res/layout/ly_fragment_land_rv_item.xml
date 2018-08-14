@@ -49,7 +49,7 @@
                  android:layout_toRightOf="@+id/land_rv_item_name_tv"
                  android:layout_centerVertical="true"
                  android:layout_marginLeft="@dimen/dp_8"
-                 android:drawableLeft="@mipmap/ly_land_small_horn"
+                 android:drawableLeft="@drawable/ly_land_small_horn"
                  android:drawablePadding="@dimen/dp_3"
                  />
 
@@ -58,7 +58,7 @@
                 android:layout_height="@dimen/y2"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ly_land_go_in"
+                android:src="@drawable/ly_land_go_in"
                 android:layout_marginRight="@dimen/dp_10"
                 />
 
