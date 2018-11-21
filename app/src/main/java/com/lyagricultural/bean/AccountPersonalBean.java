@@ -9,7 +9,7 @@ public class AccountPersonalBean {
     /**
      * Status : OK
      * Msg : 执行成功
-     * userinfo : {"userNme":"android用户605007","userSex":"男","imagePath":"","loginPhone":"1234567893","loginWx":"","inCode":"6J4842"}
+     * userinfo : {"userNme":"张三","userSex":"男","imagePath":"http://113.207.26.23:22098/upload/Image/UserHead/2018071702349F69B4D1AA904ED3B3A5A96A9D4556B1.jpg","loginPhone":"15178719625","loginWx":"","inCode":"zhan12","inCount":"1"}
      */
 
     private String Status;
@@ -42,12 +42,13 @@ public class AccountPersonalBean {
 
     public static class UserinfoBean {
         /**
-         * userNme : android用户605007
+         * userNme : 张三
          * userSex : 男
-         * imagePath :
-         * loginPhone : 1234567893
+         * imagePath : http://113.207.26.23:22098/upload/Image/UserHead/2018071702349F69B4D1AA904ED3B3A5A96A9D4556B1.jpg
+         * loginPhone : 15178719625
          * loginWx :
-         * inCode : 6J4842
+         * inCode : zhan12
+         * inCount : 1
          */
 
         private String userNme;
@@ -56,6 +57,7 @@ public class AccountPersonalBean {
         private String loginPhone;
         private String loginWx;
         private String inCode;
+        private String inCount;
 
         public String getUserNme() {
             return userNme;
@@ -103,6 +105,14 @@ public class AccountPersonalBean {
 
         public void setInCode(String inCode) {
             this.inCode = inCode;
+        }
+
+        public String getInCount() {
+            return inCount;
+        }
+
+        public void setInCount(String inCount) {
+            this.inCount = inCount;
         }
     }
 }

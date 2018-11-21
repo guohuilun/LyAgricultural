@@ -2,6 +2,9 @@ package com.lyagricultural.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -26,6 +29,10 @@ import com.lyagricultural.utils.ProgressDialogUtils;
 import com.lyagricultural.utils.SpSimpleUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import okhttp3.Call;
 
 /**
@@ -226,6 +233,7 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
                                     SpSimpleUtils.saveSp("userid", parse.getUserid(),LoginActivity.this,"LoginActivity");
                                 }
                                 startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+//                                startActivity(new Intent(LoginActivity.this,HomeAgActivity.class));
                             }else {
                                 ProgressDialogUtils.closeProgressDialog();
                                 LyToast.shortToast(LoginActivity.this,parse.getMsg());

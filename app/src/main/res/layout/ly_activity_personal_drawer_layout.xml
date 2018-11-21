@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="@dimen/x55"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/drawer_layout_head_rl"
+        android:background="@color/ly_activity_tx_color"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y7">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/drawer_layout_title_left_rl"
+            >
+            <TextView
+                android:id="@+id/drawer_layout_center_tv"
+                android:textSize="@dimen/sp_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/dp_160"
+                android:singleLine="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="在线"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/drawer_layout_title_left_rl"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:id="@+id/drawer_layout_img_left_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:scaleType="fitXY"
+                android:src="@drawable/ly_back" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y14"
+        android:background="@color/ly_activity_tx_color"
+        >
+
+        <com.lyagricultural.view.CircleImageView
+            android:id="@+id/drawer_layout_ci"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y9"
+            android:src="@mipmap/ce_seed_v_name_banner_t"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/drawer_layout_ci"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张大"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18322449980"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y12"
+        >
+
+        <LinearLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x8"
+                android:layout_height="@dimen/y6"
+                android:src="@mipmap/ce_seed_v_name_banner_t"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线"
+                android:textSize="@dimen/sp_12"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/x8"
+                android:layout_height="@dimen/y6"
+                android:src="@mipmap/ce_seed_v_name_banner_t"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线"
+                android:textSize="@dimen/sp_12"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/ly_fragment_drawer_bg"
+        ></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y42"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x5"
+                    android:layout_height="@dimen/y4"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="任务记录"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            ></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x5"
+                    android:layout_height="@dimen/y4"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="操作记录"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            ></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x5"
+                    android:layout_height="@dimen/y4"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="通知管理"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            ></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x5"
+                    android:layout_height="@dimen/y4"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="设置中心"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            ></View>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ce_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:text="测试"
+        android:visibility="gone"
+        />
+
+
+</LinearLayout>

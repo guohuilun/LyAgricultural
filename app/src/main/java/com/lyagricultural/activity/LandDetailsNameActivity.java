@@ -1,5 +1,6 @@
 package com.lyagricultural.activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -7,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
@@ -35,13 +37,17 @@ import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.bean.EventBusDefaultBean;
 import com.lyagricultural.bean.EventBusLandDetailsBean;
 import com.lyagricultural.bean.LandDetailsNameSelectBean;
+import com.lyagricultural.bean.LandDetailsNameShareBean;
 import com.lyagricultural.cebean.LandDetailsNameBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.fragment.LandDialogFragment;
 import com.lyagricultural.http.LecoOkHttpUtil;
+import com.lyagricultural.permissions.RuntimeRationale;
 import com.lyagricultural.utils.CheckNetworkUtils;
+import com.lyagricultural.utils.DeleteFileUtil;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.WidthUtils;
 import com.lyagricultural.view.TextSpan;
 import com.lyagricultural.yuanjian.activity.BaseYuanJianActivity;
@@ -62,6 +68,8 @@ import com.tongguan.yuanjian.family.Utils.req.SnapshotRequest;
 import com.tongguan.yuanjian.family.Utils.req.StreamParams;
 import com.tongguan.yuanjian.family.Utils.service.BaseCallback;
 import com.tongguan.yuanjian.family.Utils.service.MainCallbackImp;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
 import com.yykj.mob.share.share.ShareAllUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -211,10 +219,8 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         switch (view.getId()){
 //            视频开始监听
             case R.id.play_share:
-                ShareAllUtils.showShare(LandDetailsNameActivity.this,
-                        "", "", "", "", this);
                 isPause=false;
-//                cut();
+                cut();
                 break;
             case R.id.play_suspensionRl:
                   /* 横屏监听 */
@@ -741,8 +747,13 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
     }
 
     String imagePath = "";
+    Boolean isShowPermission =false;
     public void cut()
     {
+        if (isShowPermission==false){
+            LyLog.i(TAG,"你来获取权限了吗？");
+            setPermissionUtils();
+        }
         SnapshotRequest sr = new SnapshotRequest();
 
         String pathFile = Environment.getExternalStorageDirectory().getAbsolutePath() + ProjectSetting.SAVE_PIC_FOLDER;
@@ -769,16 +780,52 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                 if (result == 0)
                 {
                     LyLog.i(TAG,"截图成功 = "+imagePath);
-                    Toast.makeText(LandDetailsNameActivity.this, "success imagePath: " + imagePath, Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(LandDetailsNameActivity.this, "截图成功 " , Toast.LENGTH_LONG).show();
+                    initShareImg(imagePath);
                 } else
                 {
-                    LyLog.i(TAG,"截图失败");
-                    Toast.makeText(LandDetailsNameActivity.this, "screenshot fail", Toast.LENGTH_SHORT).show();
+                    LyLog.i(TAG,"截图失败 = "+imagePath);
+                    Toast.makeText(LandDetailsNameActivity.this, "截图失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         PersonManager.getPersonManager().doSnapshot(sr);
+    }
+
+
+    private void setPermissionUtils(){
+        if (AndPermission.hasPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            LyLog.i(TAG,"存在权限");
+            isShowPermission=true;
+        }else {
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+
+    }
+
+
+    /**
+     * Request permissions.
+     */
+    private void requestPermission(String... permissions) {
+        AndPermission.with(this)
+                .runtime()
+                .permission(permissions)
+                .rationale(new RuntimeRationale())
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        LyLog.i(TAG,"获取权限成功");
+                        isShowPermission=true;
+                    }
+                })
+                .onDenied(new Action<List<String>>() {
+                    @Override
+                    public void onAction(@NonNull List<String> permissions) {
+                        LyLog.i(TAG,"获取权限失败");
+                    }
+                })
+                .start();
     }
 
 
@@ -834,6 +881,9 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
                 holder.setClick(R.id.land_details_name_ll,cropinfoBean,position,cropinfoBeanBaseRecyclerAdapter);
                 holder.setImg(LandDetailsNameActivity.this,cropinfoBean.getCropImg(),R.id.land_details_name_rv_iv);
                 holder.setTxt(R.id.land_details_name_rv_tv,cropinfoBean.getCropNme()+"("+cropinfoBean.getCropNum()+")");
+                if (holder.getTxt(R.id.land_details_name_rv_tv)!=null && holder.getTxt(R.id.land_details_name_rv_tv).length()>6){
+                    holder.setTxtSize(R.id.land_details_name_rv_tv,6);
+                }
                 holder.setTxt(R.id.land_details_name_rv_tv_o,cropinfoBean.getCropType());
 
                 if (!isCheckShow){
@@ -865,6 +915,41 @@ public class LandDetailsNameActivity extends BaseYuanJianActivity implements Vie
         land_details_rv.setAdapter(cropinfoBeanBaseRecyclerAdapter);
     }
 //    分享回调监听开始
+
+    /**
+     *  上传分享图片   -网络请求
+     */
+    private void initShareImg(final String path){
+        if (CheckNetworkUtils.checkNetworkAvailable(this)){
+            LecoOkHttpUtil lecoOkHttpUtil=new LecoOkHttpUtil();
+            lecoOkHttpUtil.post().url(AppConstant.APP_SHARE_IMG_UPLOAD)
+                    .addParams("userId", SpSimpleUtils.getSp("userid",LandDetailsNameActivity.this,"LoginActivity"))
+                    .addFile("shareImg","shareImg.jpg",new File(path))
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            LyLog.e(TAG,e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            LyLog.i(TAG,"上传分享图片 = " +response);
+                            Gson gson=new Gson();
+                            LandDetailsNameShareBean parse=gson.fromJson(response,LandDetailsNameShareBean.class);
+                            if ("OK".equals(parse.getStatus())){
+                                DeleteFileUtil.delete(path);
+                                String userId = SpSimpleUtils.getSp("userid", LandDetailsNameActivity.this, "LoginActivity");
+                                String url = parse.getShareUrl() + "?userId=" + userId + "&shareImg=" + parse.getShareImg() + "&sharType=" + "Video";
+                                LyLog.i(TAG,"链接地址 = "+url);
+                                ShareAllUtils.showShare(LandDetailsNameActivity.this,
+                                    "分享视频", url, parse.getShareImg(), "今天蔬菜长势喜人，截个图给大家看看，炫耀一下。",LandDetailsNameActivity.this);
+                            }
+
+                        }
+                    });
+        }
+    }
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {

@@ -42,4 +42,9 @@
 
     <color name="ly_activity_breed_hive_button_bg">#F39800</color>
 
+    <color name="ly_fragment_task_rv_item_bg">#8FDCFF</color>
+
+    <color name="ly_activity_task_delivery_details_tv">#707070</color>
+
+    <color name="ly_fragment_drawer_bg">#EEEEEE</color>
 </resources>

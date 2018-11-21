@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布人"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:id="@+id/task_delivery_order_details_release_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张先生"
+                    android:textColor="@color/ly_activity_task_delivery_details_tv"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_alignParentRight="true"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务类型"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:id="@+id/task_delivery_order_details_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种植"
+                    android:textColor="@color/ly_activity_task_delivery_details_tv"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布时间"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:id="@+id/task_delivery_order_details_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-8-24 09:46:15"
+                    android:textColor="@color/ly_activity_task_delivery_details_tv"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_alignParentRight="true"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="详细"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/task_delivery_order_details_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                >
+
+                <TextView
+                    android:id="@+id/task_delivery_order_details_remarks_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="给我快点种，施好肥、一定要健康的绿色"
+                    android:textColor="@color/ly_activity_task_delivery_details_tv"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="流程时间"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0.7"
+                android:background="@color/segmenting_line"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y12"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y8"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:scaleType="fitXY"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="8-24 10:01:04"
+                        android:textColor="@color/ly_activity_tv_color"
+                        android:textSize="@dimen/sp_8"
+                        android:gravity="center"
+                        />
+
+                    <TextView
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="8-24 10:01:04"
+                        android:textColor="@color/ly_activity_tv_color"
+                        android:textSize="@dimen/sp_8"
+                        android:gravity="center"
+                        />
+
+
+                    <TextView
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="8-24 10:01:04"
+                        android:textColor="@color/ly_activity_tv_color"
+                        android:textSize="@dimen/sp_8"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

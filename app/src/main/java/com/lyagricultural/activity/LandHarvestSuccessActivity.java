@@ -11,6 +11,7 @@ import com.lyagricultural.R;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.EventBusLandDetailsBean;
 import com.lyagricultural.utils.LyLog;
+import com.lyagricultural.utils.SpSimpleUtils;
 import com.yykj.mob.share.share.SharePlatformUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -33,6 +34,8 @@ public class LandHarvestSuccessActivity extends BaseActivity implements View.OnC
     private LinearLayout land_harvest_success_qq_ll;
     private LinearLayout land_harvest_success_wei_xin_ll;
     private LinearLayout land_harvest_success_wei_xin_circle_ll;
+    private String userId="";
+    private String url="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class LandHarvestSuccessActivity extends BaseActivity implements View.OnC
         land_harvest_success_qq_ll.setOnClickListener(this);
         land_harvest_success_wei_xin_ll.setOnClickListener(this);
         land_harvest_success_wei_xin_circle_ll.setOnClickListener(this);
+         userId = SpSimpleUtils.getSp("userid", LandHarvestSuccessActivity.this, "LoginActivity");
+         url = "http://113.207.26.23:22099/Share/ShareView" + "?userId=" + userId + "&shareImg=" + "http://113.207.26.23:22098/upload/Image/ShareImg/shouhuo.jpg" + "&sharType=" + "ShouHuo";
     }
 
     @Override
@@ -66,13 +71,17 @@ public class LandHarvestSuccessActivity extends BaseActivity implements View.OnC
                 finish();
                 break;
             case R.id.land_harvest_success_qq_ll:
-                SharePlatformUtils.showShare(this, QQ.NAME, "利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
+
+                SharePlatformUtils.showShare(this, QQ.NAME, "分享收获", url, "http://113.207.26.23:22098/upload/Image/ShareImg/shouhuo.jpg", "炫耀一下！\n" +
+                        "叮咛啷当吖，咱老百姓呐，今儿真开心哇，我的私家菜园蔬菜成熟啦！",this);
                 break;
             case R.id.land_harvest_success_wei_xin_ll:
-                SharePlatformUtils.showShare(this, Wechat.NAME,"利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
+                SharePlatformUtils.showShare(this, Wechat.NAME,"分享收获", url, "http://113.207.26.23:22098/upload/Image/ShareImg/shouhuo.jpg", "炫耀一下！\n" +
+                        "叮咛啷当吖，咱老百姓呐，今儿真开心哇，我的私家菜园蔬菜成熟啦！",this);
                 break;
             case R.id.land_harvest_success_wei_xin_circle_ll:
-                SharePlatformUtils.showShare(this, WechatMoments.NAME,"利用了几", "http://www.baidu.com", "http://img8.zol.com.cn/bbs/upload/23597/23596811.jpg", "",this);
+                SharePlatformUtils.showShare(this, WechatMoments.NAME,"分享收获", url, "http://113.207.26.23:22098/upload/Image/ShareImg/shouhuo.jpg", "炫耀一下！\n" +
+                        "叮咛啷当吖，咱老百姓呐，今儿真开心哇，我的私家菜园蔬菜成熟啦！",this);
                 break;
         }
     }

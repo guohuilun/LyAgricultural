@@ -88,4 +88,10 @@ public class AppConstant {
 
 //    确认收获
     public static final String APP_EX_CREATE=BASE_URL+"/AppUser/AppExCreate";
+
+//    上传分享图片
+    public static final String APP_SHARE_IMG_UPLOAD=BASE_URL+"/AppUser/AppShareImgUpload";
+
+    //    获取被邀请人列表
+    public static final String APP_IN_USER_INFO_SELECT=BASE_URL+"/AppUser/AppInUserInfoSelect";
 }

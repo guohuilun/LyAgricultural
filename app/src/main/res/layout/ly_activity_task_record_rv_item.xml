@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/y15"
+         android:layout_margin="@dimen/dp_3"
+         >
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:layout_toLeftOf="@+id/tr_right_rl"
+             >
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp_0"
+                 android:layout_weight="1"
+                 android:gravity="center_vertical"
+                 >
+
+                 <TextView
+                     android:id="@+id/tr_type_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="类型:种植"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+                 <TextView
+                     android:id="@+id/tr_publisher_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="发布人:A-01-张先生"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp_0"
+                 android:layout_weight="1"
+                 android:gravity="center_vertical"
+                 >
+
+                 <TextView
+                     android:id="@+id/tr_publish_time_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="发布时间:8-27 15:12:01"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+                 <TextView
+                     android:id="@+id/tr_recipient_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="接受人：张学友"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp_0"
+                 android:layout_weight="1"
+                 android:gravity="center_vertical"
+                 android:layout_marginBottom="@dimen/dp_10"
+                 >
+
+                 <TextView
+                     android:id="@+id/tr_recipient_time_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="接受时间:8-27 15:12:13"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+                 <TextView
+                     android:id="@+id/tr_complete_time_tv"
+                     android:layout_width="@dimen/dp_0"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="完成时间:8-27 15:12:17"
+                     android:textSize="@dimen/sp_12"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginLeft="@dimen/dp_10"
+                     />
+
+
+             </LinearLayout>
+
+         </LinearLayout>
+
+         <RelativeLayout
+             android:id="@+id/tr_right_rl"
+             android:layout_width="@dimen/x15"
+             android:layout_height="match_parent"
+             android:layout_alignParentRight="true"
+             >
+
+             <View
+                 android:layout_width="@dimen/dp_0.7"
+                 android:layout_height="match_parent"
+                 android:background="@color/segmenting_line"
+                 android:layout_marginTop="@dimen/dp_16"
+                 android:layout_marginBottom="@dimen/dp_16"
+                 ></View>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical"
+                 android:gravity="center"
+                 >
+
+                 <ImageView
+                     android:id="@+id/iv_default"
+                     android:layout_width="@dimen/x8"
+                     android:layout_height="@dimen/y4"
+                     android:src="@mipmap/ce_seed_v_name_banner_t"
+                     />
+
+                 <TextView
+                     android:id="@+id/tr_state_tv"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="已完成"
+                     android:textSize="@dimen/sp_10"
+                     android:textColor="@color/ly_activity_tv_color"
+                     android:layout_marginTop="@dimen/dp_6"
+                     />
+
+
+             </LinearLayout>
+
+
+         </RelativeLayout>
+
+
+     </RelativeLayout>
+
+
+</LinearLayout>

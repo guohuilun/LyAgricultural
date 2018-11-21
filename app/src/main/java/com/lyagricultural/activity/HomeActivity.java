@@ -88,9 +88,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 homeViewPager.setCurrentItem(1);
                 break;
             case R.id.shop_RB:
+//                homeViewPager.setCurrentItem(1);
                 homeViewPager.setCurrentItem(2);
                 break;
             case R.id.account_RB:
+//                homeViewPager.setCurrentItem(2);
                 homeViewPager.setCurrentItem(3);
                 break;
         }
@@ -122,6 +124,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void sentParsms(EventBusDefaultBean bean) {//此方法类似于广播，任何地方都可以传递
         if ("ShopFragment".equals(bean.getMsg())){
+//            homeViewPager.setCurrentItem(1);
             homeViewPager.setCurrentItem(2);
             shopRB.setChecked(true);
             EventBus.getDefault().post(new EventBusDefaultBean("ShopLandFragmentInit"));
@@ -133,9 +136,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
             EventBus.getDefault().post(new EventBusDefaultBean("LandFragmentInit"));
         }else if ("ShopFragmentSwitch".equals(bean.getMsg())){
             homeViewPager.setCurrentItem(2);
+//            homeViewPager.setCurrentItem(1);
             shopRB.setChecked(true);
         }else if ("ShopFragmentSwitchLand".equals(bean.getMsg())){
             homeViewPager.setCurrentItem(2);
+//            homeViewPager.setCurrentItem(1);
             shopRB.setChecked(true);
         }
     }

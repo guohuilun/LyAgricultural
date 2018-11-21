@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/y12"
+    android:background="@drawable/ly_activity_account_order_rv_item_bg"
+    android:id="@+id/land_rv_rl"
+    >
+
+
+    <ImageView
+        android:id="@+id/iv_default"
+        android:layout_width="@dimen/x23"
+        android:layout_height="@dimen/y10"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:scaleType="fitXY"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y12"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_default"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_3"
+        android:layout_marginBottom="@dimen/dp_3"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/manage_rv_item_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风光一号"
+                android:textColor="@color/ly_activity_tv_color"
+                android:textSize="@dimen/sp_12"
+                android:layout_centerVertical="true"
+                />
+
+
+            <ImageView
+                android:layout_width="@dimen/x3"
+                android:layout_height="@dimen/y2"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ly_land_go_in"
+                android:layout_marginRight="@dimen/dp_10"
+                />
+
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.7"
+            android:background="@color/segmenting_line"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_3"
+            ></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="编号"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/manage_rv_item_type_number_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A-01"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_tx_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属人"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/manage_rv_item_person_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张先生"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="总面积"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_account_order_tv_color"
+                    />
+
+                <TextView
+                    android:id="@+id/manage_rv_item_area_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="666.67㎡"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

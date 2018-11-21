@@ -53,6 +53,23 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/ly_back" />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/title_left_o"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:id="@+id/img_left_o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:scaleType="fitXY"
+                android:src="@drawable/ly_back" />
+        </RelativeLayout>
+
         <RelativeLayout
             android:layout_alignParentRight="true"
             android:id="@+id/title_right"

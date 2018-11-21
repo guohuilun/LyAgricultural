@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y6"
+    android:visibility="gone"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="状态栏"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/ly_activity_tv_color"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_16"
+        />
+
+    <com.lyagricultural.view.SwitchButton
+        android:id="@+id/pn_status_sb"
+        android:layout_width="@dimen/x9"
+        android:layout_height="@dimen/y3"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        />
+
+</RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.5"
+        android:background="@color/segmenting_line"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="声音"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_16"
+            />
+
+        <com.lyagricultural.view.SwitchButton
+            android:id="@+id/pn_sound_sb"
+            android:layout_width="@dimen/x9"
+            android:layout_height="@dimen/y3"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.5"
+        android:background="@color/segmenting_line"
+        ></View>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="震动"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/ly_activity_tv_color"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_16"
+            />
+
+        <com.lyagricultural.view.SwitchButton
+            android:id="@+id/pn_shock_sb"
+            android:layout_width="@dimen/x9"
+            android:layout_height="@dimen/y3"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.5"
+        android:background="@color/segmenting_line"
+        ></View>
+
+
+</LinearLayout>

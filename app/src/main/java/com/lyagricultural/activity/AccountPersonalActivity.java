@@ -59,6 +59,8 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
     private RelativeLayout bottom_rl;
     private ImageView account_personal_head_more_iv;
     private Bitmap bitmap;
+    private RelativeLayout account_personal_people_rl;
+    private TextView account_personal_people_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +83,11 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
         account_personal_code_tv=findViewById(R.id.account_personal_code_tv);
         bottom_rl=findViewById(R.id.bottom_rl);
         account_personal_head_more_iv=findViewById(R.id.account_personal_head_more_iv);
+        account_personal_people_rl=findViewById(R.id.account_personal_people_rl);
+        account_personal_people_tv=findViewById(R.id.account_personal_people_tv);
         account_personal_head_rl.setOnClickListener(this);
         bottom_rl.setOnClickListener(this);
+        account_personal_people_rl.setOnClickListener(this);
         initUserInfoSelect();
         account_personal_code_tv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -121,6 +126,9 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
                     }
                 }).setTitle("提示").show();
 
+                break;
+            case R.id.account_personal_people_rl:
+               startActivity(new Intent(AccountPersonalActivity.this,AccountPersonalInvitationActivity.class));
                 break;
         }
     }
@@ -235,6 +243,8 @@ public class AccountPersonalActivity extends BaseActivity implements View.OnClic
                                     account_personal_wei_xin_tv.setText(parse.getUserinfo().getLoginWx());
                                 }
                                 account_personal_code_tv.setText(parse.getUserinfo().getInCode());
+
+                                account_personal_people_tv.setText(parse.getUserinfo().getInCount());
                             }
 
                         }

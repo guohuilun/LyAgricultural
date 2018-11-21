@@ -36,6 +36,8 @@ public abstract class BaseActivity extends FragmentActivity {
     protected TextView mTitle;
     protected RelativeLayout mRlLeft;
     protected ImageView mImageLeft;
+    protected RelativeLayout mRlLeftOne;
+    protected ImageView mImageLeftOne;
     protected RelativeLayout mRlRight;
     protected ImageView mImageRight;
     protected RelativeLayout mRlTxRight;
@@ -60,6 +62,8 @@ public abstract class BaseActivity extends FragmentActivity {
         mTitle=super.findViewById(R.id.title_center);
         mRlLeft=super.findViewById(R.id.title_left);
         mImageLeft=super.findViewById(R.id.img_left);
+        mRlLeftOne=super.findViewById(R.id.title_left_o);
+        mImageLeftOne=super.findViewById(R.id.img_left_o);
         mRlRight=super.findViewById(R.id.title_right);
         mImageRight=super.findViewById(R.id.img_right);
         mRlTxRight=super.findViewById(R.id.title_right_txt);
@@ -112,6 +116,15 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public void setHeadLeftVisibility(int visibility){
         mRlLeft.setVisibility(visibility);
+    }
+
+
+    /**
+     * 设置左边图标1是否可见
+     */
+
+    public void setHeadLeftOneVisibility(int visibility){
+        mRlLeftOne.setVisibility(visibility);
     }
 
     /**
@@ -218,7 +231,21 @@ public abstract class BaseActivity extends FragmentActivity {
         this.mTxRight = mTxRight;
     }
 
+    public ImageView getmImageLeftOne() {
+        return mImageLeftOne;
+    }
 
+    public void setmImageLeftOne(ImageView mImageLeftOne) {
+        this.mImageLeftOne = mImageLeftOne;
+    }
+
+    public RelativeLayout getmRlLeftOne() {
+        return mRlLeftOne;
+    }
+
+    public void setmRlLeftOne(RelativeLayout mRlLeftOne) {
+        this.mRlLeftOne = mRlLeftOne;
+    }
 
     /**
      * 是否可以使用沉浸式

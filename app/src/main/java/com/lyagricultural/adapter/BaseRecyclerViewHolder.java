@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lyagricultural.R;
+import com.lyagricultural.utils.GradientDrawableUtils;
 import com.lyagricultural.view.AmountView;
 import com.squareup.picasso.Picasso;
 
@@ -188,6 +189,12 @@ public class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder  {
         CheckBox checkBox= (CheckBox) itemView.findViewById(viewId);
         checkBox.setOnCheckedChangeListener(listener);
     }
+
+    public void setAllDrawable(int viewId,int size,String color){
+        View view =itemView.findViewById(viewId);
+        view.setBackground(GradientDrawableUtils.setGDrawable(size,color));
+    }
+
 
 
 

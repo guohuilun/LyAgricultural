@@ -29,7 +29,6 @@ import com.lyagricultural.bean.EventBusBreedHiveBean;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
 import com.lyagricultural.utils.WidthUtils;
-import com.lyagricultural.view.TextSpan;
 import com.lyagricultural.yuanjian.activity.BaseYuanJianActivity;
 import com.lyagricultural.yuanjian.adapter.IPCListUtils;
 import com.lyagricultural.yuanjian.model.CameraInfo;
@@ -46,6 +45,7 @@ import com.tongguan.yuanjian.family.Utils.req.LogoutRequest;
 import com.tongguan.yuanjian.family.Utils.req.StreamParams;
 import com.tongguan.yuanjian.family.Utils.service.BaseCallback;
 import com.tongguan.yuanjian.family.Utils.service.MainCallbackImp;
+import com.zzhoujay.richtext.RichText;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -53,24 +53,17 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 作者Administrator on 2018/5/29 0029 13:39
  */
 public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.OnClickListener{
     private static final String TAG = "BreedHiveNameActivity";
-    private RecyclerView breed_hive_name_rv;
     private LinearLayout breed_hive_name_content_ll;
-    private TextView breed_hive_name_time_tv;
-    private TextView breed_hive_name_temperature_tv;
-    private TextView breed_hive_name_humidity_tv;
-    private TextView breed_hive_name_weight_tv;
-    private TextView breed_hive_name_fly_out_tv;
-    private TextView breed_hive_name_fly_in_tv;
     private Button breed_hive_name_button;
-
-    private  PopupWindow popupWindow;
+    private TextView breed_hive_name_rich_tv;
+    private RichText richText;
+    private LinearLayout breed_hive_name_claim_ll;
 
 //     在线视频开始
     private long nid;
@@ -111,9 +104,6 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
         setScreenOrietation();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_activity_breed_hive_name);
-        setHeadRightVisibility(View.VISIBLE);
-        mImageRight.setImageResource(R.drawable.ly_land_function);
-        mImageRight.setOnClickListener(this);
         initView();
         if (!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
@@ -124,18 +114,14 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
         Intent intent=getIntent();
         if (intent!=null){
              intent.getStringExtra("");
-            setTitle("");
+            setTitle("蜂箱详情");
         }
-        breed_hive_name_rv= findViewById(R.id.breed_hive_name_rv);
         breed_hive_name_content_ll= findViewById(R.id.breed_hive_name_content_ll);
-        breed_hive_name_time_tv=findViewById(R.id.breed_hive_name_time_tv);
-        breed_hive_name_temperature_tv=findViewById(R.id.breed_hive_name_temperature_tv);
-        breed_hive_name_humidity_tv=findViewById(R.id.breed_hive_name_humidity_tv);
-        breed_hive_name_weight_tv=findViewById(R.id.breed_hive_name_weight_tv);
-        breed_hive_name_fly_out_tv=findViewById(R.id.breed_hive_name_fly_out_tv);
-        breed_hive_name_fly_in_tv=findViewById(R.id.breed_hive_name_fly_in_tv);
         breed_hive_name_button=findViewById(R.id.breed_hive_name_button);
         breed_hive_name_button.setOnClickListener(this);
+        breed_hive_name_rich_tv=findViewById(R.id.breed_hive_name_rich_tv);
+        breed_hive_name_claim_ll=findViewById(R.id.breed_hive_name_claim_ll);
+        breed_hive_name_claim_ll.setOnClickListener(this);
 
         initPlay();
     }
@@ -192,54 +178,14 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
 
 
 //            视频结束监听
-
-            case R.id.img_right:
-              showPopupWindow();
-                break;
             case R.id.breed_hive_name_button:
 
                 break;
+
+            case R.id.breed_hive_name_claim_ll:
+                break;
         }
     }
-
-    private void showPopupWindow() {
-//         用这个方法可以改变气泡的大小
-
-//        先创建一个view视图
-        View view = LayoutInflater.from(this).inflate(R.layout.ly_activity_breed_hive_name_pop, null);
-//        第一个参数是view，第二个参数是宽，第三个参数是高，第四个参数是是否有焦点
-        int screenWidth = WidthUtils.getScreenWidth(this);
-        popupWindow=new PopupWindow(view,screenWidth/3, 400,false);
-//         给popupWindow设置监听事件需要通过view去得到Id来设置
-        view.findViewById(R.id.breed_hive_name_pop_history).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               startActivity(new Intent(BreedHiveNameActivity.this,BreedHiveHistoryActivity.class));
-                doStop();
-                popupWindow.dismiss();
-            }
-        });
-
-        view.findViewById(R.id.breed_hive_name_pop_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BreedHiveNameActivity.this,BreedHiveCameraListActivity.class));
-                doStop();
-                popupWindow.dismiss();
-            }
-        });
-//          只要焦点设置为true那么下面这个属性是没有效果的
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow.setOutsideTouchable(true);
-        /**
-         * 设置气泡的动画效果
-         */
-//        popupWindow.setAnimationStyle(R.style.MyPopupWindow);
-//         最后一步       设置气泡显示为下拉
-        popupWindow.showAsDropDown(mRlRight);
-
-    }
-
 
 
 
@@ -291,11 +237,15 @@ public class BreedHiveNameActivity extends BaseYuanJianActivity implements View.
 
 
 
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        if (richText!=null){
+            richText.clear();
+            richText = null;
+        }
+
         PlayVideoUtil.getInstance().stopPlay();
         if (EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().unregister(this);

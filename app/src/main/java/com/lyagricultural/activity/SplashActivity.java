@@ -1,8 +1,14 @@
 package com.lyagricultural.activity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.NonNull;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -14,6 +20,7 @@ import com.lyagricultural.bean.LoginActivityBean;
 import com.lyagricultural.constant.AppConstant;
 import com.lyagricultural.constant.MsgConstant;
 import com.lyagricultural.http.LecoOkHttpUtil;
+import com.lyagricultural.permissions.RuntimeRationale;
 import com.lyagricultural.utils.CheckNetworkUtils;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.utils.LyToast;
@@ -22,8 +29,15 @@ import com.lyagricultural.utils.SpSimpleUtils;
 import com.lyagricultural.utils.SpUtils;
 import com.lyagricultural.utils.TxUtils;
 import com.tencent.bugly.crashreport.BuglyLog;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.util.List;
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import okhttp3.Call;
 
 /**
@@ -32,7 +46,8 @@ import okhttp3.Call;
 public class SplashActivity extends BaseActivity {
     private static final String TAG = "SplashActivity";
     private ImageView iv_splash;
-
+    private String DEVICE_ID;
+    private  Boolean isShowPermission =false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +76,10 @@ public class SplashActivity extends BaseActivity {
     private void initView(){
         iv_splash=findViewById(R.id.iv_splash);
         initLogin();
+        if (isShowPermission==false){
+            LyLog.i(TAG,"你来获取权限了吗？");
+            setPermissionUtils();
+        }
     }
 
 
@@ -144,5 +163,85 @@ public class SplashActivity extends BaseActivity {
         }, 2000);
     }
 
+
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case MSG_SET_ALIAS:
+                    LyLog.i(TAG, "推送 = Set alias in handler.");
+                    // 调用 JPush 接口来设置别名。
+                    JPushInterface.setAlias(getApplicationContext(), (String)msg.obj, mAliasCallback);
+                    break;
+
+            }
+        }
+    };
+
+
+    //以下是关于推送的别名返回参数
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            switch (code) {
+                case 0:
+                    LyLog.i(TAG, "推送 = Set tag and alias success");
+                    // 建议这里往 SharePreference 里写一个成功设置的状态。成功设置一次后，以后不必再次设置了。
+                    break;
+                case 6002:
+                    LyLog.i(TAG, "推送 = Failed to set alias and tags due to timeout. Try again after 60s.");
+                    // 延迟 60 秒来调用 Handler 设置别名
+                    mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
+                    break;
+                default:
+                    LyLog.i(TAG, "推送 = Failed with errorCode = "+code);
+            }
+            // ExampleUtil.showToast(logs, getApplicationContext());
+        }
+    };
+    private static final int MSG_SET_ALIAS = 1001;
+
+
+    private void setPermissionUtils(){
+        if (AndPermission.hasPermissions(this, Manifest.permission.READ_PHONE_STATE)){
+            LyLog.i(TAG,"存在权限");
+            isShowPermission=true;
+            TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+            DEVICE_ID = tm.getDeviceId();
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, DEVICE_ID));
+            LyLog.i(TAG, "DEVICE_ID = "+DEVICE_ID);
+        }else {
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+
+    }
+
+    /**
+     * Request permissions.
+     */
+    private void requestPermission(String... permissions) {
+        AndPermission.with(this)
+                .runtime()
+                .permission(permissions)
+                .rationale(new RuntimeRationale())
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        LyLog.i(TAG,"获取权限成功");
+                        isShowPermission=true;
+                        TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+                        DEVICE_ID = tm.getDeviceId();
+                        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, DEVICE_ID));
+                        LyLog.i(TAG, "DEVICE_ID = "+DEVICE_ID);
+                    }
+                })
+                .onDenied(new Action<List<String>>() {
+                    @Override
+                    public void onAction(@NonNull List<String> permissions) {
+                        LyLog.i(TAG,"获取权限失败");
+                    }
+                })
+                .start();
+    }
 
 }

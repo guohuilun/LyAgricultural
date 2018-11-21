@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y6"
+        android:background="@color/ly_activity_tx_color"
+        >
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/manage_ct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/manage_select_rl"
+            tl:tl_indicator_color="@color/white"
+            tl:tl_textSelectColor="@color/white"
+            tl:tl_textUnselectColor="#66000000"
+            tl:tl_underline_color="#DDDDDD"
+            tl:tl_underline_height="1dp"
+            tl:tl_textsize="@dimen/sp_12"
+            tl:tl_tab_width="@dimen/x24"
+            tl:tl_iconGravity="LEFT"
+            tl:tl_iconHeight="@dimen/y4"
+            tl:tl_iconWidth="@dimen/x6"
+            />
+
+        <RelativeLayout
+            android:id="@+id/manage_select_rl"
+            android:layout_width="@dimen/dp_54"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            >
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/manage_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>

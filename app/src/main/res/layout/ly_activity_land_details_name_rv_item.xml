@@ -1,103 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="@dimen/x20"
-    android:layout_height="@dimen/y17"
-    android:background="@color/white"
-    android:layout_marginTop="@dimen/dp_10"
-    android:id="@+id/land_details_name_ll"
-    >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y9"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
-
-        <ImageView
-            android:id="@+id/land_details_name_rv_iv"
-            android:layout_width="@dimen/x6"
-            android:layout_height="@dimen/y4"
-            android:scaleType="fitXY"
-            />
-        <TextView
-            android:id="@+id/land_details_name_rv_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="番茄(10)"
-            android:textColor="@color/ly_activity_tv_color"
-            android:textSize="@dimen/sp_10"
-            android:layout_marginTop="@dimen/dp_3"
-            />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0.5"
-        android:background="@color/segmenting_line"
-        ></View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <ImageView
-                android:id="@+id/land_details_name_rv_o_iv"
-                android:layout_width="@dimen/x4"
-                android:layout_height="@dimen/y2"
-                />
-
-            <TextView
-                android:id="@+id/land_details_name_rv_tv_o"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="健康"
-                android:textColor="@color/ly_activity_tx_color"
-                android:textSize="@dimen/sp_10"
-                android:layout_marginLeft="@dimen/dp_3"
-                />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0.5"
-            android:background="@color/segmenting_line"
-            ></View>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0"
-            android:layout_weight="1"
-            android:gravity="center"
-            >
-
-            <CheckBox
-                android:id="@+id/land_details_name_rv_cb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/SmallCircleTheme"
-                android:clickable="false"
-                android:enabled="false"
-                />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:orientation="vertical" android:layout_width="@dimen/x20"    android:layout_height="@dimen/y17"    android:background="@color/white"    android:layout_marginTop="@dimen/dp_10"    android:id="@+id/land_details_name_ll"    >    <LinearLayout        android:layout_width="match_parent"        android:layout_height="@dimen/y9"        android:orientation="vertical"        android:gravity="center"        >        <ImageView            android:id="@+id/land_details_name_rv_iv"            android:layout_width="@dimen/x6"            android:layout_height="@dimen/y4"            android:scaleType="fitXY"            />        <TextView            android:id="@+id/land_details_name_rv_tv"            android:layout_width="wrap_content"            android:layout_height="wrap_content"            android:text="番茄(10)"            android:textColor="@color/ly_activity_tv_color"            android:textSize="@dimen/sp_10"            android:layout_marginTop="@dimen/dp_3"            />    </LinearLayout>    <View        android:layout_width="match_parent"        android:layout_height="@dimen/dp_0.5"        android:background="@color/segmenting_line"        ></View>    <LinearLayout        android:layout_width="match_parent"        android:layout_height="match_parent"        android:orientation="vertical"        >        <LinearLayout            android:layout_width="match_parent"            android:layout_height="@dimen/dp_0"            android:layout_weight="1"            android:orientation="horizontal"            android:gravity="center"            >            <ImageView                android:id="@+id/land_details_name_rv_o_iv"                android:layout_width="@dimen/x4"                android:layout_height="@dimen/y2"                android:visibility="gone"                />            <TextView                android:id="@+id/land_details_name_rv_tv_o"                android:layout_width="wrap_content"                android:layout_height="wrap_content"                android:text="健康"                android:textColor="@color/ly_activity_tx_color"                android:textSize="@dimen/sp_10"                android:layout_marginLeft="@dimen/dp_3"                />        </LinearLayout>        <View            android:layout_width="match_parent"            android:layout_height="@dimen/dp_0.5"            android:background="@color/segmenting_line"            ></View>        <LinearLayout            android:layout_width="match_parent"            android:layout_height="@dimen/dp_0"            android:layout_weight="1"            android:gravity="center"            >            <CheckBox                android:id="@+id/land_details_name_rv_cb"                android:layout_width="wrap_content"                android:layout_height="wrap_content"                style="@style/SmallCircleTheme"                android:clickable="false"                android:enabled="false"                />        </LinearLayout>    </LinearLayout></LinearLayout>

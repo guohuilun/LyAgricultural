@@ -199,7 +199,7 @@ public class AccountAddressAddActivity extends BaseActivity implements View.OnCl
 //        task.execute("广东省", "深圳", "龙岗");//设置默认
 //        task.execute("广", "深圳", "龙岗");//设置默认
 //        task.execute("广", "深", "龙岗");//设置默认
-        task.execute("广", "深", "龙");//设置默认
+        task.execute("重庆市", "重庆市", "渝中区");//设置默认
     }
 
 }

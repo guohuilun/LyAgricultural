@@ -1,6 +1,7 @@
 package com.lyagricultural.app;
 
 import android.app.Application;
+import android.app.Notification;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
@@ -14,6 +15,9 @@ import com.tongguan.yuanjian.family.Utils.PersonManager;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * 作者Administrator on 2018/5/22 0022 09:15
@@ -32,13 +36,15 @@ public class LyAgriculturalApplication  extends Application{
 
     private void initView(){
 //      极光推送
-/*        JPushInterface.setDebugMode(true);
+        JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
-        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(this);
+        // 设置通知的提示方式
+     /*   BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(this);
         builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;//设置为自动消失
         builder.notificationDefaults =
                 Notification.DEFAULT_LIGHTS;
         JPushInterface.setPushNotificationBuilder(1, builder);*/
+
 //Mob分享 注册
         MobSDK.init(this);
 

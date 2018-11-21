@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ly_activity_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_rl"
+        >
+
+        <FrameLayout
+            android:id="@+id/play_video_surface_layout"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            >
+
+            <com.tongguan.yuanjian.family.Utils.gl2.VideoGlSurfaceView
+                android:id="@+id/surface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/loadingVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <RelativeLayout
+                android:id="@+id/playStopSuspensionRl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_32"
+                android:layout_gravity="bottom"
+                >
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/play_stop"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/ly_activity_land_details_name_pause"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/play_suspensionRl"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    >
+                    <ImageView
+                        android:id="@+id/play_suspension"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/dp_16"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ly_activity_land_details_name_suspension" />
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/layout_head_o"
+                android:background="@color/ly_activity_tx_color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y7"
+                android:visibility="gone"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/title_left_o"
+                    >
+                    <TextView
+                        android:id="@+id/title_center_o"
+                        android:textSize="@dimen/sp_18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/white"
+                        android:ellipsize="end"
+                        android:maxWidth="@dimen/dp_160"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/title_left_o"
+                    android:layout_width="@dimen/dp_48"
+                    android:layout_height="match_parent"
+                    android:onClick="onHeadLeftRl"
+                    >
+                    <ImageView
+                        android:id="@+id/img_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ly_back" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/breed_hive_name_my_content_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y5"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="编号"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="F-011"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_alignParentRight="true"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y5"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="状态"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/ly_activity_tv_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/breed_hive_name_my_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:visibility="gone"
+                    ></android.support.v7.widget.RecyclerView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y15"
+                    android:layout_margin="@dimen/dp_10"
+                    android:background="@drawable/ly_activity_login_button_bg"
+                    android:orientation="vertical"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y3"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更新时间："
+                            android:textSize="@dimen/sp_8"
+                            android:textColor="@color/ly_activity_account_address_add_tv_color"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/breed_hive_name_my_time_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2018/7/8 10:05:24"
+                            android:textSize="@dimen/sp_8"
+                            android:textColor="@color/ly_activity_tv_color"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0.5"
+                        android:background="@color/segmenting_line"
+                        ></View>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_default"
+                                android:layout_width="@dimen/x8"
+                                android:layout_height="@dimen/y4"
+                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:scaleType="fitXY"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_10"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="温度"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_below="@+id/iv_default"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_6"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/breed_hive_name_my_temperature_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="35℃"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/dp_10"
+                                />
+
+
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_default_one"
+                                android:layout_width="@dimen/x8"
+                                android:layout_height="@dimen/y4"
+                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:scaleType="fitXY"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_10"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="湿度"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_below="@+id/iv_default_one"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_6"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/breed_hive_name_my_humidity_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="70%"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/dp_10"
+                                />
+
+
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_default_two"
+                                android:layout_width="@dimen/x8"
+                                android:layout_height="@dimen/y4"
+                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:scaleType="fitXY"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_10"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="重量"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_below="@+id/iv_default_two"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_6"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/breed_hive_name_my_weight_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10kg"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/dp_10"
+                                />
+
+
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_default_there"
+                                android:layout_width="@dimen/x8"
+                                android:layout_height="@dimen/y4"
+                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:scaleType="fitXY"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_10"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="飞出"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_below="@+id/iv_default_there"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_6"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/breed_hive_name_my_fly_out_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200只"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/dp_10"
+                                />
+
+
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_default_four"
+                                android:layout_width="@dimen/x8"
+                                android:layout_height="@dimen/y4"
+                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:scaleType="fitXY"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_10"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="飞进"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_below="@+id/iv_default_four"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp_6"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/breed_hive_name_my_fly_in_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="198只"
+                                android:textColor="@color/ly_activity_tv_color"
+                                android:textSize="@dimen/sp_8"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/dp_10"
+                                />
+
+
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x16"
+                    android:layout_height="@dimen/y11"
+                    android:src="@drawable/ly_activity_breed_hive_rv_tv_bg"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可收获"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="#FF9000"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_16"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

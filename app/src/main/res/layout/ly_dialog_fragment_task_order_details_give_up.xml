@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y41"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/ly_activity_account_order_rv_item_bg"
+        >
+
+        <RelativeLayout
+            android:id="@+id/task_order_details_give_up_head_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y5"
+
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x4"
+                    android:layout_height="@dimen/y2"
+                    android:src="@mipmap/ce_seed_v_name_banner_t"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="如非特殊情况，请勿进行此操作！"
+                    android:textSize="@dimen/sp_8"
+                    android:textColor="@color/segmenting_line"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dialog_fragment_task_cancel_ll"
+                android:layout_width="@dimen/x16"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:layout_gravity="right"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="@dimen/y2"
+                    android:src="@drawable/ly_land_cancel"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关闭"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/task_order_details_give_up_head_v"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:background="@color/segmenting_line"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_below="@+id/task_order_details_give_up_head_rl"
+            ></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/task_order_details_give_up_head_v"
+            android:layout_above="@+id/task_order_details_give_up_bottom_rl"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+
+            <EditText
+                android:id="@+id/dialog_fragment_task_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="请输入放弃任务原因"
+                android:textSize="@dimen/sp_12"
+                android:gravity="clip_horizontal"
+                android:textColor="@color/black"
+                android:textColorHint="@color/segmenting_line"
+                />
+
+        </RelativeLayout>
+
+      <RelativeLayout
+          android:id="@+id/task_order_details_give_up_bottom_rl"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/y8"
+          android:layout_alignParentBottom="true"
+          >
+
+          <View
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/dp_0.5"
+              android:background="@color/segmenting_line"
+              android:layout_marginRight="@dimen/dp_10"
+              android:layout_marginLeft="@dimen/dp_10"
+              ></View>
+
+          <Button
+              android:id="@+id/dialog_fragment_task_button"
+              android:layout_width="@dimen/x34"
+              android:layout_height="@dimen/y5"
+              android:background="@drawable/ly_activity_land_name_button"
+              android:text="放弃任务"
+              android:textColor="@color/white"
+              android:textSize="@dimen/sp_16"
+              android:layout_centerInParent="true"
+              />
+
+
+      </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
