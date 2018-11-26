@@ -66,7 +66,6 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
     private TextView breed_hive_name_my_weight_tv;
     private TextView breed_hive_name_my_fly_out_tv;
     private TextView breed_hive_name_my_fly_in_tv;
-    private Button breed_hive_name_my_button;
 
     private  PopupWindow popupWindow;
 
@@ -132,8 +131,6 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
         breed_hive_name_my_weight_tv=findViewById(R.id.breed_hive_name_my_weight_tv);
         breed_hive_name_my_fly_out_tv=findViewById(R.id.breed_hive_name_my_fly_out_tv);
         breed_hive_name_my_fly_in_tv=findViewById(R.id.breed_hive_name_my_fly_in_tv);
-        breed_hive_name_my_button=findViewById(R.id.breed_hive_name_my_button);
-        breed_hive_name_my_button.setOnClickListener(this);
 
         initPlay();
     }
@@ -193,9 +190,6 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
 
             case R.id.img_right:
               showPopupWindow();
-                break;
-            case R.id.breed_hive_name_my_button:
-
                 break;
         }
     }
