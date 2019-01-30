@@ -47,7 +47,7 @@
             android:button="@null"
             android:gravity="center"
             android:text="养殖"
-            android:drawableTop="@drawable/ly_activity_home_selector_shop"
+            android:drawableTop="@drawable/ly_activity_home_selector_breed"
             android:textColor="@drawable/ly_activity_home_bottom_bar_text_color"
             android:textSize="@dimen/sp_10"
             android:paddingTop="@dimen/dp_5"

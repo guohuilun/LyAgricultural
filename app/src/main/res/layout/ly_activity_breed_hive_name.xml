@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ly_activity_bg"
-    >
+    android:background="@color/ly_activity_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,109 +13,15 @@
         android:layout_above="@+id/bottom_rl"
         >
 
-        <FrameLayout
-            android:id="@+id/play_video_surface_layout"
+        <com.youth.banner.Banner
+            android:id="@+id/breed_hive_name_banner"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            >
-
-            <com.tongguan.yuanjian.family.Utils.gl2.VideoGlSurfaceView
-                android:id="@+id/surface"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ProgressBar
-                android:id="@+id/loadingVideo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
-            <RelativeLayout
-                android:id="@+id/playStopSuspensionRl"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_32"
-                android:layout_gravity="bottom"
-                >
-                <Button
-                    android:visibility="gone"
-                    android:id="@+id/play_stop"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="@dimen/dp_16"
-                    android:layout_centerVertical="true"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/ly_activity_land_details_name_pause"
-                    />
-
-                <RelativeLayout
-                    android:id="@+id/play_suspensionRl"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    >
-                    <ImageView
-                        android:id="@+id/play_suspension"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="@dimen/dp_16"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ly_activity_land_details_name_suspension" />
-
-                </RelativeLayout>
-
-
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/layout_head_o"
-                android:background="@color/ly_activity_tx_color"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y7"
-                android:visibility="gone"
-                >
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@+id/title_left_o"
-                    >
-                    <TextView
-                        android:id="@+id/title_center_o"
-                        android:textSize="@dimen/sp_18"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/white"
-                        android:ellipsize="end"
-                        android:maxWidth="@dimen/dp_160"
-                        android:singleLine="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/title_left_o"
-                    android:layout_width="@dimen/dp_48"
-                    android:layout_height="match_parent"
-                    android:onClick="onHeadLeftRl"
-                    >
-                    <ImageView
-                        android:id="@+id/img_left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/dp_10"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ly_back" />
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-
-        </FrameLayout>
+            android:layout_height="@dimen/y24"
+            android:layout_margin="@dimen/dp_5"
+            app:indicator_width="8dp"
+            app:indicator_height="8dp"
+            app:indicator_drawable_selected="@drawable/banner_select"
+            ></com.youth.banner.Banner>
 
         <LinearLayout
             android:id="@+id/breed_hive_name_content_ll"
@@ -151,7 +58,13 @@
                     android:id="@+id/breed_hive_name_rich_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp" />
+                    android:padding="5dp"
+                    android:textSize="@dimen/sp_13"
+                    android:text="蜂箱是养蜂过程中供蜜蜂繁衍生息的处所，是最基本的养蜂工具。1857年美国人郎氏发明了活框蜂箱与随后发明的巢础机和分蜜机一起被称为蜂具的三大发明，而正是这些养蜂工具的使用，结束了数千年传统养蜂采用土窝、毁巢取蜜的生产方式，奠定了新式养蜂的基础，使养蜂生产出现巨大的飞跃。上世纪初活框蜂箱和意大利蜜蜂一起传入我国，现在我国使用的蜂箱很多，比如十框蜂箱、达旦蜂箱、十二框方形蜂箱等，其规格大小不尽相同，但结构原理基本一致。初学养蜂者可以向养蜂户购买别人使用过的蜂箱，也可以根据规格自己制作蜂箱。
+
+蜜蜂种类：普通花蜜蜂
+地址：渝北区照母山公园养蜂基地
+蜂箱编号：F-0122" />
 
             </ScrollView>
 
@@ -178,6 +91,7 @@
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_centerVertical="true"
                     android:gravity="bottom"
+                    android:visibility="gone"
                     >
 
                     <TextView

@@ -1,1 +1,1 @@
-include ':app', ':mob', ':jpush', ':okhttputils', ':nicevideoplayer'
+include ':app', ':mob', ':jpush', ':okhttputils'

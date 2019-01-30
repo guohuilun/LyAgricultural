@@ -51,6 +51,13 @@ android {
                outputFileName="LyAgricultural.apk"
            }
        }*/
+
+    //new add
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
 }
 
 repositories{

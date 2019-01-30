@@ -6,28 +6,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.google.gson.Gson;
 import com.lyagricultural.R;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.app.BaseActivity;
 import com.lyagricultural.bean.EventBusBreedHiveBean;
-import com.lyagricultural.bean.EventBusLandDetailsBean;
-import com.lyagricultural.bean.LandHistoryBean;
-import com.lyagricultural.cebean.LandFragmentBean;
-import com.lyagricultural.constant.AppConstant;
-import com.lyagricultural.http.LecoOkHttpUtil;
-import com.lyagricultural.utils.CheckNetworkUtils;
-import com.lyagricultural.utils.LyLog;
-import com.lyagricultural.utils.LyToast;
-import com.zhy.http.okhttp.callback.StringCallback;
+import com.lyagricultural.cebean.LandDetailsNameBean;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
 
 /**
  * 作者Administrator on 2018/6/5 0005 17:00
@@ -40,6 +30,9 @@ public class BreedHiveHistoryActivity extends BaseActivity implements View.OnCli
     private int pageIndex=1;
     private LinearLayoutManager layoutManager;
     private Boolean isPage=true;
+
+    private BaseRecyclerAdapter<LandDetailsNameBean> baseRecyclerAdapter;
+    private List<LandDetailsNameBean> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +53,7 @@ public class BreedHiveHistoryActivity extends BaseActivity implements View.OnCli
         layoutManager=new LinearLayoutManager(this);
         breed_hive_history_rv.setLayoutManager(layoutManager);
         mRlTxRight.setOnClickListener(this);
+        setLandRv();
     }
 
     @Override
@@ -77,6 +71,41 @@ public class BreedHiveHistoryActivity extends BaseActivity implements View.OnCli
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().post(new EventBusBreedHiveBean("OK"));
+    }
+
+
+    /**
+     * 测试数据
+     */
+    private void setLandRv(){
+        baseRecyclerAdapter=new BaseRecyclerAdapter<LandDetailsNameBean>(this,getLandRv(),R.layout.ly_activity_breed_hive_history_rv_item) {
+            @Override
+            public void bindData(BaseRecyclerViewHolder holder, LandDetailsNameBean landFragmentBean, int position) {
+                holder.setTxt(R.id.breed_hive_history_time_tv,landFragmentBean.getLand_details_name_rv_tv());
+                holder.setTxt(R.id.breed_hive_history_temperature_tv,landFragmentBean.getLand_details_name_rv_tv_o());
+                holder.setTxt(R.id.breed_hive_history_humidity_tv,landFragmentBean.getLand_details_name_rv_tv_t());
+                holder.setTxt(R.id.breed_hive_history_weight_tv,landFragmentBean.getLand_details_name_rv_tv_tt());
+                holder.setTxt(R.id.breed_hive_history_fly_out_in_tv,landFragmentBean.getLand_details_name_rv_tv_f());
+            }
+        };
+        breed_hive_history_rv.setAdapter(baseRecyclerAdapter);
+    }
+
+    private List<LandDetailsNameBean> getLandRv(){
+        mList=new ArrayList<>();
+        LandDetailsNameBean landFragmentBean=new LandDetailsNameBean
+                ("2018-6-12 10:25:43","35℃"
+                        ,"70%","9.5kg","500/100");
+        mList.add(landFragmentBean);
+        landFragmentBean=new LandDetailsNameBean
+                ("2018-8-12 11:35:20","36℃"
+                        ,"65%","10.5kg","300/200");
+        mList.add(landFragmentBean);
+        landFragmentBean=new LandDetailsNameBean
+                ("2018-12-26 9:05:12","37℃"
+                        ,"72%","3.5kg","100/40");
+        mList.add(landFragmentBean);
+        return mList;
     }
 
 

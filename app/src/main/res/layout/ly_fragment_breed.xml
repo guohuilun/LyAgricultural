@@ -7,7 +7,7 @@
         android:id="@+id/breed_iv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y21"
-        android:src="@mipmap/ce_ly_land"
+        android:src="@mipmap/ce_breed_bg"
         android:scaleType="fitXY"
         android:layout_margin="@dimen/dp_8"
         />
@@ -16,6 +16,8 @@
         android:id="@+id/breed_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
         >
 
     </android.support.v7.widget.RecyclerView>

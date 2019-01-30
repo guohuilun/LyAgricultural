@@ -5,6 +5,7 @@
     >
 
     <LinearLayout
+        android:id="@+id/breedHiveLl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y18"
         android:orientation="horizontal"
@@ -13,9 +14,9 @@
 
 
         <ImageView
+            android:id="@+id/breedHiveIv"
             android:layout_width="@dimen/x28"
             android:layout_height="@dimen/y14"
-            android:src="@mipmap/ce_ly_land"
             android:layout_centerVertical="true"
             android:scaleType="fitXY"
             android:layout_marginLeft="@dimen/dp_16"
@@ -30,6 +31,7 @@
             >
 
             <TextView
+                android:id="@+id/breedHiveNameTv"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_0"
                 android:layout_weight="1"
@@ -47,6 +49,7 @@
                >
 
                <TextView
+                   android:id="@+id/breedHiveAddressTv"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="渝中区"
@@ -55,6 +58,7 @@
                    />
 
                <TextView
+                   android:id="@+id/breedHiveAddressOTv"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="光虎镇"

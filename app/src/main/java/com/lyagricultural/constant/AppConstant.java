@@ -7,12 +7,12 @@ public class AppConstant {
     /**
      * 正式服务器
      */
-//   public static final String BASE_URL = "http://113.207.26.23:22098/api";
+   public static final String BASE_URL = "http://113.207.26.23:22098/api";
 
     /**
      * 测试服务器
      */
-    public static final String BASE_URL = "http://192.168.2.214:8091/api";
+//    public static final String BASE_URL = "http://192.168.2.214:8091/api";
 
 //   注册
       public static final String APP_USER_CREATE=BASE_URL+"/AppUser/AppUserCreate";

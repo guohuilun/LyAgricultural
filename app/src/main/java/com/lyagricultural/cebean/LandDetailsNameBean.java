@@ -20,6 +20,14 @@ public class LandDetailsNameBean {
     private int land_details_name_rv_o_iv;
     private int land_details_name_rv_t_iv;
 
+    public LandDetailsNameBean(String land_details_name_rv_tv, String land_details_name_rv_tv_o, String land_details_name_rv_tv_t, String land_details_name_rv_tv_tt, String land_details_name_rv_tv_f) {
+        this.land_details_name_rv_tv = land_details_name_rv_tv;
+        this.land_details_name_rv_tv_o = land_details_name_rv_tv_o;
+        this.land_details_name_rv_tv_t = land_details_name_rv_tv_t;
+        this.land_details_name_rv_tv_tt = land_details_name_rv_tv_tt;
+        this.land_details_name_rv_tv_f = land_details_name_rv_tv_f;
+    }
+
     public LandDetailsNameBean() {
     }
 

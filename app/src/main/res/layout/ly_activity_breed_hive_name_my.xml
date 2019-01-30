@@ -245,11 +245,11 @@
                             <ImageView
                                 android:id="@+id/iv_default"
                                 android:layout_width="@dimen/x8"
-                                android:layout_height="@dimen/y4"
-                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:layout_height="@dimen/y5"
+                                android:src="@mipmap/ce_breed_temperature"
                                 android:scaleType="fitXY"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_8"
                                 />
 
                             <TextView
@@ -290,11 +290,11 @@
                             <ImageView
                                 android:id="@+id/iv_default_one"
                                 android:layout_width="@dimen/x8"
-                                android:layout_height="@dimen/y4"
-                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:layout_height="@dimen/y5"
+                                android:src="@mipmap/ce_breed_humidity"
                                 android:scaleType="fitXY"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_8"
                                 />
 
                             <TextView
@@ -335,11 +335,11 @@
                             <ImageView
                                 android:id="@+id/iv_default_two"
                                 android:layout_width="@dimen/x8"
-                                android:layout_height="@dimen/y4"
-                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:layout_height="@dimen/y5"
+                                android:src="@mipmap/ce_breed_wight"
                                 android:scaleType="fitXY"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_8"
                                 />
 
                             <TextView
@@ -380,11 +380,11 @@
                             <ImageView
                                 android:id="@+id/iv_default_there"
                                 android:layout_width="@dimen/x8"
-                                android:layout_height="@dimen/y4"
-                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:layout_height="@dimen/y5"
+                                android:src="@mipmap/ce_breed_fly_out"
                                 android:scaleType="fitXY"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_8"
                                 />
 
                             <TextView
@@ -425,11 +425,11 @@
                             <ImageView
                                 android:id="@+id/iv_default_four"
                                 android:layout_width="@dimen/x8"
-                                android:layout_height="@dimen/y4"
-                                android:src="@mipmap/ce_seed_v_name_banner_t"
+                                android:layout_height="@dimen/y5"
+                                android:src="@mipmap/ce_breed_fly_in"
                                 android:scaleType="fitXY"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dp_10"
+                                android:layout_marginTop="@dimen/dp_8"
                                 />
 
                             <TextView
@@ -472,25 +472,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center"
-                >
+                android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/breedHiveNameMyHarvestIv"
                     android:layout_width="@dimen/x16"
                     android:layout_height="@dimen/y11"
-                    android:src="@drawable/ly_activity_breed_hive_rv_tv_bg"
-                    />
+                    android:src="@mipmap/ce_breed_harvest" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="可收获"
-                    android:textSize="@dimen/sp_16"
-                    android:textColor="#FF9000"
                     android:layout_marginTop="@dimen/dp_8"
                     android:layout_marginBottom="@dimen/dp_16"
-                    />
+                    android:text="可收获"
+                    android:textColor="#FF9000"
+                    android:textSize="@dimen/sp_16" />
 
             </LinearLayout>
 

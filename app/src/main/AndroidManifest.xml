@@ -113,7 +113,13 @@
             android:screenOrientation="portrait"
             ></activity>
 
+        <activity android:name=".activity.BreedHiveNameActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
         <activity android:name=".activity.BreedHiveNameMyActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             ></activity>
 
@@ -122,6 +128,26 @@
             ></activity>
 
         <activity android:name=".activity.BreedHiveHistoryActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveHarvestActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveHarvestSuccessActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveNameLeasedActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveNamePlaceOrderActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <activity android:name=".activity.BreedHiveNamePaymentResultsActivity"
             android:screenOrientation="portrait"
             ></activity>
 

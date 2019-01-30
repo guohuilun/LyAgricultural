@@ -12,8 +12,6 @@ import com.lyagricultural.R;
 import com.lyagricultural.adapter.BaseRecyclerAdapter;
 import com.lyagricultural.adapter.BaseRecyclerViewHolder;
 import com.lyagricultural.bean.EventBusBreedHiveBean;
-import com.lyagricultural.bean.EventBusLandDetailsBean;
-import com.lyagricultural.cebean.LandFragmentBean;
 import com.lyagricultural.utils.LyLog;
 import com.lyagricultural.yuanjian.activity.BaseYuanJianActivity;
 import com.lyagricultural.yuanjian.adapter.IPCListUtils;
@@ -132,6 +130,7 @@ public class BreedHiveCameraListActivity extends BaseYuanJianActivity {
                        }else {
                            holder.setInVisibility(R.id.breed_hive_camera_list_rv_item_o_tv, View.GONE);
                        }
+                       finish();
                    }
 
                    holder.setTxt(R.id.breed_hive_camera_list_rv_item_tv,cameraInfo.getName());
