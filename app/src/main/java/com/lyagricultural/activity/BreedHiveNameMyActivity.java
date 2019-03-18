@@ -60,6 +60,8 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
     private static final String TAG = "BreedHiveNameMyActivity";
     private RecyclerView breed_hive_name_my_rv;
     private LinearLayout breed_hive_name_my_content_ll;
+    private TextView breed_hive_name_list_number_tv;
+    private TextView breed_hive_name_history_tv;
     private TextView breed_hive_name_my_time_tv;
     private TextView breed_hive_name_my_temperature_tv;
     private TextView breed_hive_name_my_humidity_tv;
@@ -126,6 +128,8 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
         }
         breed_hive_name_my_rv= findViewById(R.id.breed_hive_name_my_rv);
         breed_hive_name_my_content_ll= findViewById(R.id.breed_hive_name_my_content_ll);
+        breed_hive_name_list_number_tv = findViewById(R.id.breed_hive_name_list_number_tv);
+        breed_hive_name_history_tv = findViewById(R.id.breed_hive_name_history_tv);
         breed_hive_name_my_time_tv=findViewById(R.id.breed_hive_name_my_time_tv);
         breed_hive_name_my_temperature_tv=findViewById(R.id.breed_hive_name_my_temperature_tv);
         breed_hive_name_my_humidity_tv=findViewById(R.id.breed_hive_name_my_humidity_tv);
@@ -134,6 +138,8 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
         breed_hive_name_my_fly_in_tv=findViewById(R.id.breed_hive_name_my_fly_in_tv);
         breedHiveNameMyHarvestIv =findViewById(R.id.breedHiveNameMyHarvestIv);
         breedHiveNameMyHarvestIv.setOnClickListener(this);
+        breed_hive_name_list_number_tv.setOnClickListener(this);
+        breed_hive_name_history_tv.setOnClickListener(this);
         initPlay();
     }
 
@@ -195,6 +201,15 @@ public class BreedHiveNameMyActivity extends BaseYuanJianActivity implements Vie
                 break;
             case R.id.breedHiveNameMyHarvestIv:
                 startActivity(new Intent(this,BreedHiveHarvestActivity.class));
+                break;
+            case R.id.breed_hive_name_list_number_tv:
+                startActivity(new Intent(BreedHiveNameMyActivity.this,BreedHiveCameraListActivity.class));
+                doStop();
+                break;
+
+            case R.id.breed_hive_name_history_tv:
+                startActivity(new Intent(BreedHiveNameMyActivity.this,BreedHiveHistoryActivity.class));
+                doStop();
                 break;
         }
     }
